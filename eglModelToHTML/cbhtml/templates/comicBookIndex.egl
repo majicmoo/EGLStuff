@@ -1,16 +1,45 @@
 [% var comicBookCollection = ComicBookCollection.all.first; %]
 
 <h1>Comic Book Collection</h1>
+
 <h2>Books</h2>
 <ul>
 [% for (book in comicBookCollection.books) { %]
 	<li>[%=book.name%]</li>
 [% } %]
 </ul>
+
+<h2>Series</h2>
+<ul>
+[% for (series in comicBookCollection.series) { %]
+	<li>[%=series.seriesName%]</li>
+[% } %]
+</ul>
+
 <h2>Writers</h2>
+<ul>
+[% for (writer in comicBookCollection.writers) { %]
+	<li>[%=writer.name%]</li>
+[% } %]
+</ul>
 
 <h2>Artists</h2>
+<ul>
+[% for (artist in comicBookCollection.artists) { %]
+	<li>[%=artist.name%]</li>
+[% } %]
+</ul>
 
 <h2>Editors</h2>
+<ul>
+[% for (editor in comicBookCollection.editors) { %]
+	<li>[%=editor.name%]</li>
+[% } %]
+</ul>
 
 <h2>Publishers</h2>
+<ul>
+[% for (publisher in comicBookCollection.publishingCompanies) { %]
+	<li>[%=publisher.publishersName%]</li>
+[% } %]
+</ul>
