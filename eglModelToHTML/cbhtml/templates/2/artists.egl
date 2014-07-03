@@ -1,1 +1,17 @@
-<h1>Artists</h1>
+[% var comicBookCollection = ComicBookCollection.all.first; %]
+<h2>Artists</h2>
+<ul>
+
+
+[% for (artist in comicBookCollection.artists) { %]
+	<li>[%=artist.name%]</li>
+[% } %]
+</ul>
+
+[%
+var options = comicBookCollection.artists;
+%]
+
+[%for (option in options){%]
+<a href="[%=option.name%].html">[%=option.name%]</a><br>
+[%}%]
