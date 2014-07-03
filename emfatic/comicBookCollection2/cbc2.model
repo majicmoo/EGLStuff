@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<comicBookCollection2:ComicBookCollection xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:comicBookCollection2="comicBookCollection2" xmi:id="_KeJyoAHMEeSMA5WSv2c89w">
+  <books xmi:id="_LmUUkAHMEeSMA5WSv2c89w" name="Hulk Vol 1" publicationDate="1995" artists="_S6yAsAHMEeSMA5WSv2c89w _xss1wAHMEeSMA5WSv2c89w" editors="_YBQyUAHMEeSMA5WSv2c89w" coverArtist="_S6yAsAHMEeSMA5WSv2c89w" publisher="_i8XN8AHMEeSMA5WSv2c89w" seriesPartOf="_fX7d4AHMEeSMA5WSv2c89w"/>
+  <books xmi:id="_qAzhEAHMEeSMA5WSv2c89w" name="Hulk Vol 2" publicationDate="1996" artists="_xss1wAHMEeSMA5WSv2c89w" editors="_YBQyUAHMEeSMA5WSv2c89w" writers="_3aT40AHMEeSMA5WSv2c89w" coverArtist="_xss1wAHMEeSMA5WSv2c89w" publisher="_i8XN8AHMEeSMA5WSv2c89w" seriesPartOf="_fX7d4AHMEeSMA5WSv2c89w"/>
+  <artists xmi:id="_S6yAsAHMEeSMA5WSv2c89w" name="Bob Smith" booksArtistFor="_LmUUkAHMEeSMA5WSv2c89w" booksCoverArtistFor="_LmUUkAHMEeSMA5WSv2c89w"/>
+  <artists xmi:id="_xss1wAHMEeSMA5WSv2c89w" name="Sam A" booksArtistFor="_LmUUkAHMEeSMA5WSv2c89w _qAzhEAHMEeSMA5WSv2c89w" booksCoverArtistFor="_qAzhEAHMEeSMA5WSv2c89w"/>
+  <editors xmi:id="_YBQyUAHMEeSMA5WSv2c89w" name="Alice Edwards" booksEditorFor="_LmUUkAHMEeSMA5WSv2c89w _qAzhEAHMEeSMA5WSv2c89w"/>
+  <writers xmi:id="_awvQUAHMEeSMA5WSv2c89w" name="Amy S"/>
+  <writers xmi:id="_3aT40AHMEeSMA5WSv2c89w" name="Dan C" booksWriterFor="_qAzhEAHMEeSMA5WSv2c89w"/>
+  <publishingCompanies xmi:id="_i8XN8AHMEeSMA5WSv2c89w" publishersName="Marvel" booksPublished="_LmUUkAHMEeSMA5WSv2c89w _qAzhEAHMEeSMA5WSv2c89w"/>
+  <series xmi:id="_fX7d4AHMEeSMA5WSv2c89w" seriesName="Incredible Hulk" booksInSeries="_LmUUkAHMEeSMA5WSv2c89w _qAzhEAHMEeSMA5WSv2c89w"/>
+</comicBookCollection2:ComicBookCollection>

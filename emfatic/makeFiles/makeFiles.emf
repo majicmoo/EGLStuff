@@ -1,0 +1,39 @@
+@namespace(uri="makeFiles", prefix="makeFiles")
+package makeFiles;
+
+class MakeFile{
+	val Target[*] targets;
+	val Dependencies[*] dependencies;
+	val Commands[*] commands;
+	val Comment[*] comments;
+	val Make[*] makes;
+}
+
+class Make{
+    attr int refNumber;
+	ref Target[1]#makesUsedIn target;
+	ref Dependencies[*]#makesUsedIn dependencies;
+	ref Commands[*]#makesUsedIn commands;
+	ref Comment[*]#makesUsedIn comments;
+}
+
+class Target{
+	attr String name;
+	ref Make[*]#target makesUsedIn;
+}
+
+class Dependencies{
+	attr String name;
+	ref Make[*]#dependencies makesUsedIn;
+}
+
+class Commands{
+	attr String name;
+	ref Make[*]#commands makesUsedIn;
+}
+
+class Comment{
+	attr String comment;
+	ref Make[*]#comments makesUsedIn;
+}
+

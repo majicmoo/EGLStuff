@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<makeFiles:MakeFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:makeFiles="makeFiles" xmi:id="_ftgvgAHQEeSMA5WSv2c89w">
+  <targets xmi:id="_hsOe8AHQEeSMA5WSv2c89w" name="all" makesUsedIn="_gNjhgAHQEeSMA5WSv2c89w"/>
+  <dependencies xmi:id="_hRYWAAHQEeSMA5WSv2c89w" name="main.0" makesUsedIn="_gNjhgAHQEeSMA5WSv2c89w"/>
+  <dependencies xmi:id="_rDtywAHQEeSMA5WSv2c89w" name="factorial.o" makesUsedIn="_gNjhgAHQEeSMA5WSv2c89w"/>
+  <dependencies xmi:id="_uW5awAHQEeSMA5WSv2c89w" name="hello.o" makesUsedIn="_gNjhgAHQEeSMA5WSv2c89w"/>
+  <commands xmi:id="_gtN5AAHQEeSMA5WSv2c89w" name="-o hello" makesUsedIn="_gNjhgAHQEeSMA5WSv2c89w"/>
+  <commands xmi:id="_2buz4AHQEeSMA5WSv2c89w" name="hello" makesUsedIn="_jGLUcAHQEeSMA5WSv2c89w"/>
+  <makes xmi:id="_gNjhgAHQEeSMA5WSv2c89w" target="_hsOe8AHQEeSMA5WSv2c89w" dependencies="_hRYWAAHQEeSMA5WSv2c89w _rDtywAHQEeSMA5WSv2c89w _uW5awAHQEeSMA5WSv2c89w" commands="_gtN5AAHQEeSMA5WSv2c89w"/>
+  <makes xmi:id="_jGLUcAHQEeSMA5WSv2c89w" refNumber="1" commands="_2buz4AHQEeSMA5WSv2c89w"/>
+</makeFiles:MakeFile>

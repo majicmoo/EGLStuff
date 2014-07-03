@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<flowchart:Flowchart xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:flowchart="flowchart" xmi:id="_KGgWYAHGEeSMA5WSv2c89w">
+  <nodes xmi:id="_MkrpAAHGEeSMA5WSv2c89w" name="Wake Up" incoming="_lvE04AHGEeSMA5WSv2c89w" outgoing="_Ps8acAHGEeSMA5WSv2c89w"/>
+  <nodes xmi:id="_twDBsAHGEeSMA5WSv2c89w" name="Get up" incoming="_j0ohcAHGEeSMA5WSv2c89w"/>
+  <nodes xmi:id="_Z7qRMAHGEeSMA5WSv2c89w" name="Too early?" incoming="_Ps8acAHGEeSMA5WSv2c89w" outgoing="_j0ohcAHGEeSMA5WSv2c89w _lUJzcAHGEeSMA5WSv2c89w"/>
+  <nodes xmi:id="_o3ae0AHGEeSMA5WSv2c89w" name="Sleep more" incoming="_lUJzcAHGEeSMA5WSv2c89w" outgoing="_lvE04AHGEeSMA5WSv2c89w"/>
+  <transitions xmi:id="_Ps8acAHGEeSMA5WSv2c89w" label="Transition" source="_MkrpAAHGEeSMA5WSv2c89w" target="_Z7qRMAHGEeSMA5WSv2c89w"/>
+  <transitions xmi:id="_j0ohcAHGEeSMA5WSv2c89w" label="no" source="_Z7qRMAHGEeSMA5WSv2c89w" target="_twDBsAHGEeSMA5WSv2c89w"/>
+  <transitions xmi:id="_lUJzcAHGEeSMA5WSv2c89w" label="yes" source="_Z7qRMAHGEeSMA5WSv2c89w" target="_o3ae0AHGEeSMA5WSv2c89w"/>
+  <transitions xmi:id="_lvE04AHGEeSMA5WSv2c89w" label="time passes" source="_o3ae0AHGEeSMA5WSv2c89w" target="_MkrpAAHGEeSMA5WSv2c89w"/>
+</flowchart:Flowchart>
