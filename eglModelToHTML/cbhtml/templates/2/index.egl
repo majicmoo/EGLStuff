@@ -1,0 +1,7 @@
+[% var comicBookCollection = ComicBookCollection.all.first; %]
+
+<h1>Look Up Books By</h1>
+
+[% for (book in comicBookCollection.books) { %]
+	<li>[%=book.name%]</li>
+[% } %]

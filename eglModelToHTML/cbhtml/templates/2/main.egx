@@ -1,0 +1,9 @@
+import 'util.eol';
+
+rule ComicBooks
+	transform comicBookCollection : ComicBookCollection {
+	
+	template : "artists.egl"
+	
+	target : "../../website/index.html"
+}
