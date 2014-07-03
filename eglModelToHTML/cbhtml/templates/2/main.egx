@@ -7,3 +7,51 @@ rule ComicBooks
 	
 	target : "../../website/index.html"
 }
+
+rule artist2
+	transform artist : Artist {
+
+	template : "artist2.egl"
+
+	target : "../../website/" + artist.name + ".html"
+}
+
+rule editor2
+	transform editor : Editor {
+
+	template : "editor2.egl"
+	
+	target : "../../website/" + editor.name + ".html"	
+}
+
+rule publisher2
+	transform publisher : Publisher {
+
+	template : "publisher2.egl"
+	
+	target : "../../website/" + publisher.name + ".html"	
+}
+
+rule book2
+	transform book : Book {
+
+	template : "book2.egl"
+	
+	target : "../../website/" + book.name + ".html"	
+}
+
+rule series2
+	transform series : Series {
+
+	template : "series2.egl"
+	
+	target : "../../website/" + series.name + ".html"	
+}
+
+rule writer2
+	transform writer : Writer {
+
+	template : "writer2.egl"
+	
+	target : "../../website/" + writer.name + ".html"	
+}
