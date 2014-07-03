@@ -1,0 +1,17 @@
+[% var comicBookCollection = ComicBookCollection.all.first; %]
+<h2>Series</h2>
+<ul>
+
+
+[% for (series in comicBookCollection.series) { %]
+	<li>[%=series.seriesName%]</li>
+[% } %]
+</ul>
+
+[%
+var options = comicBookCollection.series;
+%]
+
+[%for (option in options){%]
+<a href="[%=option.seriesName%].html">[%=option.seriesName%]</a><br>
+[%}%]
