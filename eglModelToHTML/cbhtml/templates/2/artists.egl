@@ -1,8 +1,6 @@
 [% var comicBookCollection = ComicBookCollection.all.first; %]
 <h2>Artists</h2>
 <ul>
-
-
 [% for (artist in comicBookCollection.artists) { %]
 	<li>[%=artist.name%]</li>
 [% } %]

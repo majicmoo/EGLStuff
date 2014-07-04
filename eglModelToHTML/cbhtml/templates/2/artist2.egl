@@ -1,0 +1,10 @@
+<h1>[%=artist.name%]</h1>
+
+<ul>
+[% for (book in artist.booksArtistFor) { %]
+	<li>[%=book.name%]</li>
+[% } %]
+</ul>
+
+<a href="artists.html"Back</a>
+
