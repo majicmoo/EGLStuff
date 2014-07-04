@@ -78,7 +78,7 @@ rule Publisher2
 
 	template : "publisher2.egl"
 	
-	target : "../../website/" + publisher.name + ".html"	
+	target : "../../website/" + publisher.publishersName + ".html"	
 }
 
 rule Book2
@@ -94,7 +94,7 @@ rule Series2
 
 	template : "series2.egl"
 	
-	target : "../../website/" + series.name + ".html"	
+	target : "../../website/" + series.seriesName + ".html"	
 }
 
 rule Writer2
