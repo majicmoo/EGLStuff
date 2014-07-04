@@ -1,17 +1,7 @@
 [% var comicBookCollection = ComicBookCollection.all.first; %]
 <h2>Series</h2>
 <ul>
-
-
 [% for (series in comicBookCollection.series) { %]
-	<li>[%=series.seriesName%]</li>
+	<a href="[%=series.seriesName%].html">[%=series.seriesName%]</a>
 [% } %]
 </ul>
-
-[%
-var options = comicBookCollection.series;
-%]
-
-[%for (option in options){%]
-<a href="[%=option.seriesName%].html">[%=option.seriesName%]</a><br>
-[%}%]

@@ -1,17 +1,7 @@
 [% var comicBookCollection = ComicBookCollection.all.first; %]
 <h2>Writers</h2>
 <ul>
-
-
 [% for (writer in comicBookCollection.writers) { %]
-	<li>[%=writer.name%]</li>
+	<li><a href="[%=writer.name%].html">[%=writer.name%]</a></li>
 [% } %]
 </ul>
-
-[%
-var options = comicBookCollection.writers;
-%]
-
-[%for (option in options){%]
-<a href="[%=option.name%].html">[%=option.name%]</a><br>
-[%}%]
