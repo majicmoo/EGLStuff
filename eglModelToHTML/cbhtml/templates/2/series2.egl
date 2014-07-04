@@ -1,0 +1,10 @@
+<h1>[%=series.seriesName%]</h1>
+
+<ul>
+[% for (book in series.booksInSeries) { %]
+	<li><a href="[%=book.name%]"[%=book.name%]</a></li>
+[% } %]
+</ul>
+
+<a href="series.html"Back</a>
+

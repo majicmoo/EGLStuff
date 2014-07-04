@@ -1,0 +1,10 @@
+<h1>[%=publisher.publishersName%]</h1>
+
+<ul>
+[% for (book in publisher.booksPublished) { %]
+	<li><a href="[%=book.name%]"[%=book.name%]</a></li>
+[% } %]
+</ul>
+
+<a href="publishers.html"Back</a>
+
