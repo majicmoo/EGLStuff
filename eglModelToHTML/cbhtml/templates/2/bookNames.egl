@@ -4,14 +4,6 @@
 
 
 [% for (book in comicBookCollection.books) { %]
-	<li>[%=book.name%]</li>
+	<li><a href="[%=book.name%].html">[%=book.name%]</a></li>
 [% } %]
 </ul>
-
-[%
-var options = comicBookCollection.books;
-%]
-
-[%for (option in options){%]
-<a href="[%=option.name%].html">[%=option.name%]</a><br>
-[%}%]
