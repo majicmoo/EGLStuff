@@ -1,7 +1,10 @@
+[% import "util.eol"; %]
 [% var comicBookCollection = ComicBookCollection.all.first; %]
 <h2>Publishers</h2>
 <ul>
 [% for (publisher in comicBookCollection.publishingCompanies) { %]
-	<li><a href="[%=publisher.publishersName%].html">[%=publisher.publishersName%]</a></li>
+	<li><a href="[%=publisher.publishersName.clean()%].html">[%=publisher.publishersName%]</a></li>
 [% } %]
 </ul>
+
+<a href="index.html">Back</a>

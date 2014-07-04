@@ -1,8 +1,17 @@
+[% import "util.eol"; %]
 <h1>[%=artist.name%]</h1>
 
+<h2>Books Artist For</h2>
 <ul>
 [% for (book in artist.booksArtistFor) { %]
-	<li><a href="[%=book.name%]">[%=book.name%]</a></li>
+	<li><a href="[%=book.name.clean()%].html">[%=book.name%]</a></li>
+[% } %]
+</ul>
+
+<h2>Books Cover Artist For</h2>
+<ul>
+[% for (coverBook in artist.booksCoverArtistFor) { %]
+	<li><a href="[%=coverBook.name.clean()%].html">[%=coverBook.name%]</a></li>
 [% } %]
 </ul>
 

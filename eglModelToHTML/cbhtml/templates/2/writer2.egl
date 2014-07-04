@@ -1,9 +1,11 @@
+[% import "util.eol"; %]
 <h1>[%=writer.name%]</h1>
 
+<h2>Books by this author:</h1>
 <ul>
 [% for (book in writer.booksWriterFor) { %]
-	<li><a href="[%=book.name%]">[%=book.name%]</a></li>
+	<li><a href="[%=book.name.clean()%].html">[%=book.name%]</a></li>
 [% } %]
 </ul>
 
-<a href="writer.html">Back</a>
+<a href="writers.html">Back</a>

@@ -1,7 +1,10 @@
+[% import "util.eol"; %]
 [% var comicBookCollection = ComicBookCollection.all.first; %]
 <h2>Editors</h2>
 <ul>
 [% for (editor in comicBookCollection.editors) { %]
-	<li><a href="[%=editor.name%].html">[%=editor.name%]</a></li>
+	<li><a href="[%=editor.name.clean()%].html">[%=editor.name%]</a></li>
 [% } %]
 </ul>
+
+<a href="index.html">Back</a>

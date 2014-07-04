@@ -1,8 +1,9 @@
+[% import "util.eol"; %]
 <h1>[%=editor.name%]</h1>
 
 <ul>
 [% for (book in editor.booksEditorFor) { %]
-	<li><a href="[%=book.name%]">[%=book.name%]</a></li>
+	<li><a href="[%=book.name.clean()%].html">[%=book.name%]</a></li>
 [% } %]
 </ul>
 

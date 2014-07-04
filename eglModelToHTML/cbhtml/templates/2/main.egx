@@ -1,3 +1,4 @@
+import 'util.eol';
 rule Index
 	transform comicBookCollection : ComicBookCollection {
 	
@@ -62,7 +63,7 @@ rule Artist2
 
 	template : "artist2.egl"
 
-	target : "../../website/" + artist.name + ".html"
+	target : "../../website/" + artist.name.clean() + ".html"
 }
 
 rule Editor2
@@ -70,7 +71,7 @@ rule Editor2
 
 	template : "editor2.egl"
 	
-	target : "../../website/" + editor.name + ".html"	
+	target : "../../website/" + editor.name.clean() + ".html"	
 }
 
 rule Publisher2
@@ -78,7 +79,7 @@ rule Publisher2
 
 	template : "publisher2.egl"
 	
-	target : "../../website/" + publisher.publishersName + ".html"	
+	target : "../../website/" + publisher.publishersName.clean() + ".html"	
 }
 
 rule Book2
@@ -86,7 +87,7 @@ rule Book2
 
 	template : "book2.egl"
 	
-	target : "../../website/" + book.name + ".html"	
+	target : "../../website/" + book.name.clean() + ".html"	
 }
 
 rule Series2
@@ -94,7 +95,7 @@ rule Series2
 
 	template : "series2.egl"
 	
-	target : "../../website/" + series.seriesName + ".html"	
+	target : "../../website/" + series.seriesName.clean() + ".html"	
 }
 
 rule Writer2
@@ -102,5 +103,5 @@ rule Writer2
 
 	template : "writer2.egl"
 	
-	target : "../../website/" + writer.name + ".html"	
+	target : "../../website/" + writer.name.clean() + ".html"	
 }
