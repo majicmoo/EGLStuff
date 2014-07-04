@@ -2,9 +2,9 @@
 
 <ul>
 [% for (book in editor.booksEditorFor) { %]
-	<li><a href="[%=book.name%]"[%=book.name%]</a></li>
+	<li><a href="[%=book.name%]">[%=book.name%]</a></li>
 [% } %]
 </ul>
 
-<a href="editors.html"Back</a>
+<a href="editors.html">Back</a>
 

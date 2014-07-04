@@ -2,8 +2,8 @@
 
 <ul>
 [% for (book in writer.booksWriterFor) { %]
-	<li><a href="[%=book.name%]"[%=book.name%]</a></li>
+	<li><a href="[%=book.name%]">[%=book.name%]</a></li>
 [% } %]
 </ul>
 
-<a href="writer.html"Back</a>
+<a href="writer.html">Back</a>

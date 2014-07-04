@@ -2,9 +2,9 @@
 
 <ul>
 [% for (book in artist.booksArtistFor) { %]
-	<li><a href="[%=book.name%]"[%=book.name%]</a></li>
+	<li><a href="[%=book.name%]">[%=book.name%]</a></li>
 [% } %]
 </ul>
 
-<a href="artists.html"Back</a>
+<a href="artists.html">Back</a>
 

@@ -1,14 +1,64 @@
-import 'util.eol';
-
-rule ComicBooks
+rule Index
 	transform comicBookCollection : ComicBookCollection {
 	
-	template : "artists.egl"
+	template : "index.egl"
 	
 	target : "../../website/index.html"
 }
 
-rule artist2
+
+
+rule Artists
+	transform artist : Artist {
+
+	template : "artists.egl"
+
+	target : "../../website/" + artists + ".html"
+}
+
+rule Editors
+	transform editor : Editor {
+
+	template : "editors.egl"
+	
+	target : "../../website/" + editors + ".html"	
+}
+
+rule Publishers
+	transform publisher : Publisher {
+
+	template : "publishers.egl"
+	
+	target : "../../website/" + publishers + ".html"	
+}
+
+rule BookNames
+	transform bookNames : Book {
+
+	template : "bookNames.egl"
+	
+	target : "../../website/" + bookNames + ".html"	
+}
+
+rule Series
+	transform series : Series {
+
+	template : "series.egl"
+	
+	target : "../../website/" + series + ".html"	
+}
+
+rule Writers
+	transform writer : Writer {
+
+	template : "writers.egl"
+	
+	target : "../../website/" + writers + ".html"	
+}
+
+
+
+rule Artist2
 	transform artist : Artist {
 
 	template : "artist2.egl"
@@ -16,7 +66,7 @@ rule artist2
 	target : "../../website/" + artist.name + ".html"
 }
 
-rule editor2
+rule Editor2
 	transform editor : Editor {
 
 	template : "editor2.egl"
@@ -24,7 +74,7 @@ rule editor2
 	target : "../../website/" + editor.name + ".html"	
 }
 
-rule publisher2
+rule Publisher2
 	transform publisher : Publisher {
 
 	template : "publisher2.egl"
@@ -32,7 +82,7 @@ rule publisher2
 	target : "../../website/" + publisher.name + ".html"	
 }
 
-rule book2
+rule Book2
 	transform book : Book {
 
 	template : "book2.egl"
@@ -40,7 +90,7 @@ rule book2
 	target : "../../website/" + book.name + ".html"	
 }
 
-rule series2
+rule Series2
 	transform series : Series {
 
 	template : "series2.egl"
@@ -48,7 +98,7 @@ rule series2
 	target : "../../website/" + series.name + ".html"	
 }
 
-rule writer2
+rule Writer2
 	transform writer : Writer {
 
 	template : "writer2.egl"

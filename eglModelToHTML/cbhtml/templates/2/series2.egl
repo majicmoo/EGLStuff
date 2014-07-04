@@ -2,9 +2,9 @@
 
 <ul>
 [% for (book in series.booksInSeries) { %]
-	<li><a href="[%=book.name%]"[%=book.name%]</a></li>
+	<li><a href="[%=book.name%]">[%=book.name%]</a></li>
 [% } %]
 </ul>
 
-<a href="series.html"Back</a>
+<a href="series.html">Back</a>
 
