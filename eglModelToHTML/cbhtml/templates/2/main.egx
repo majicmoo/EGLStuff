@@ -12,7 +12,7 @@ rule Artists
 
 	template : "artists.egl"
 
-	target : "../../website/" + artists + ".html"
+	target : "../../website/artists.html"
 }
 
 rule Editors
@@ -20,7 +20,7 @@ rule Editors
 
 	template : "editors.egl"
 	
-	target : "../../website/" + editors + ".html"	
+	target : "../../website/editors.html"	
 }
 
 rule Publishers
@@ -28,7 +28,7 @@ rule Publishers
 
 	template : "publishers.egl"
 	
-	target : "../../website/" + publishers + ".html"	
+	target : "../../website/publishers.html"	
 }
 
 rule BookNames
@@ -36,7 +36,7 @@ rule BookNames
 
 	template : "bookNames.egl"
 	
-	target : "../../website/" + bookNames + ".html"	
+	target : "../../website/bookNames.html"	
 }
 
 rule Series
@@ -44,7 +44,7 @@ rule Series
 
 	template : "series.egl"
 	
-	target : "../../website/" + series + ".html"	
+	target : "../../website/series.html"	
 }
 
 rule Writers
@@ -52,7 +52,7 @@ rule Writers
 
 	template : "writers.egl"
 	
-	target : "../../website/" + writers + ".html"	
+	target : "../../website/writers.html"	
 }
 
 
