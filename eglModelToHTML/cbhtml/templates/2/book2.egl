@@ -1,3 +1,39 @@
 <h1>[%=book.name%]</h1>
+<h2>Publiction Date: [%=book.publicationDate%]</h2>
 
+<h2>Artists</h2>
+<ul>
+[% for (artist in book.artists) { %]
+	<li><a href="[%=artist.name%]">[%=artist.name%]</a></li>
+[% } %]
+</ul>
+
+<h2>Cover Artist</h2>
+<ul>
+<li><a href="[%=book.coverArtist.name%]">[%=book.coverArtist.name%]</a></li>
+</ul>
+
+<h2>Editors</h2>
+<ul>
+[% for (editor in book.editors) { %]
+	<li><a href="[%=editor.name%]">[%=editor.name%]</a></li>
+[% } %]
+</ul>
+
+<h2>Writers</h2>
+<ul>
+[% for (writer in book.writers) { %]
+	<li><a href="[%=writer.name%]">[%=writer.name%]</a></li>
+[% } %]
+</ul>
+
+<h2>Publisher</h2>
+<ul>
+<li><a href="[%=book.publisher.publishersName%]">[%=book.publisher.publishersName%]</a></li>
+</ul>
+
+<h2>Series</h2>
+<ul>
+<li><a href="[%=book.seriesPartOf.seriesName%]">[%=book.seriesPartOf.seriesName%]</a></li>
+</ul>
 

@@ -7,7 +7,6 @@ rule Index
 }
 
 
-
 rule Artists
 	transform artist : Artist {
 
