@@ -14,7 +14,7 @@ public class Artists
   }
 
   public final String NL = nl == null ? (System.getProperties().getProperty("line.separator")) : nl;
-  protected final String TEXT_1 = "";
+  protected final String TEXT_1 = NL + NL;
   protected final String TEXT_2 = NL + "<h2>Artists</h2>" + NL + "<ul>";
   protected final String TEXT_3 = NL + "\t<li><a href=\"";
   protected final String TEXT_4 = ".html\">";
@@ -25,7 +25,7 @@ public class Artists
   {
     final StringBuffer stringBuffer = new StringBuffer();
     stringBuffer.append(TEXT_1);
-     ComicBookCollection comicBooksCollection = new ComicBooksPackage.getComicBookCollection(); 
+     ComicBookCollection comicBookCollection = (ComicBookCollection) argument ; 
     stringBuffer.append(TEXT_2);
      for (Artist artist : comicBookCollection.getArtists()) { 
     stringBuffer.append(TEXT_3);

@@ -1,6 +1,8 @@
 <%@ jet package="comicbook" class="Artists" imports="comicBooks.*"%>
 
-<% ComicBookCollection comicBooksCollection = new ComicBooksPackage.getComicBookCollection(); %>
+
+
+<% ComicBookCollection comicBookCollection = (ComicBookCollection) argument ; %>
 <h2>Artists</h2>
 <ul>
 <% for (Artist artist : comicBookCollection.getArtists()) { %>
