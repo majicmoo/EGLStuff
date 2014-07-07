@@ -1,0 +1,12 @@
+<%@ jet package="comicbook" class="Editors" imports="comicBooks.* comicBooks.impl.*"%>
+
+<% ComicBooksFactoryImpl cbcf = new ComicBooksFactoryImpl(); %>
+<% ComicBookCollection comicBookCollection = cbcf.createComicBookCollection(); %>
+<h2>Editors</h2>
+<ul>
+<% for (Editor editor : comicBookCollection.getEditors()) { %>
+	<li><a href="<%=editor.getName()%>.html"><%=editor.getName()%></a><br></li>
+<% } %>
+</ul>
+
+<a href="index.html">Back</a>

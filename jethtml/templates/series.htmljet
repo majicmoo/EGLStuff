@@ -1,0 +1,12 @@
+<%@ jet package="comicbook" class="Series" imports="comicBooks.* comicBooks.impl.*"%>
+
+<% ComicBooksFactoryImpl cbcf = new ComicBooksFactoryImpl(); %>
+<% ComicBookCollection comicBookCollection = cbcf.createComicBookCollection(); %>
+<h2>Series</h2>
+<ul>
+<% for (comicBooks.Series series : comicBookCollection.getSeries()) { %>
+	<li><a href="<%=series.getSeriesName()%>.html"><%=series.getSeriesName()%></a><br></li>
+<% } %>
+</ul>
+
+<a href="index.html">Back</a>
