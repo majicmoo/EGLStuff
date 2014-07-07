@@ -1,0 +1,17 @@
+<%@ jet package="comicbook" class="Index" %>
+
+<h1>Look Up By...</h1>
+
+<li><a href="artists.html">Artist</a></li>
+
+<li><a href="bookNames.html">Book Name</a></li>
+
+<li><a href="editors.html">Editor</a></li>
+
+<li><a href="publishers.html">Publisher</a></li>
+
+<li><a href="series.html">Series</a></li>
+
+<li><a href="writers.html">Writer</a>
+
+</li>

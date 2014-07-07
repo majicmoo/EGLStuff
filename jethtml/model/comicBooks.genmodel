@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/jethtml/src" modelPluginID="jethtml" modelName="ComicBooks"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>comicBooks.ecore</foreignModel>
+  <genPackages prefix="ComicBooks" disposableProviderFactory="true" ecorePackage="comicBooks.ecore#/">
+    <genClasses ecoreClass="comicBooks.ecore#//ComicBookCollection">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference comicBooks.ecore#//ComicBookCollection/books"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference comicBooks.ecore#//ComicBookCollection/artists"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference comicBooks.ecore#//ComicBookCollection/editors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference comicBooks.ecore#//ComicBookCollection/writers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference comicBooks.ecore#//ComicBookCollection/publishingCompanies"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference comicBooks.ecore#//ComicBookCollection/series"/>
+    </genClasses>
+    <genClasses ecoreClass="comicBooks.ecore#//Publisher">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute comicBooks.ecore#//Publisher/publishersName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference comicBooks.ecore#//Publisher/booksPublished"/>
+    </genClasses>
+    <genClasses ecoreClass="comicBooks.ecore#//Series">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute comicBooks.ecore#//Series/seriesName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference comicBooks.ecore#//Series/booksInSeries"/>
+    </genClasses>
+    <genClasses ecoreClass="comicBooks.ecore#//Book">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute comicBooks.ecore#//Book/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute comicBooks.ecore#//Book/publicationDate"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference comicBooks.ecore#//Book/artists"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference comicBooks.ecore#//Book/editors"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference comicBooks.ecore#//Book/writers"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference comicBooks.ecore#//Book/coverArtist"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference comicBooks.ecore#//Book/publisher"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference comicBooks.ecore#//Book/seriesPartOf"/>
+    </genClasses>
+    <genClasses ecoreClass="comicBooks.ecore#//Artist">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute comicBooks.ecore#//Artist/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference comicBooks.ecore#//Artist/booksArtistFor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference comicBooks.ecore#//Artist/booksCoverArtistFor"/>
+    </genClasses>
+    <genClasses ecoreClass="comicBooks.ecore#//Editor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute comicBooks.ecore#//Editor/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference comicBooks.ecore#//Editor/booksEditorFor"/>
+    </genClasses>
+    <genClasses ecoreClass="comicBooks.ecore#//Writer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute comicBooks.ecore#//Writer/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference comicBooks.ecore#//Writer/booksWriterFor"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

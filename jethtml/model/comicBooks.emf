@@ -1,0 +1,51 @@
+@namespace(uri="comicBooks", prefix="comicBooks")
+package comicBooks;
+
+class ComicBookCollection{
+	val Book[*] books;
+	val Artist[*] artists;
+	val Editor[*] editors;
+	val Writer[*] writers;
+	val Publisher[*] publishingCompanies;
+	val Series[*] series;
+}
+
+class Publisher{
+	attr String publishersName;
+	ref Book[*]#publisher booksPublished;
+}
+
+class Series{
+	attr String seriesName;
+	ref Book[*]#seriesPartOf booksInSeries;
+}
+
+class Book{
+	attr String name;
+	attr String publicationDate;
+	ref Artist[1..*]#booksArtistFor artists;
+	ref Editor[1..*]#booksEditorFor editors;
+	ref Writer[1..*]#booksWriterFor writers;
+	ref Artist[1]#booksCoverArtistFor coverArtist;
+	ref Publisher[1]#booksPublished publisher;
+	ref Series[1]#booksInSeries seriesPartOf;
+}
+
+class Artist{
+	attr String name;
+	ref Book[*]#artists booksArtistFor;
+	ref Book[*]#coverArtist booksCoverArtistFor;
+
+}
+
+class Editor{
+	attr String name;
+	ref Book[*]#editors booksEditorFor;
+
+}
+
+class Writer{
+	attr String name;
+	ref Book[*]#writers booksWriterFor;
+	
+}

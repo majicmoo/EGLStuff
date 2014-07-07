@@ -1,0 +1,11 @@
+<%@ jet package="comicbook" class="Artists" imports="comicBooks.*"%>
+
+<% ComicBookCollection comicBooksCollection = new ComicBooksPackage.getComicBookCollection(); %>
+<h2>Artists</h2>
+<ul>
+<% for (Artist artist : comicBookCollection.getArtists()) { %>
+	<li><a href="<%=artist.getName()%>.html"><%=artist.getName()%></a><br></li>
+<% } %>
+</ul>
+
+<a href="index.html">Back</a>
