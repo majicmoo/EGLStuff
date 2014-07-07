@@ -1,8 +1,7 @@
-<%@ jet package="comicbook" class="Artists" imports="comicBooks.*"%>
+<%@ jet package="comicbook" class="Artists" imports="comicBooks.* comicBooks.impl.*"%>
 
-
-
-<% ComicBookCollection comicBookCollection = (ComicBookCollection) argument ; %>
+<% ComicBooksFactoryImpl cbcf = new ComicBooksFactoryImpl(); %>
+<% ComicBookCollection comicBookCollection = cbcf.createComicBookCollection(); %>
 <h2>Artists</h2>
 <ul>
 <% for (Artist artist : comicBookCollection.getArtists()) { %>
