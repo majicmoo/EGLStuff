@@ -1,0 +1,19 @@
+<%@ jet package="comicbook" class="Artists2" imports="comicBooks.* comicBooks.impl.* model.*"%>
+
+<h1><%=artist.name%></h1>
+
+<h2>Books Artist For</h2>
+<ul>
+<% for (Book book : artist.booksArtistFor) { %>
+	<li><a href="<%=book.getName()%>.html"><%=book.getName()%></a></li>
+<% } %>
+</ul>
+
+<h2>Books Cover Artist For</h2>
+<ul>
+<% for (Book coverBook : artist.booksCoverArtistFor) { %>
+	<li><a href="<%=coverBook.getName()%>.html"><%=coverBook.getName()%></a></li>
+<% } %>
+</ul>
+
+<a href="artists.html">Back</a>
