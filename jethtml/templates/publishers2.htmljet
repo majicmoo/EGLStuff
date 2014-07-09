@@ -1,0 +1,11 @@
+<%@ jet package="comicbook" class="Publisher2" imports="comicBooks.* "%>
+<% Publisher publisher = (Publisher) argument; %>
+
+<h1><%=publisher.getPublishersName()%></h1>
+
+<h2>Books Publisher For</h2>
+<ul>
+<% for (Book book : publisher.getBooksPublished()) { %>
+	<li><a href="<%=book.getName()%>.html"><%=book.getPublisher()%></a></li>
+<% } %>
+</ul>

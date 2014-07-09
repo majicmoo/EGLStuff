@@ -1,8 +1,6 @@
 package comicbook;
 
 import comicBooks.*;
-import comicBooks.impl.*;
-import model.*;
 
 public class Artists2
 {
@@ -31,10 +29,11 @@ public class Artists2
   public String generate(Object argument)
   {
     final StringBuffer stringBuffer = new StringBuffer();
+     Artist artist = (Artist) argument; 
     stringBuffer.append(TEXT_1);
-    stringBuffer.append(artist.name);
+    stringBuffer.append(artist.getName());
     stringBuffer.append(TEXT_2);
-     for (Book book : artist.booksArtistFor) { 
+     for (Book book : artist.getBooksArtistFor()) { 
     stringBuffer.append(TEXT_3);
     stringBuffer.append(book.getName());
     stringBuffer.append(TEXT_4);
@@ -42,7 +41,7 @@ public class Artists2
     stringBuffer.append(TEXT_5);
      } 
     stringBuffer.append(TEXT_6);
-     for (Book coverBook : artist.booksCoverArtistFor) { 
+     for (Book coverBook : artist.getBooksCoverArtistFor()) { 
     stringBuffer.append(TEXT_7);
     stringBuffer.append(coverBook.getName());
     stringBuffer.append(TEXT_8);

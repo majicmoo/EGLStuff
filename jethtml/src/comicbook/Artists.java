@@ -1,7 +1,6 @@
 package comicbook;
 
 import comicBooks.*;
-import comicBooks.impl.*;
 
 public class Artists
 {
@@ -15,28 +14,25 @@ public class Artists
   }
 
   public final String NL = nl == null ? (System.getProperties().getProperty("line.separator")) : nl;
-  protected final String TEXT_1 = "";
-  protected final String TEXT_2 = NL + "<h2>Artists</h2>" + NL + "<ul>";
-  protected final String TEXT_3 = NL + "\t<li><a href=\"";
-  protected final String TEXT_4 = ".html\">";
-  protected final String TEXT_5 = "</a><br></li>";
-  protected final String TEXT_6 = NL + "</ul>" + NL + "" + NL + "<a href=\"index.html\">Back</a>";
+  protected final String TEXT_1 = "<h2>Artists</h2>" + NL + "<ul>";
+  protected final String TEXT_2 = NL + "\t<li><a href=\"";
+  protected final String TEXT_3 = ".html\">";
+  protected final String TEXT_4 = "</a><br></li>";
+  protected final String TEXT_5 = NL + "</ul>" + NL + "" + NL + "<a href=\"index.html\">Back</a>";
 
   public String generate(Object argument)
   {
     final StringBuffer stringBuffer = new StringBuffer();
+     ComicBookCollection comicBookCollection = (ComicBookCollection) argument; 
     stringBuffer.append(TEXT_1);
-     ComicBooksFactoryImpl cbcf = new ComicBooksFactoryImpl(); 
-     ComicBookCollection comicBookCollection = cbcf.createComicBookCollection(); 
-    stringBuffer.append(TEXT_2);
      for (Artist artist : comicBookCollection.getArtists()) { 
+    stringBuffer.append(TEXT_2);
+    stringBuffer.append(artist.getName());
     stringBuffer.append(TEXT_3);
     stringBuffer.append(artist.getName());
     stringBuffer.append(TEXT_4);
-    stringBuffer.append(artist.getName());
-    stringBuffer.append(TEXT_5);
      } 
-    stringBuffer.append(TEXT_6);
+    stringBuffer.append(TEXT_5);
     return stringBuffer.toString();
   }
 }

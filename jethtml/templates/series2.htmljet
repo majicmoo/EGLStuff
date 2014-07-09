@@ -1,0 +1,13 @@
+<%@ jet package="comicbook" class="Series2a" imports="comicBooks.*"%>
+<% Series series = (Series) argument; %>
+
+<h1><%=series.getSeriesName()%></h1>
+
+<h2>Books Series For</h2>
+<ul>
+<% for (Book book : series.getBooksInSeries()) { %>
+	<li><a href="<%=book.getName()%>.html"><%=book.getName()%></a></li>
+<% } %>
+</ul>
+
+<a href="series.html">Back</a>

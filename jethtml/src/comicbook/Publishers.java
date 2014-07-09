@@ -1,7 +1,6 @@
 package comicbook;
 
 import comicBooks.*;
-import comicBooks.impl.*;
 
 public class Publishers
 {
@@ -26,8 +25,7 @@ public class Publishers
   {
     final StringBuffer stringBuffer = new StringBuffer();
     stringBuffer.append(TEXT_1);
-     ComicBooksFactoryImpl cbcf = new ComicBooksFactoryImpl(); 
-     ComicBookCollection comicBookCollection = cbcf.createComicBookCollection(); 
+     ComicBookCollection comicBookCollection = (ComicBookCollection) argument; 
     stringBuffer.append(TEXT_2);
      for (Publisher publisher : comicBookCollection.getPublishingCompanies()) { 
     stringBuffer.append(TEXT_3);

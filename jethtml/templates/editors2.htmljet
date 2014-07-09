@@ -1,0 +1,13 @@
+<%@ jet package="comicbook" class="Editors2" imports="comicBooks.* "%>
+<% Editor editor = (Editor) argument; %>
+
+<h1><%=editor.getName()%></h1>
+
+<h2>Books Editor For</h2>
+<ul>
+<% for (Book book : editor.getBooksEditorFor()) { %>
+	<li><a href="<%=book.getName()%>.html"><%=book.getName()%></a></li>
+<% } %>
+</ul>
+
+<a href="editors.html">Back</a>

@@ -1,0 +1,13 @@
+<%@ jet package="comicbook" class="Writers2" imports="comicBooks.* "%>
+<% Writer writer = (Writer) argument; %>
+
+<h1><%=writer.getName()%></h1>
+
+<h2>Books Writer For</h2>
+<ul>
+<% for (Book book : writer.getBooksWriterFor()) { %>
+	<li><a href="<%=book.getName()%>.html"><%=book.getName()%></a></li>
+<% } %>
+</ul>
+
+<a href="Writers.html">Back</a>

@@ -1,0 +1,6 @@
+<%@ jet package="comicbook" class="Books2" imports="comicBooks.*"%>
+<% Book book = (Book) argument; %>
+
+<h1><%=book.getName()%></h1>
+
+<h2>Will fill in later</h2>
