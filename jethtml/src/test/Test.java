@@ -8,8 +8,6 @@ import org.eclipse.epsilon.eol.models.IModel;
 
 import comicBooks.ComicBooksPackage;
 
-
-
 public class Test{
 
 	public static void main(String[] args) throws Exception {

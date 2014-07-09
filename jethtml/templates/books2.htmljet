@@ -2,5 +2,42 @@
 <% Book book = (Book) argument; %>
 
 <h1><%=book.getName()%></h1>
+<h2>Publiction Date: <%=book.getPublicationDate()%></h2>
 
-<h2>Will fill in later</h2>
+<h2>Artists</h2>
+<ul>
+<% for (Artist artist : book.getArtists()) { %>
+	<li><a href="<%=artist.getName()%>.html"><%=artist.getName()%></a></li>
+<% } %>
+</ul>
+
+<h2>Cover Artist</h2>
+<ul>
+<li><a href="<%=book.getCoverArtist().getName()%>.html"><%=book.getCoverArtist().getName()%></a></li>
+</ul>
+
+<h2>Editors</h2>
+<ul>
+<% for (Editor editor : book.getEditors()) { %>
+	<li><a href="<%=editor.getName()%>.html"><%=editor.getName()%></a></li>
+<% } %>
+</ul>
+
+<h2>Writers</h2>
+<ul>
+<% for (Writer writer : book.getWriters()) { %>
+	<li><a href="<%=writer.getName()%>.html"><%=writer.getName()%></a></li>
+<% } %>
+</ul>
+
+<h2>Publisher</h2>
+<ul>
+<li><a href="<%=book.getPublisher().getPublishersName()%>.html"><%=book.getPublisher().getPublishersName()%></a></li>
+</ul>
+
+<h2>Series</h2>
+<ul>
+<li><a href="<%=book.getSeriesPartOf().getSeriesName()%>.html"><%=book.getSeriesPartOf().getSeriesName()%></a></li>
+</ul>
+
+<a href="index.html">Back</a>
