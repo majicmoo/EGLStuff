@@ -1,0 +1,2 @@
+.hasCopyright()
+.getCopyright(copyrightHolder.getGenModel().getIndentation(stringBuffer))

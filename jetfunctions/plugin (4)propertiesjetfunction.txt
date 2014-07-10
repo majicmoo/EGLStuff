@@ -1,0 +1,1 @@
+.eclipse.emf.codegen.ecore.templates.editjava.util. org.eclipse.emf.codegen.ecore.genmodel.PluginProperties../Header.propertiesjetinc

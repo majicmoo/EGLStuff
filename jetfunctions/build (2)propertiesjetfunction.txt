@@ -1,0 +1,12 @@
+.isRuntimeJar()
+.getModelPluginID()
+.getModelSourceFolders()
+.sameModelEditProject()
+.sameModelEditorProject()
+.isBundleManifest()
+.getRuntimePlatform()
+.GWTERROR
+.iterator()
+.hasNext()
+.next()
+.hasNext()

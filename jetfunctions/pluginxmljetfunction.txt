@@ -1,0 +1,7 @@
+.class.getName()
+.isBundleManifest()
+.getTestsPluginID()
+.getTestsRequiredPlugins()
+.startsWith()
+.isRuntimeJar()
+.getTestsPluginID()

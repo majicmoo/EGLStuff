@@ -1,0 +1,4 @@
+.class.getName()
+.getEditorModuleInherits()
+.getQualifiedEditorEntryPointClassName()
+.getEditorModuleSources()

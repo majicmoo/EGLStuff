@@ -1,0 +1,182 @@
+.getGenPackage()
+.getGenModel()
+.class.getName()
+.getTestsPackageName()
+.markImportLocation(stringBuffer)
+.getFormattedName()
+.getImplementedGenFeatures()
+.isEmpty()
+.getImplementedGenFeatures()
+.isTested()
+.isSuppressedGetVisibility()
+.getGenClass()
+.getQualifiedInterfaceName()
+.getGetAccessor()
+.getFormattedName()
+.getImplementedGenOperations()
+.isEmpty()
+.getImplementedGenOperations()
+.getGenClass()
+.getQualifiedInterfaceName()
+.getName()
+.getParameterTypes()
+.getFormattedName()
+.isAbstract()
+.getTestCaseClassName()
+.isModelRoot()
+.getImportedName()
+.getClassExtendsGenClass()
+.getImportedTestCaseClassName()
+.hasCopyrightField()
+.getImportedName()
+.getCopyrightFieldLiteral()
+.getNonNLS()
+.getDriverNumber()
+.getImportedName()
+.getDriverNumber()
+.getNonNLS()
+.isModelRoot()
+.getFormattedName()
+.getImportedInterfaceName()
+.getInterfaceWildTypeArguments()
+.isAbstract()
+.getImportedName()
+.getTestCaseClassName()
+.getFormattedName()
+.getTestCaseClassName()
+.isModelRoot()
+.getFormattedName()
+.getImportedInterfaceName()
+.getInterfaceWildTypeArguments()
+.getFormattedName()
+.isModelRoot()
+.useClassOverrideAnnotation()
+.useGenerics()
+.getImportedInterfaceName()
+.getInterfaceWildTypeArguments()
+.isModelRoot()
+.getImportedInterfaceName()
+.getInterfaceWildTypeArguments()
+.isAbstract()
+.useClassOverrideAnnotation()
+.useGenerics()
+.isMapEntry()
+.isMapEntry()
+.getImportedInterfaceName()
+.getInterfaceWildTypeArguments()
+.getQualifiedEFactoryInternalInstanceAccessor()
+.getQualifiedClassifierAccessor()
+.getQualifiedEFactoryInternalInstanceAccessor()
+.getName()
+.useClassOverrideAnnotation()
+.getImplementedGenFeatures()
+.isTested()
+.isGet()
+.isSuppressedGetVisibility()
+.getGenClass()
+.getQualifiedInterfaceName()
+.getGetAccessor()
+.getFormattedName()
+.getGenClass()
+.getQualifiedInterfaceName()
+.getGetAccessor()
+.getComplianceLevel()
+.getValue()
+.JDK50ERROR
+.annotations.insert.javajetinc%>
+<%@ include file= fail= %>
+<%}%>
+<%=genModel.capName(genFeature.getGetAccessor())
+.todo.override.javajetinc%>
+<%@ end %>
+<%//TestCase/getGenFeature.override.javajetinc%>
+<%}%>
+<%if (genFeature.isSet() && !genFeature.isSuppressedSetVisibility())
+.getGenClass()
+.getQualifiedInterfaceName()
+.getAccessorName()
+.getRawBoundType()
+.getFormattedName()
+.getGenClass()
+.getQualifiedInterfaceName()
+.getAccessorName()
+.getRawBoundType()
+.getComplianceLevel()
+.getValue()
+.JDK50ERROR
+.annotations.insert.javajetinc%>
+<%@ include file= fail= %>
+<%}%>
+<%=genFeature.getAccessorName()
+.todo.override.javajetinc%>
+<%@ end %>
+<%//TestCase/setGenFeature.override.javajetinc%>
+<%}%>
+<%if (genFeature.isUnset() && !genFeature.isSuppressedUnsetVisibility())
+.getGenClass()
+.getQualifiedInterfaceName()
+.getAccessorName()
+.getAccessorName()
+.getGenClass()
+.getQualifiedInterfaceName()
+.getAccessorName()
+.getComplianceLevel()
+.getValue()
+.JDK50ERROR
+.annotations.insert.javajetinc%>
+<%@ include file= fail= %>
+<%}%>
+<%=genFeature.getAccessorName()
+.todo.override.javajetinc%>
+<%@ end %>
+<%//TestCase/unsetGenFeature.override.javajetinc%>
+<%}%>
+<%if (genFeature.isIsSet() && !genFeature.isSuppressedIsSetVisibility())
+.getGenClass()
+.getQualifiedInterfaceName()
+.getAccessorName()
+.getAccessorName()
+.getGenClass()
+.getQualifiedInterfaceName()
+.getAccessorName()
+.getComplianceLevel()
+.getValue()
+.JDK50ERROR
+.annotations.insert.javajetinc%>
+<%@ include file= fail= %>
+<%}%>
+<%=genFeature.getAccessorName()
+.todo.override.javajetinc%>
+<%@ end %>
+<%//TestCase/isSetGenFeature.override.javajetinc%>
+<%}%>
+<%}%>
+<%@ include file= fail= %>
+<%@ end %>
+<%//TestCase/implementedGenFeature.override.javajetinc%>
+<%}%>
+<%for (GenOperation genOperation : genClass.getImplementedGenOperations())
+.getGenClass()
+.getQualifiedInterfaceName()
+.getName()
+.getParameterTypes()
+.getFormattedName()
+.getGenClass()
+.getQualifiedInterfaceName()
+.getName()
+.getParameterTypes()
+.getComplianceLevel()
+.getValue()
+.JDK50ERROR
+.annotations.insert.javajetinc%>
+<%@ include file= fail= %>
+<%}%>
+<%=genClass.getUniqueName(genOperation)
+.todo.override.javajetinc%>
+<%@ include file= fail= %>
+<%@ end %>
+<%//TestCase/implementedGenOperation.override.javajetinc%>
+<%}%>
+<%@ include file= fail= %>
+<%=genClass.getTestCaseClassName()
+.emitSortedImports()

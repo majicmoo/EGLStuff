@@ -1,0 +1,8 @@
+.isRuntimeJar()
+.getTestsPluginID()
+.getTestsSourceFolders()
+.isBundleManifest()
+.iterator()
+.hasNext()
+.next()
+.hasNext()
