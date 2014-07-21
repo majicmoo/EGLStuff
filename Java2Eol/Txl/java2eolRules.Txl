@@ -1,3 +1,6 @@
+%% Something to call the rules
+
+
 %% change for loop syntax
 %% from " for( type var: listOfVar)
 %% to for( var in listOfVar)
@@ -60,7 +63,7 @@ end rule
 %% to var = var-1
 transformDecrementOperator
 	replace [declaration_or_statement]
-	Id [refernce] '--
+	Id [reference] '--
 	by
 	Id = Id '- 1
 end rule
