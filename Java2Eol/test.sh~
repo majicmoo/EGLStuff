@@ -1,0 +1,6 @@
+txl ./java/artists2.java -o ./python/ArithmeticDemo.py
+echo "**************************"
+echo "ArithmeticDemo.java"
+echo "**************************"
+python ./python/ArithmeticDemo.py
+echo ""

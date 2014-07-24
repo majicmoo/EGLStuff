@@ -4,10 +4,19 @@ function classTransforms
     replace [program]
 	P [program]
     by
-	P [transformForIn]
-	  [changeTypeDeclaration]
-	  [transformOps]
-	  [transformBooleanOps]
+	P 
+
+	  [constructorTransforms]
+
+	  [transformMethodDecl]
+	  [transformConstructorHeader]
+	
+	  [addInitMethod]
+
+	  [transformNonParameterVarRefs]
+
+	  [tranformThisVarRefs]
+	  [tranformThisClassVarRefs]
 end function
 
 
