@@ -5,14 +5,14 @@ function classTransforms
 	P [program]
     by
 	P [transformForIn]
-	  [changeTypeDeclaration]
+	  [transformTypeDeclaration]
 	  [transformOps]
 	  [transformBooleanOps]
 end function
 
 
 %% change for loop syntax
-%% from " for( type var: listOfVar)
+%% from  for( type var: listOfVar)
 %% to for( var in listOfVar)
 rule transformForIn
 	replace [declaration_or_statement]
@@ -30,28 +30,32 @@ rule removeGetters
 	replace 
 
 
-%% removeHeaders
-rule removeHeaders
-	replace
+%% transform Headers
+rule transformHeaders
+	replace 'jet package= pkg [stringlit] 'class= cls [stringlit] 'imports= imp [Sstringlit]
+	by
+	import imp
 
 
 %% Type declaration
 %% from type varName = ...
 %% to var varName = ...
-rule changeTypeDeclaration
+rule transformTypeDeclaration
 	replace [declaration_or_statement]
 	_ [repeat modifier] _ [type_specifier] Id [id] 
 	by 
 	'var  Id
 end rule
 
-%% Transform All Operaters
+
+%% Transform All Operators
 function transformOps
     replace [program]
 	P [program]
     by
 	P [transformNotEqualsOperator] [transformEqualsOperator] [transformDecrementOperator] [transformIncrementOperator]
 end function
+
 
 %% Not equals operator
 %% from !=
@@ -63,7 +67,7 @@ transformNotEqualsOperator
 	'<>
 end rule
 
-	
+
 %% Equals operator
 %% from ==
 %% to =
