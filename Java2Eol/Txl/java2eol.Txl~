@@ -29,12 +29,15 @@ end function
 rule transformForIn
 	replace [declaration_or_statement]
 	'for '( 
-	_ [type_specifier] Id [id] _ [opt generic_parameter] _ [repeat dimension]
-	': Expr [expression] '){
-	%%Stmt [statement]        
+	_ [repeat modifier] _ [type_specifier] Id [id] _ [opt generic_parameter] _ [repeat dimension]
+	': Expr [expression] ')
+	    Stmt [statement]
+	construct NewDecls [repeat declaration_or_statement]
+	_ [statementBlockToDecls Stmt]
+	  [statementOneDeclToDecls Stmt]         
 	by
 	'for '( Id 'in Expr '){
-	%%Stmt
+	NewDecls
 end rule
 
 
@@ -43,7 +46,7 @@ end rule
 %%	replace [declaration_or_statement]
 %%	'jet package= pkg [stringlit] 'class= cls [stringlit] 'imports= imp [stringlit]
 %%	by
-%%	import imp
+%%	'import imp
 
 
 %% Type declaration

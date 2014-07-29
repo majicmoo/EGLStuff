@@ -29,12 +29,15 @@ end function
 rule transformForIn
 	replace [declaration_or_statement]
 	'for '( 
-	_ [type_specifier] Id [id] _ [opt generic_parameter] _ [repeat dimension]
-	': Expr [expression] '){
-	Stmt [statement]        
+	_ [repeat modifier] _ [type_specifier] Id [id] _ [opt generic_parameter] _ [repeat dimension]
+	': Expr [expression] ')
+	    Stmt [statement]
+	construct NewDecls [repeat declaration_or_statement]
+	_ [statementBlockToDecls Stmt]
+	  [statementOneDeclToDecls Stmt]         
 	by
 	'for '( Id 'in Expr '){
-	Stmt
+	NewDecls
 end rule
 
 
@@ -43,7 +46,7 @@ end rule
 %%	replace [declaration_or_statement]
 %%	'jet package= pkg [stringlit] 'class= cls [stringlit] 'imports= imp [stringlit]
 %%	by
-%%	import imp
+%%	'import imp
 
 
 %% Type declaration
@@ -101,7 +104,16 @@ rule transformDecrementOperator
 	Id = Id '- 1
 end rule
 
-
+TXL0195E PARTNAME of RULENAME with goal production [TYPENAME] -
+!
+Syntax error at or near: TEXT
+TXL was unable to complete a successful parse of the indicated pattern or replacement
+according to the nonterminal definition for [TYPENAME] in the grammar of the TXL program.
+The parse succeeded up until the point indicated by >>> <<< in TEXT and could not be resolved
+beyond that point.
+Recommended action
+: Check that the pattern or replacement legally matches the nonterminal
+definition 
 %% Increment operator
 %% from var ++
 %% to var = var+1
