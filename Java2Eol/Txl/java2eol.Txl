@@ -21,6 +21,7 @@ function java2eol
 	  [transformTypeDeclaration]
 	  [transformOps]
 	  [transformBooleanOps]
+	  [transformTypeAssignment]
 end function
 
 
@@ -44,22 +45,21 @@ rule transformForIn
 end rule
 
 
-%%transform Headers
-%%rule transformHeaders
-%%	replace [declaration_or_statement]
-%%	'jet package= pkg [stringlit] 'class= cls [stringlit] 'imports= imp [stringlit]
-%%	by
-%%	'import imp
-
+rule transformTypeAssignment
+   replace [declaration_or_statement]
+   _ [repeat modifier] _ [type_specifier] Id
+   by
+   'var Id
+end rule
 
 %% Type declaration
 %% from type varName = ...
 %% to var varName = ...
 rule transformTypeDeclaration
 	replace [declaration_or_statement]
-	_ [repeat modifier] _ [type_specifier] Id [id] 
+	_ [repeat modifier] _ [type_specifier] Id [id]
 	by 
-	'var  Id
+	'var  Id 
 end rule
 
 
@@ -74,6 +74,11 @@ function transformOps
 	  % [transformEqualsOperator]
 end function
 
+
+%% REMOVE MAIN
+
+
+%% TRANSFORM ASSIGNMENTS
 
 %% Not equals operator
 %% from !=
