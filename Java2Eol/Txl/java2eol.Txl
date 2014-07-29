@@ -1,4 +1,5 @@
 include "Java.Grm"
+include "pythonAddons.Grm"
 
 
 % Main translation rule 
@@ -29,14 +30,15 @@ end function
 rule transformForIn
 	replace [declaration_or_statement]
 	'for '( 
+	%for_in_init
 	_ [repeat modifier] _ [type_specifier] Id [id] _ [opt generic_parameter] _ [repeat dimension]
 	': Expr [expression] ')
-	    Stmt [statement]
-	construct NewDecls [repeat declaration_or_statement]
+		Stmt [statement]        
+    construct NewDecls [repeat declaration_or_statement]
 	_ [statementBlockToDecls Stmt]
-	  [statementOneDeclToDecls Stmt]         
-	by
-	'for '( Id 'in Expr '){
+	  [statementOneDeclToDecls Stmt] 
+    by
+	'for (Id 'in Expr '){
 	NewDecls
 end rule
 
@@ -65,33 +67,33 @@ function transformOps
     replace [program]
 	P [program]
     by
-	P [transformNotEqualsOperator] 
-	  [transformEqualsOperator] 
-	  [transformDecrementOperator] 
+	P [transformDecrementOperator] 
 	  [transformIncrementOperator]
+	  % [transformNotEqualsOperator] 
+	  % [transformEqualsOperator]
 end function
 
 
 %% Not equals operator
 %% from !=
 %% to <>
-rule transformNotEqualsOperator
-	replace [equality_op]
-	'!=
-	by
-	'<>
-end rule
+%rule transformNotEqualsOperator
+%	replace [equality_op]
+%	'!=
+%	by
+%	'<>
+%end rule
 
 
 %% Equals operator
 %% from ==
 %% to =
-rule transformEqualsOperator
-	replace [equality_op]
-	'==
-	by
-	'=
-end rule
+%rule transformEqualsOperator
+%	replace [equality_op]
+%	'==
+%	by
+%	'=
+%end rule
 
 
 %% Decrement operator
@@ -140,7 +142,7 @@ end rule
 %% to or
 rule transformBooleanOr
 	replace [or_conditional_and_expression]
-	'|'| CE [conditional_and_expression]
+	'|| CE [conditional_and_expression]
     by
 	'or CE
 end rule
@@ -155,5 +157,27 @@ rule transformBooleanNot
     by
 	'not
 end rule
+
+%one decl statetement to decls
+function statementOneDeclToDecls Stmt [statement]
+    replace [repeat declaration_or_statement]
+	_ [repeat declaration_or_statement]
+    deconstruct not Stmt
+	_ [block]
+    construct Decl [declaration_or_statement]
+	Stmt
+    by
+	Decl
+end function
+
+%one decl statetement to decls
+function statementBlockToDecls Stmt [statement]
+    replace [repeat declaration_or_statement]
+	_ [repeat declaration_or_statement]
+    deconstruct Stmt
+	'{ Decls [repeat declaration_or_statement] '}
+    by
+	Decls
+end function
 
 

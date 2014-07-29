@@ -1,6 +1,5 @@
-txl ./java/artists2.java -o ./python/ArithmeticDemo.py
+txl ./java/images.java -o ./eol/images.eol
 echo "**************************"
-echo "ArithmeticDemo.java"
+echo "images.java"
 echo "**************************"
-python ./python/ArithmeticDemo.py
 echo ""
