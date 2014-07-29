@@ -169,6 +169,7 @@ function statementOneDeclToDecls Stmt [statement]
     by
 	Decl
 end function
+
 %one decl statetement to decls
 function statementBlockToDecls Stmt [statement]
     replace [repeat declaration_or_statement]

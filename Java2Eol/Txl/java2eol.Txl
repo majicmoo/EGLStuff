@@ -40,6 +40,7 @@ rule transformForIn
     by
 	'for (Id 'in Expr '){
 	NewDecls
+	'}
 end rule
 
 

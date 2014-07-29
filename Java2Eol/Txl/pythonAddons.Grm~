@@ -328,7 +328,7 @@ end redefine
 
 redefine equality_op
     '= | '<>
-end define
+end redefine
 
 define for_stmt 
     'for '( [id] 'in [expression] [SPOFF] '){ [SPON] [NL][IN] [repeat declaration_or_statement] [EX]

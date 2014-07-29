@@ -1,4 +1,4 @@
-import comicBooks.*
+import comicBooks.*;
 
 Artist artist = (Artist) argument;
 
