@@ -104,16 +104,6 @@ rule transformDecrementOperator
 	Id = Id '- 1
 end rule
 
-TXL0195E PARTNAME of RULENAME with goal production [TYPENAME] -
-!
-Syntax error at or near: TEXT
-TXL was unable to complete a successful parse of the indicated pattern or replacement
-according to the nonterminal definition for [TYPENAME] in the grammar of the TXL program.
-The parse succeeded up until the point indicated by >>> <<< in TEXT and could not be resolved
-beyond that point.
-Recommended action
-: Check that the pattern or replacement legally matches the nonterminal
-definition 
 %% Increment operator
 %% from var ++
 %% to var = var+1
