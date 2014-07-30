@@ -331,7 +331,7 @@ redefine equality_op
 end redefine
 
 define for_stmt 
-    'for '( [id] 'in [expression] [SPOFF] '){ [SPON] [NL][IN] [repeat declaration_or_statement] [EX] '}
+    'for '( [id] 'in [expression] [SPOFF] '){ [SPON] [NL][IN] [repeat declaration_or_statement] [EX]
 end define 
 
 

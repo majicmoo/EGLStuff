@@ -1,38 +1,38 @@
 import comicBooks.*
 class artists2 {public static void main (String[] args) {
-<%
-%>
+[%
+%]
 
-<h1><%
+<h1>[%
 =artist.getName()
-%></h1>
+%]</h1>
 
 <h2>Books Artist For</h2>
 <ul>
-<%
+[%
  for (Book book : artist.getBooksArtistFor()) { 
-%>
+%]
 =book.getName()
-%>.html"><%
+%].html">[%
 =book.getName()
-%></a></li>
-<%
+%]</a></li>
+[%
  } 
-%>
+%]
 </ul>
 
 <h2>Books Cover Artist For</h2>
 <ul>
-<%
+[%
  for (Book coverBook : artist.getBooksCoverArtistFor()) { 
-%>
+%]
 =coverBook.getName()
-%>.html"><%
+%].html">[%
 =coverBook.getName()
-%></a></li>
-<%
+%]</a></li>
+[%
  } 
-%>
+%]
 </ul>
 
 

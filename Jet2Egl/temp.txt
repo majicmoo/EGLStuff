@@ -1,0 +1,12 @@
+import comicBooks.*;
+
+class artists2 {
+
+    public static void main (String [] args) {
+        Artist artist = (Artist) argument;
+        for (book in artist.getBooksArtistFor ()){
+        } for (coverBook in artist.getBooksCoverArtistFor ()){
+        }}
+
+}
+
