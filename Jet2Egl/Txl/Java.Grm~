@@ -89,7 +89,7 @@
 % Lexical conventions of Java 
 
 % T.D. Oct 2007, added "$"
-#pragma -width 1024 -id "$"
+#pragma -comments -width 1024 -id "$"
 
 tokens
     number    "\d+[LlFfDd]?"                                     % Java ints
@@ -104,7 +104,7 @@ end comments
 
 % T.D. Oct 2007 added ...
 compounds
-    <>  '%=  &&  &=  *=  ++  +=   --  -=  /=  ^=  |=  ||
+    !=  '%=  &&  &=  *=  ++  +=   --  -=  /=  ^=  |=  ||
     <<  <<=  <=  ==  >=   ...
 end compounds
 
@@ -245,6 +245,8 @@ define modifier
     |   'strictfp		% Added strictfp XG July 23, 2002
     |   [annotation]		% T.D. Oct 2007
 end define
+
+
 
 define extends_clause
     'extends [list type_name+]
@@ -488,6 +490,7 @@ define statement
     |   [try_statement]
     |   [assert_statement]		% T.D. Oct 2007
     |   [block]
+    |   [comment_statement]
 end define
 
 define empty_statement
@@ -709,7 +712,7 @@ define equality_op_relational_expression
 end define
 
 define equality_op
-    '== | '<>
+    '== | '!=
 end define
 
 define relational_expression
@@ -915,5 +918,15 @@ end define
 define and_type_spec
     '& [type_specifier]
 end define
+
+define comment_statement
+    [comment]|
+    [comment][NL]
+end define
+
+define comment
+        '//
+end define
+
 
 % --- END ---
