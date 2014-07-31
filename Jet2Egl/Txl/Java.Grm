@@ -919,10 +919,5 @@ define and_type_spec
     '& [type_specifier]
 end define
 
-define comment_statement
-    [comment]|
-    [comment][NL]
-end define
-
 
 % --- END ---

@@ -19,7 +19,7 @@ function java2eol
     by
 	P [transformForIn]
 	  %[transformTypeDeclaration]
-	  [transformOps]
+	  %[transformOps]
 	  [transformBooleanOps]
 	  %[transformTypeAssignment]
 end function

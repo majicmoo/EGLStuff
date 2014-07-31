@@ -920,12 +920,8 @@ define and_type_spec
 end define
 
 define comment_statement
-    [comment]|
-    [comment][NL]
-end define
-
-define comment
-        '//
+    [NL][comment][NL]|
+    [NL][comment]
 end define
 
 
