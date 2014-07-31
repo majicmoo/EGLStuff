@@ -1,0 +1,24 @@
+Current errors
+
+
+--------------------
+If statement
+
+[./java/Images.java, Txl/java.Txl] : TXL0192E line 45 of ./java/Images.java - Syntax error at or near:
+	) ) { //aab%> //aab    <% >>> if <<< ( genClass . isImage ( 
+['/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/eol/artists2.eol', '/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/eol/Images.eol']
+
+
+--------------------
+Include
+[./java/Images.java, Txl/java.Txl] : TXL0192E line 21 of ./java/Images.java - Syntax error at or near:
+	//aab%> //aab<% @ include file >>> = <<< "../Header.javajetinc" //aab%> //aabpackage <% //aab=genModel.getEditPluginPackageName() //aab%>; 
+['/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/eol/artists2.eol', '/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/eol/Images.eol']
+
+
+--------------------
+Semicolon?
+[./java/Images.java, Txl/java.Txl] : TXL0192E line 26 of ./java/Images.java - Syntax error at or near:
+	. markImportLocation ( stringBuffer ) >>> ; <<< //aab%> //aab //aab/** //aab * <!-- begin-user-doc --> //aab * <!-- end-user-doc --> 
+['/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/eol/artists2.eol', '/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/eol/Images.eol']
+

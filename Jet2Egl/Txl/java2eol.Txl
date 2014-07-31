@@ -165,6 +165,16 @@ rule transformBooleanNot
 	'not
 end rule
 
+
+%% Remove ';' end of line semicolons
+
+
+%% Remove main
+
+
+%%
+
+
 %one decl statetement to decls
 function statementOneDeclToDecls Stmt [statement]
     replace [repeat declaration_or_statement]

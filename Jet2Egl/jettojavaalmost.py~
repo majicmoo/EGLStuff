@@ -37,7 +37,6 @@ def main(fname):
         if "=" in line:
             if line.index('=') == 0:
                 writeToFile( file_destination, "//aab"+line)
-                writeToFile( file_destination, ";\n")
             else:
                 writeToFile( file_destination, line)
         else:
@@ -107,7 +106,9 @@ def findImports(line):
     temp = line.split()
     for i in temp:
         if "import" in i:
+            print "temp = ",i
             a = i.split("=")
+            print a
             imports.append(clean(a[a.index("imports") + 1]))
             ##print imports
     

@@ -105,8 +105,10 @@ def findImports(line):
     global imports
     temp = line.split()
     for i in temp:
-        if "import" in i:
+        if "imports" in i:
+            print "temp = ",i
             a = i.split("=")
+            print a
             imports.append(clean(a[a.index("imports") + 1]))
             ##print imports
     
