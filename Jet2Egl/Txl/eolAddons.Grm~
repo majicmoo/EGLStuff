@@ -57,12 +57,32 @@ end compounds
 
 
 redefine statement
-        [for_statement]
+        [label_statement]        
+    |   [expression_statement]
+    |   [if_statement]
+    |   [switch_statement]
+    |   [while_statement]
+    |   [do_statement]
+    |   [for_statement]
     |   [for_in_statement]		% T.D. Oct 2007
-    |   [for_stmt]
-    |   [print_stmt]
-    |[block]
+    |   [break_statement]
+    |   [continue_statement]
+    |   [return_statement]
+    |   [throw_statement]
+    |   [synchronized_statement]
+    |   [try_statement]
+    |   [assert_statement]		% T.D. Oct 2007
+    |   [block]
 
+    |   [while_stmt]
+    |   [for_stmt]
+
+    |   [import_stmt]
+    |   [print_stmt]
+
+    |   [repeat declaration_or_statement]
+
+    |   [empty_statement]
 end define
 
 define print_stmt 

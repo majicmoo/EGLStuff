@@ -1,5 +1,5 @@
-txl ./java/images.java -o ./eol/images.eol
+txl ./java/BlockDemo.java -o ./eol/BlockDemo.eol
 echo "**************************"
-echo "images.java"
+echo "BlockDemo.java"
 echo "**************************"
 echo ""

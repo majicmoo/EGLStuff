@@ -1,8 +1,9 @@
-import comicBooks.*;
-import java.util.*;
-import java.util.*;
 class Images {
 public static void main (String[] args) {
+//aab<%import comicBooks.*;%>
+//aab<%import java.util.*;%>
+//aab<%import java.util.*;%>
+//aab<% include("../Header.javajetinc");%>
 //aab<%
 
 /**
@@ -17,7 +18,6 @@ public static void main (String[] args) {
  */
 
 //aab%>
-//aab
 //aabpackage <%
 //aab=genModel.getEditPluginPackageName()
 //aab%>;

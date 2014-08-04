@@ -1,6 +1,6 @@
-import comicBooks.*;
 class artists2 {
 public static void main (String[] args) {
+//aab<%import comicBooks.*;%>
 //aab<%
  Artist artist = (Artist) argument; 
 //aab%>

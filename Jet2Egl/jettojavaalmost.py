@@ -1,4 +1,5 @@
 imports = []
+includes = set() 
 import glob
 inDynamic = False
 inFunction = False
@@ -11,27 +12,39 @@ import os
 
 def main(fname):
     global imports
+    global includes
     file_origin = open(fname, "r")
     file_edit = open("temp.txt", "w")
     path = "/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/java"
     file_destination = open(os.path.join(path, cleanFileName(fname)+".java"), "w")
     
-    ##find imports
+    ## loop through jet file
+    ##  1. Look for imports and store in a list
+    ##  2. Look for includes and store in a list
+    ##  3. Comment out static parts of Jet with symbol "//aab" and save changes to temporary file
     for line in file_origin:
         findImports(line)
+        findIncludes(line)
         commentStatic(line, file_edit)
-        
-    #write imports
-    for i in imports:
-        writeToFile(file_destination, "import " + i + ";\n")
-        
+          
     ##write main
     writeToFile(file_destination, "class "+cleanFileName(fname)+ " {\n")
     writeToFile(file_destination, "public static void main (String[] args) {\n")
     
+    # write imports
+    # Loop through import list and add them to top of java file
+    for i in imports:
+        writeToFile(file_destination, "//aab<%import " + i + ";%>\n")
+    
+    #write includes
+    for i in includes:
+        print i
+        writeToFile(file_destination, "//aab<% include(\""+i+"\");%>\n")
+    
     file_edit.close()
     file_edit = open("temp.txt", "r")
     
+
     ##write dynamic code
     for line in file_edit:
         if "=" in line:
@@ -56,6 +69,10 @@ def commentStatic(line, filename):
     
     ##returns if an import statement
     if "import" in line:
+        return
+    
+    ##returns if an import statement   
+    if "@ include" in line:
         return
 
     temp = False
@@ -106,12 +123,21 @@ def findImports(line):
     temp = line.split()
     for i in temp:
         if "imports" in i:
-            print "temp = ",i
             a = i.split("=")
-            print a
             imports.append(clean(a[a.index("imports") + 1]))
-            ##print imports
-    
+            
+
+
+def findIncludes(line):
+    global includes
+    if "@ include" in line:
+        temp = line.split()
+        for i in temp:
+            if "file" in i:
+                a = i.split("=")
+                includes.add(clean(a[1]))
+
+   
 def clean(string):
     temp = ""
     for i in string:
@@ -129,8 +155,10 @@ def cleanFileName(fname):
     return temp[0]
 
 path = "/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/jet/*"
-##print "hi"
 files = glob.glob(path)
-print files
+print "************************"
+print "Transforming Jet to Java"
 for fname in files:
+    print fname
     main(fname)   
+print "************************"

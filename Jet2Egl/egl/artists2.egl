@@ -1,8 +1,4 @@
-import comicBooks.*;
-
-class artists2 {
-
-    public static void main (String [] args) {
+        [%import comicBooks.*;%]
         [%
         Artist artist = (Artist) argument;
         %]
@@ -41,6 +37,4 @@ class artists2 {
         
         <a href="artists.html">Back</a>
     }
-
 }
-
