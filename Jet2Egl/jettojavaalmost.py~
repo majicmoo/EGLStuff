@@ -1,17 +1,13 @@
 import os
 import glob
 
-imports = []
 includes = set() 
-inDynamic = False
 inFunction = False
 bracketCounter = 0;
 inString = False;
 inComment = False;
-startStatic = 0
 
 def main(fname):
-    global imports
     global includes
     imports = []
     includes = set() 
@@ -31,9 +27,9 @@ def main(fname):
     ##  2. Look for includes and store in a list
     ##  3. Comment out static parts of Jet with symbol "//aab" and save changes to temporary file
     for line in file_origin:
-        findImports(line)
+        imports = findImports(line, imports)
         findIncludes(line)
-        commentStatic(line, file_edit)
+        inDynamic = commentStatic(line, file_edit, inDynamic)
           
     ##write main
     writeToFile(file_destination, "class "+cleanFileName(fname)+ " {\n")
@@ -70,18 +66,15 @@ def main(fname):
     file_destination.close()  
     
         
-def commentStatic(line, filename):
+def commentStatic(line, filename, inDynamic):
     count = 0
-    global startStatic
-    global inDynamic
-    
     ##returns if an import statement
     if "import" in line:
-        return
+        return inDynamic
     
     ##returns if an import statement   
     if "@ include" in line:
-        return
+        return inDynamic
 
     temp = False
     for char in line:
@@ -104,6 +97,8 @@ def commentStatic(line, filename):
                     temp = True
                 writeToFile(filename, char)
                 ##print char
+                
+                    
         else:
             if temp == True:
                 temp = False
@@ -123,16 +118,16 @@ def commentStatic(line, filename):
                     writeToFile(filename, char)
                     ##print char
         count += 1
+    return inDynamic
         
 
-def findImports(line):
-    global imports
+def findImports(line, imports):
     if "imports" in line:
         a = line.split("\"")
         temp = a[a.index(" imports=")+1].split()
         for i in temp:
             imports.append(clean(i))
-            print i
+    return imports
             
 
 
