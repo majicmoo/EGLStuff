@@ -1,8 +1,7 @@
 class Images {
 public static void main (String[] args) {
-//aab<%import comicBooks.*;%>
 //aab<%import java.util.*;%>
-//aab<%import java.util.*;%>
+//aab<%import org.eclipse.emf.codegen.ecore.genmodel.*;%>
 //aab<% include("../Header.javajetinc");%>
 //aab<%
 

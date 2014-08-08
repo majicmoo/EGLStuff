@@ -45,16 +45,65 @@ tokens
                  | "\d+.\d*"
 end tokens
 
-
+keys
+'var
+end keys
 
 % Compound operators
 compounds 
     '<> '= '+= '-= '*= '/= '%= '&= '|=  '^= '<<= '>>= '**= '//= '**  '>> 
 end compounds 
 
+% Python comments are # to end-of-line
+comments 
+    '# 
+    '\
+end comments
 
 
 
+define class_body_declaration_wo_field
+        [empty_declaration]
+    |   [member_declaration]
+    |   [instance_initializer]
+    |   [static_initializer]
+end define
+
+redefine class_body_declaration
+	[field_declaration]
+    |   [class_body_declaration_wo_field]
+end redefine
+
+redefine unary_expression
+        [pre_inc_dec] [unary_expression]
+    |   [unary_op] [SPOFF] [unary_expression] [SPON]
+    |   [postfix_expression]
+    |   [cast_expression]
+end redefine
+
+redefine postfix_expression
+	[primary] [repeat pre_inc_dec]
+end redefine
+
+
+redefine class_declaration
+	...
+    |   'class [id] [SPOFF] ': [SPON] [NL][IN] [repeat class_body_declaration] [EX][NL]
+    |   'class [id] [SPOFF] '( [SPON] [type_name] ') [SPOFF] ': [SPON] [NL][IN] [repeat class_body_declaration] [EX][NL]
+end define
+
+redefine expression_statement
+    [expression] [attr ';]        [NL]
+end define
+
+redefine variable_declaration
+    [repeat modifier] [type_specifier] [variable_declarators] [attr ';] [NL]
+end define
+
+redefine field_declaration
+	...
+    |   [assignment_expression] [NL] [attr ';]
+end redefine
 
 redefine statement
         [label_statement]        
@@ -74,10 +123,10 @@ redefine statement
     |   [assert_statement]		% T.D. Oct 2007
     |   [block]
 
-
+    
     |   [for_stmt]
 
-
+   
     |   [print_stmt]
 
     |   [repeat declaration_or_statement]
@@ -85,19 +134,51 @@ redefine statement
     |   [empty_statement]
 end define
 
+redefine empty_declaration
+    [attr ';] [NL]
+end define
+
+redefine empty_statement
+    [attr ';] [NL]
+end define
+
+
+
+
+redefine method_argument	
+	[SPOFF] '( [SPON] [list argument] ')   
+    |   [SPOFF] '( [SPON] [list variable_name] ')   
+end define
+
+
+redefine reference
+	[id] [repeat component]
+    |	[primitive_type] [repeat component]
+end define
+
+redefine component
+     [dot_id]
+   | [method_argument]
+   | [dimension] 
+   | [generic_argument]	
+end define
+
+
+
 define print_stmt 
-        'println( [list argument] [opt ',] [NL] ')
+        'println( [list argument] [opt ',] [NL] ')';
 end define 
 
 
 redefine assignment_expression
 	...
-    |   [unary_expression] '= [array_initializer]
+    |   'var [unary_expression] '= [expression]
 end redefine
 
-define unary_op
-	... | 'not [SP]
-end define
+
+
+
+
 
 define or_conditional_and_expression
 	...
@@ -109,6 +190,11 @@ define and_inclusive_or_expression
     |   'and [inclusive_or_expression]
 end define
 
+define unary_op
+	... | 'not [SP]
+end define
+
+
 
 redefine equality_op
     '= | '<>
@@ -118,6 +204,12 @@ define for_stmt
     'for '( [id] 'in [expression] [SPOFF] '){ [SPON] [NL][IN] [repeat declaration_or_statement] [EX] '}
 end define 
 
+
+
+% Every end of line may have an optional trailing comment
+define endofline
+    [opt comment] [NL] 
+end define
 
 
 

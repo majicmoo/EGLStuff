@@ -1,6 +1,9 @@
+class artists2 {
+    public static void main (String [] args) {
         [%import comicBooks.*;%]
         [%
-        Artist artist = (Artist) argument;
+        Artist artist = (Artist)
+        argument
         %]
         
         <h1>[%
@@ -10,7 +13,7 @@
         <h2>Books Artist For</h2>
         <ul>
         [%
-        for (book in artist.getBooksArtistFor ()){
+        for (book in artist.getBooksArtistFor()){
             %]
             	<li><a href="[%
             =book.getName()
@@ -24,7 +27,7 @@
         <h2>Books Cover Artist For</h2>
         <ul>
         [%
-        for (coverBook in artist.getBooksCoverArtistFor ()){
+        for (coverBook in artist.getBooksCoverArtistFor()){
             %]
             	<li><a href="[%
             =coverBook.getName()

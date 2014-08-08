@@ -1,18 +1,26 @@
+import os
+import glob
+
 imports = []
 includes = set() 
-import glob
 inDynamic = False
 inFunction = False
 bracketCounter = 0;
 inString = False;
 inComment = False;
 startStatic = 0
-import os
-
 
 def main(fname):
     global imports
     global includes
+    imports = []
+    includes = set() 
+    inDynamic = False
+    inFunction = False
+    bracketCounter = 0;
+    inString = False;
+    inComment = False;
+    startStatic = 0
     file_origin = open(fname, "r")
     file_edit = open("temp.txt", "w")
     path = "/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/java"
@@ -117,14 +125,16 @@ def commentStatic(line, filename):
                     writeToFile(filename, char)
                     ##print char
         count += 1
+        
 
 def findImports(line):
     global imports
-    temp = line.split()
-    for i in temp:
-        if "imports" in i:
-            a = i.split("=")
-            imports.append(clean(a[a.index("imports") + 1]))
+    if "imports" in line:
+        a = line.split("\"")
+        temp = a[a.index(" imports=")+1].split()
+        for i in temp:
+            imports.append(clean(i))
+            print i
             
 
 

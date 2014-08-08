@@ -21,12 +21,11 @@ def main(fname):
     file_edit = open("temp.txt", "r")
     
     ## change brackets
-    count = 0
     for line in file_edit:
-        if line != "\n" and count > 2:
+        if line != "\n" :
             temp = line.replace("%>", "%]")
             writeToFile(file_destination, temp.replace("<%", "[%"))
-        count += 1
+      
         
     file_origin.close()
     file_edit.close()

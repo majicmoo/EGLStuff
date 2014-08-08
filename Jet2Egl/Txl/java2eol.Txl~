@@ -23,6 +23,8 @@ function java2eol
 	  %[transformOps]
 	  [transformBooleanOps]
 	  %[transformTypeAssignment]
+	  [localVarDecl2Assignment]
+	  [removeCastExpressions]
 end function
 
 
@@ -41,40 +43,51 @@ rule transformForIn
 	  [statementOneDeclToDecls Stmt] 
     by
 	'for (Id 'in Expr '){
-	NewDecls
+	NewDecls';
 	'}
 end rule
 
 
-%%rule transformTypeAssignment
-%   replace [declaration_or_statement]
-%   _ [repeat modifier] _ [type_specifier] Id
- %  by
- %  'var Id
-%end rule
 
-%% Type declaration
-%% from type varName = ...
-%% to var varName = ...
-%rule transformTypeDeclaration
-%	replace [declaration_or_statement]
-%	_ [repeat modifier] _ [type_specifier] Id [id]
-%	by 
-%	'var  Id 
-%end rule
 
+ %local variable declaration to simple assignment
+rule localVarDecl2Assignment
+    replace $ [declaration_or_statement]
+	Decl [declaration_or_statement] 
+    deconstruct Decl
+    _ [repeat modifier] _ [type_specifier] _ [variable_declarators] ';
+    by
+	Decl [localVarDecl2AssignmentExp] 
+end rule
+
+
+function localVarDecl2AssignmentExp
+    replace [declaration_or_statement]
+    _ [repeat modifier] _ [type_specifier] Id [id] _ [opt generic_parameter] _ [repeat dimension]
+    '= Exp [conditional_expression] ';
+    construct Ass [assignment_expression]
+    'var Id '= Exp 
+    by
+    Ass ';
+end function
+
+rule removeCastExpressions
+    replace [unary_expression]
+        '( _ [type_specifier] ') Unary [unary_expression]
+    by
+        Unary
+end rule
 
 %% Transform All Operators
-%function transformOps
-%    replace [program]
-%	P [program]
-%    by
-%	P [transformDecrementOperator] 
-%	  [transformIncrementOperator]
+function transformOps
+    replace [program]
+	P [program]
+    by
+	P [transformDecrementOperator] 
+	  [transformIncrementOperator]
 	  % [transformNotEqualsOperator] 
 	  % [transformEqualsOperator]
-%end function
-
+end function
 
 %% REMOVE MAIN
 
@@ -106,22 +119,22 @@ end rule
 %% Decrement operator
 %% from var --
 %% to var = var-1
-%rule transformDecrementOperator
-%	replace [declaration_or_statement]
-%	Id [reference] '--
-%	by
-%	Id = Id '- 1
-%end rule
+rule transformDecrementOperator
+	replace [declaration_or_statement]
+	Id [reference] '--
+	by
+	Id = Id '- 1
+end rule
 
 %% Increment operator
 %% from var ++
 %% to var = var+1
-%rule transformIncrementOperator
-%	replace [declaration_or_statement]
-%	Id [reference] '++ 
-%	by
-%	Id = Id '+ 1
-%end rule
+rule transformIncrementOperator
+	replace [declaration_or_statement]
+	Id [reference] '++ 
+	by
+	Id = Id '+ 1
+end rule
 
 
 %% Transform All Boolean Operation%
@@ -164,6 +177,16 @@ rule transformBooleanNot
     by
 	'not
 end rule
+
+
+%% Remove ';' end of line semicolons
+
+
+%% Remove main
+
+
+%%
+
 
 %one decl statetement to decls
 function statementOneDeclToDecls Stmt [statement]

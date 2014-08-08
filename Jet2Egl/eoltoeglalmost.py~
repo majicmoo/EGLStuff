@@ -23,7 +23,7 @@ def main(fname):
     ## change brackets
     count = 0
     for line in file_edit:
-        if line != "\n" and count >= 2:
+        if line != "\n" and count > 2:
             temp = line.replace("%>", "%]")
             writeToFile(file_destination, temp.replace("<%", "[%"))
         count += 1

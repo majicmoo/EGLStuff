@@ -1,9 +1,8 @@
 class Images {
 
     public static void main (String [] args) {
-        //aab<%import comicBooks.*;%>
         //aab<%import java.util.*;%>
-        //aab<%import java.util.*;%>
+        //aab<%import org.eclipse.emf.codegen.ecore.genmodel.*;%>
         //aab<% include("../Header.javajetinc");%>
         //aab<%
         /**
@@ -31,7 +30,7 @@ class Images {
         //aab%>;
         //aab
         //aab<%
-        genModel.markImportLocation (stringBuffer);
+        genModel.markImportLocation(stringBuffer)
         //aab%>
         //aab
         //aab/**
@@ -46,15 +45,15 @@ class Images {
         //aab%>
         //aab{
         //aab<%
-        for (genPackage in genModel.getAllGenAndUsedGenPackagesWithClassifiers ()){
+        for (genPackage in genModel.getAllGenAndUsedGenPackagesWithClassifiers()){
             //aab%>
             //aab  <%
-            for (genClass in genPackage.getGenClasses ()){
+            for (genClass in genPackage.getGenClasses()){
                 //aab%>
                 //aab    <%
-                if (genClass.isImage ()) {
-                    String image = genClass.getItemIconFileName ();
-                    image = image.substring (image.lastIndexOf ("/icons/") + 1);
+                if (genClass.isImage()) {
+                    var image = genClass.getItemIconFileName()
+                    image = image.substring(image.lastIndexOf("/icons/") + 1)
                     //aab%>
                     //aab/**
                     //aab* <!-- begin-user-doc -->
@@ -74,12 +73,14 @@ class Images {
                 }
                 //aab%>
                 //aab  <%
+
             } //aab%>
             //aab<%
+
         } //aab%>
         //aab}
         //aab<%
-        genModel.emitSortedImports ();
+        genModel.emitSortedImports()
         //aab%>
     }
 
