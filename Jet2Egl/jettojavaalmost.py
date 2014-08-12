@@ -1,21 +1,11 @@
 import os
 import glob
 
-includes = set() 
-inFunction = False
-bracketCounter = 0;
-inString = False;
-inComment = False;
 
 def main(fname):
-    global includes
     imports = []
     includes = set() 
     inDynamic = False
-    inFunction = False
-    bracketCounter = 0;
-    inString = False;
-    inComment = False;
     startStatic = 0
     file_origin = open(fname, "r")
     file_edit = open("temp.txt", "w")
@@ -28,19 +18,18 @@ def main(fname):
     ##  3. Comment out static parts of Jet with symbol "//aab" and save changes to temporary file
     for line in file_origin:
         imports = findImports(line, imports)
-        findIncludes(line)
+        includes = findIncludes(line, includes)
         inDynamic = commentStatic(line, file_edit, inDynamic)
           
-    ##write main
+    ##write main class to allow java transformation to work
     writeToFile(file_destination, "class "+cleanFileName(fname)+ " {\n")
     writeToFile(file_destination, "public static void main (String[] args) {\n")
     
-    # write imports
-    # Loop through import list and add them to top of java file
+    # write imports to destination
     for i in imports:
         writeToFile(file_destination, "//aab<%import " + i + ";%>\n")
     
-    #write includes
+    #write includes to destination
     for i in includes:
         print i
         writeToFile(file_destination, "//aab<% include(\""+i+"\");%>\n")
@@ -131,14 +120,14 @@ def findImports(line, imports):
             
 
 
-def findIncludes(line):
-    global includes
+def findIncludes(line, includes):
     if "@ include" in line:
         temp = line.split()
         for i in temp:
             if "file" in i:
                 a = i.split("=")
                 includes.add(clean(a[1]))
+    return includes
 
    
 def clean(string):
