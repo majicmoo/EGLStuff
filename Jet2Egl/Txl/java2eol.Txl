@@ -24,7 +24,7 @@ function java2eol
 	  [transformBooleanOps]
 	  %[transformTypeAssignment]
 	  [localVarDecl2Assignment]
-	  [removeCastExpressions]
+	  [removeCastDeclarations]
 end function
 
 
@@ -71,12 +71,7 @@ function localVarDecl2AssignmentExp
     Ass ';
 end function
 
-rule removeCastExpressions
-    replace [unary_expression]
-        '( _ [type_specifier] ') Unary [unary_expression]
-    by
-        Unary
-end rule
+
 
 %% Transform All Operators
 function transformOps
@@ -93,6 +88,18 @@ end function
 
 
 %% TRANSFORM ASSIGNMENTS
+
+
+
+
+%remove cast
+rule removeCastDeclarations
+    replace [statement]
+       _ [type_specifier] Name [variable_name] '= '( _ [type_specifier] ') Unary [unary_expression]
+    by
+        Name '= Unary ';
+end rule
+
 
 %% Not equals operator
 %% from !=

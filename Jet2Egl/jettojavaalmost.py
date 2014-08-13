@@ -45,6 +45,11 @@ def main(fname):
                 writeToFile( file_destination, "//aab"+line)
             else:
                 writeToFile( file_destination, line)
+        elif "@" in line:
+            if line.index("@") == 0:
+                writeToFile( file_destination, "//aab"+line)
+            else:
+                writeToFile( file_destination, line)
         else:
             writeToFile( file_destination, line)
     

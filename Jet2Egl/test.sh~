@@ -1,7 +1,7 @@
 python ./jettojavaalmost.py
 echo "**************************"
 echo "BlockDemo.java"
-txl  ./java/BlockDemo.java -o ./eol/BlockDemo.eol 
+txl -comment ./java/BlockDemo.java -o ./eol/BlockDemo.eol 
 echo "**************************"
 echo "**************************"
 echo "Artists2.java"

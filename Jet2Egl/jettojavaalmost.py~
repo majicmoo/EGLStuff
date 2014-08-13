@@ -21,16 +21,15 @@ def main(fname):
         includes = findIncludes(line, includes)
         inDynamic = commentStatic(line, file_edit, inDynamic)
           
-    ##write main
+    ##write main class to allow java transformation to work
     writeToFile(file_destination, "class "+cleanFileName(fname)+ " {\n")
     writeToFile(file_destination, "public static void main (String[] args) {\n")
     
-    # write imports
-    # Loop through import list and add them to top of java file
+    # write imports to destination
     for i in imports:
         writeToFile(file_destination, "//aab<%import " + i + ";%>\n")
     
-    #write includes
+    #write includes to destination
     for i in includes:
         print i
         writeToFile(file_destination, "//aab<% include(\""+i+"\");%>\n")
@@ -43,6 +42,11 @@ def main(fname):
     for line in file_edit:
         if "=" in line:
             if line.index('=') == 0:
+                writeToFile( file_destination, "//aab"+line)
+            else:
+                writeToFile( file_destination, line)
+        else if "@" in line:
+            if line.index("@") == 0:
                 writeToFile( file_destination, "//aab"+line)
             else:
                 writeToFile( file_destination, line)

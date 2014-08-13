@@ -79,21 +79,21 @@ redefine unary_expression
     |   [unary_op] [SPOFF] [unary_expression] [SPON]
     |   [postfix_expression]
     |   [cast_expression]
+    
+    |   [cast_expr]
 end redefine
+
+
+define cast_expr
+    [variable_name] '= [unary_expression] ';
+end define
+    
 
 redefine postfix_expression
 	[primary] [repeat pre_inc_dec]
 end redefine
 
-redefine cast_expression
-    [unary_expression]
-end redefine
 
-redefine class_declaration
-	...
-    |   'class [id] [SPOFF] ': [SPON] [NL][IN] [repeat class_body_declaration] [EX][NL]
-    |   'class [id] [SPOFF] '( [SPON] [type_name] ') [SPOFF] ': [SPON] [NL][IN] [repeat class_body_declaration] [EX][NL]
-end define
 
 redefine expression_statement
     [expression] [attr ';]        [NL]
@@ -194,7 +194,8 @@ define and_inclusive_or_expression
 end define
 
 define unary_op
-	... | 'not [SP]
+	... 
+	| 'not [SP]
 end define
 
 
