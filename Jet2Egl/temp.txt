@@ -70,7 +70,7 @@ class TestCase {
                     %>
                           <%
                     if (first) {
-                        first = false;
+                        first = false
                         %>
                          * <p>
                          * The following features are tested:
@@ -111,7 +111,7 @@ class TestCase {
                 %>
                     <%
                 if (first) {
-                    first = false;
+                    first = false
                     %>
                      * <p>
                      * The following operations are tested:
@@ -174,7 +174,7 @@ class TestCase {
         }
         %>
         <%
-        if (genModel.getDriverNumber() != null) {
+        if (genModel.getDriverNumber() <> null) {
             %>
             
             	/**

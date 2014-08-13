@@ -53,7 +53,7 @@ class Images {
                 //aab    <%
                 if (genClass.isImage()) {
                     var image = genClass.getItemIconFileName()
-                    image = image.substring(image.lastIndexOf("/icons/") + 1);
+                    image = image.substring(image.lastIndexOf("/icons/") + 1)
                     //aab%>
                     //aab/**
                     //aab* <!-- begin-user-doc -->

@@ -20,7 +20,7 @@ function java2eol
     by
 	P [transformForIn]
 	  %[transformTypeDeclaration]
-	  %[transformOps]
+	  [transformOps]
 	  [transformBooleanOps]
 	  %[transformTypeAssignment]
 	  [localVarDecl2Assignment]
@@ -80,8 +80,8 @@ function transformOps
     by
 	P [transformDecrementOperator] 
 	  [transformIncrementOperator]
-	  % [transformNotEqualsOperator] 
-	  % [transformEqualsOperator]
+	  [transformNotEqualsOperator] 
+	  [transformEqualsOperator]
 end function
 
 %% REMOVE MAIN
@@ -104,23 +104,23 @@ end rule
 %% Not equals operator
 %% from !=
 %% to <>
-%rule transformNotEqualsOperator
-%	replace [equality_op]
-%	'!=
-%	by
-%	'<>
-%end rule
+rule transformNotEqualsOperator
+	replace [equality_op]
+	'!= 
+	by
+	'<> 
+end rule
 
 
 %% Equals operator
 %% from ==
 %% to =
-%rule transformEqualsOperator
-%	replace [equality_op]
-%	'==
-%	by
-%	'=
-%end rule
+rule transformEqualsOperator
+	replace [equality_op]
+	'==
+	by
+	'=
+end rule
 
 
 %% Decrement operator

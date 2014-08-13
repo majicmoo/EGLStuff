@@ -39,6 +39,14 @@ public static void main (String[] args) {
 //aab%>
 //aab</ul>
 //aab
+//aab<%
+ if (coverBook == true){ 
+//aab%>
+//aabtest
+//aab<%
+ } 
+//aab%>
+//aab
 //aab<a href="artists.html">Back</a>
 
 }

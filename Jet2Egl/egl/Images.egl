@@ -52,7 +52,7 @@ class Images {
                     [%
                 if (genClass.isImage()) {
                     var image = genClass.getItemIconFileName()
-                    image = image.substring(image.lastIndexOf("/icons/") + 1);
+                    image = image.substring(image.lastIndexOf("/icons/") + 1)
                     %]
                     /**
                     * <!-- begin-user-doc -->

@@ -38,6 +38,14 @@ class artists2 {
         } %]
         </ul>
         
+        [%
+        if (coverBook = true) {
+            %]
+            test
+            [%
+        }
+        %]
+        
         <a href="artists.html">Back</a>
     }
 }

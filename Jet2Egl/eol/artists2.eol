@@ -41,6 +41,14 @@ class artists2 {
         } //aab%>
         //aab</ul>
         //aab
+        //aab<%
+        if (coverBook = true) {
+            //aab%>
+            //aabtest
+            //aab<%
+        }
+        //aab%>
+        //aab
         //aab<a href="artists.html">Back</a>
     }
 
