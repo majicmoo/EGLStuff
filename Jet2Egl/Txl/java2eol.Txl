@@ -18,7 +18,10 @@ function java2eol
     replace [program]
 	P [program]
     by
-	P [transformForIn]
+	P 
+	[removeClass]
+	[removeMainFunction]
+	[transformForIn]
 	  %[transformTypeDeclaration]
 	  [transformOps]
 	  [transformBooleanOps]
@@ -189,10 +192,23 @@ end rule
 %% Remove ';' end of line semicolons
 
 
-%% Remove main
+%% Remove class
+rule removeClass
+    replace [program]
+    _ [class_header] Body [class_body] 
+    by
+    Body
+end rule
+    
 
+%% Remove main function
+rule removeMainFunction
+    replace [method_or_constructor_declaration]
+    _ [repeat modifier] _ [type_specifier] _ [method_declarator] _ [opt throws] Body [method_body]
+    by
+    Body
+end rule
 
-%%
 
 
 %one decl statetement to decls

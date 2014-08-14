@@ -1,5 +1,5 @@
-class artists2 {
-    public static void main (String [] args) {
+{
+    {
         [%import comicBooks.*;%]
         [%
         Artist artist = (Artist)

@@ -60,7 +60,16 @@ comments
     '\
 end comments
 
+redefine type_declaration
+        [class_declaration]      [NL][NL]
+    |   [interface_declaration]  [NL][NL]
+    |   [enum_declaration]	 [NL]		% T.D. Oct 2007
+    |   [class_dln] [NL][NL]
+end redefine
 
+define class_dln
+    [class_body]
+end define
 
 define class_body_declaration_wo_field
         [empty_declaration]
@@ -93,7 +102,15 @@ redefine postfix_expression
 	[primary] [repeat pre_inc_dec]
 end redefine
 
+redefine method_or_constructor_declaration
+        [method_declaration]
+    |   [constructor_declaration]
+    |   [method_dec]
+end redefine
 
+define method_dec
+    [method_body]
+end define
 
 redefine expression_statement
     [expression] [attr ';]        [NL]

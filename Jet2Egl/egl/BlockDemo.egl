@@ -1,5 +1,5 @@
-class BlockDemo {
-    public static void main (String [] args) {
+{
+    {
         var condition = true
         if (condition) {
             // begin block 1

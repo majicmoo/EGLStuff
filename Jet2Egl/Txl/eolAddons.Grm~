@@ -60,7 +60,16 @@ comments
     '\
 end comments
 
+redefine type_declaration
+        [class_declaration]      [NL][NL]
+    |   [interface_declaration]  [NL][NL]
+    |   [enum_declaration]	 [NL]		% T.D. Oct 2007
+    |   [class_dln] [NL][NL]
+end redefine
 
+define class_dln
+    [class_body]
+end define
 
 define class_body_declaration_wo_field
         [empty_declaration]
@@ -199,9 +208,9 @@ define unary_op
 end define
 
 
-define equality_op
+redefine equality_op
     '== | '!= | '= | '<> 
-end define
+end redefine
 
 define for_stmt 
     'for '( [id] 'in [expression] [SPOFF] '){ [SPON] [NL][IN] [repeat declaration_or_statement] [EX] '}
