@@ -151,6 +151,15 @@ define and_inclusive_or_expression
     |   'and [inclusive_or_expression]
 end define
 
+redefine unary_expression
+    ...
+    | [increment]
+end redefine
+
+define increment
+    [primary] '= [primary] '+ '1
+end define
+
 define unary_op
 	... 
 	| 'not [SP]

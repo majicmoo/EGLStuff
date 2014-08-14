@@ -45,7 +45,9 @@
             //aab<%
             var amy = 7.0;
             amy = 5.0;
+            amy = amy + 1;
             //aab%>
+            //aabtest
             //aab<%
         }
         //aab%>

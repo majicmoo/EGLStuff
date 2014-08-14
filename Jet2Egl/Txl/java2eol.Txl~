@@ -81,16 +81,13 @@ function transformOps
     replace [program]
 	P [program]
     by
-	P [transformDecrementOperator] 
+	P %[transformDecrementOperator] 
 	  [transformIncrementOperator]
 	  [transformNotEqualsOperator] 
 	  [transformEqualsOperator]
 end function
 
-%% REMOVE MAIN
 
-
-%% TRANSFORM ASSIGNMENTS
 
 %% Remove casts
 
@@ -138,12 +135,12 @@ end rule
 %% Increment operator
 %% from var ++
 %% to var = var+1
-%rule transformIncrementOperator
-%	replace [declaration_or_statement]
-%	Id [reference] '++ 
-%	by
-%	Id = Id '+ 1
-%end rule
+rule transformIncrementOperator
+	replace [unary_expression]
+	Id [primary] '++ ';
+	by
+	Id '= Id '+ '1 ';
+end rule
 
 
 %% Transform All Boolean Operation%

@@ -45,7 +45,9 @@ public static void main (String[] args) {
 //aab<%
  int amy = (int) 7.0; 
 amy = (int) 5.0;
+amy++;
 //aab%>
+//aabtest
 //aab<%
  } 
 //aab%>
