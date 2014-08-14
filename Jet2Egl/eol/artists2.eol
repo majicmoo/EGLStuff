@@ -2,7 +2,7 @@
     {
         //aab<%import comicBooks.*;%>
         //aab<%
-        var artist = argument
+        var artist = argument;
         //aab%>
         //aab
         //aab<h1><%
@@ -20,7 +20,7 @@
             //aab=book.getName()
             //aab%></a></li>
             //aab<%
-
+            ;
         } //aab%>
         //aab</ul>
         //aab
@@ -35,7 +35,7 @@
             //aab=coverBook.getName()
             //aab%></a></li>
             //aab<%
-
+            ;
         } //aab%>
         //aab</ul>
         //aab
@@ -43,7 +43,8 @@
         if (coverBook = true) {
             //aab%>
             //aab<%
-            var amy = 7.0
+            var amy = 7.0;
+            amy = 5.0;
             //aab%>
             //aab<%
         }

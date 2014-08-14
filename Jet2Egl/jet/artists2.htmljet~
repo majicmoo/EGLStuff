@@ -18,7 +18,8 @@
 </ul>
 
 <% if (coverBook == true){ %>
-<% int amy = (int) 7.0; %>
+<% int amy = (int) 7.0; 
+amy = (int) 5.0;%>
 <% } %>
 
 <a href="artists.html">Back</a>

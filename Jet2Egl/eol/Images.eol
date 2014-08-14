@@ -29,7 +29,7 @@
         //aab%>;
         //aab
         //aab<%
-        genModel.markImportLocation(stringBuffer)
+        genModel.markImportLocation(stringBuffer);
         //aab%>
         //aab
         //aab/**
@@ -51,8 +51,8 @@
                 //aab%>
                 //aab    <%
                 if (genClass.isImage()) {
-                    var image = genClass.getItemIconFileName()
-                    image = image.substring(image.lastIndexOf("/icons/") + 1)
+                    var image = genClass.getItemIconFileName();
+                    image = image.substring(image.lastIndexOf("/icons/") + 1);
                     //aab%>
                     //aab/**
                     //aab* <!-- begin-user-doc -->
@@ -72,14 +72,14 @@
                 }
                 //aab%>
                 //aab  <%
-
+                ;
             } //aab%>
             //aab<%
-
+            ;
         } //aab%>
         //aab}
         //aab<%
-        genModel.emitSortedImports()
+        genModel.emitSortedImports();
         //aab%>
     }
 

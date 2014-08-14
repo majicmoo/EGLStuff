@@ -48,7 +48,7 @@
         //aab%>;
         //aab
         //aab<%
-        genModel.markImportLocation(stringBuffer)
+        genModel.markImportLocation(stringBuffer);
         //aab%>
         //aab
         //aab/**
@@ -59,7 +59,7 @@
         //aab * <!-- end-user-doc -->
         //aab<%
         if (not  genClass.getImplementedGenFeatures().isEmpty()) {
-            var first = true
+            var first = true;
             //aab%>
             //aab  <%
             for (genFeature in genClass.getImplementedGenFeatures()){
@@ -69,7 +69,7 @@
                     //aab%>
                     //aab      <%
                     if (first) {
-                        first = false
+                        first = false;
                         //aab%>
                         //aab * <p>
                         //aab * The following features are tested:
@@ -88,7 +88,7 @@
                 }
                 //aab%>
                 //aab  <%
-
+                ;
             } //aab%>
             //aab  <%
             if (not  first) {
@@ -103,14 +103,14 @@
         //aab%>
         //aab<%
         if (not  genClass.getImplementedGenOperations().isEmpty()) {
-            var first = true
+            var first = true;
             //aab%>
             //aab  <%
             for (genOperation in genClass.getImplementedGenOperations()){
                 //aab%>
                 //aab    <%
                 if (first) {
-                    first = false
+                    first = false;
                     //aab%>
                     //aab * <p>
                     //aab * The following operations are tested:
@@ -128,7 +128,7 @@
                 //aab=genOperation.getFormattedName()
                 //aab%></em>}</li>
                 //aab  <%
-
+                ;
             } //aab%>
             //aab  <%
             if (not  first) {
@@ -626,7 +626,7 @@
             //TestCase/implementedGenFeature.override.javajetinc
             //aab%>
             //aab<%
-
+            ;
         } //aab%>
         //aab<%
         for (genOperation in genClass.getImplementedGenOperations()){
@@ -685,14 +685,14 @@
             //TestCase/implementedGenOperation.override.javajetinc
             //aab%>
             //aab<%
-
+            ;
         } //aab%>
         //aab
         //aab} //<%
         //aab=genClass.getTestCaseClassName()
         //aab%>
         //aab<%
-        genModel.emitSortedImports()
+        genModel.emitSortedImports();
         //aab%>
     }
 

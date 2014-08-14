@@ -2,7 +2,7 @@
     {
         [%import comicBooks.*;%]
         [%
-        var artist = argument
+        var artist = argument;
         %]
         
         <h1>[%
@@ -20,6 +20,7 @@
             =book.getName()
             %]</a></li>
             [%
+            ;
         } %]
         </ul>
         
@@ -34,6 +35,7 @@
             =coverBook.getName()
             %]</a></li>
             [%
+            ;
         } %]
         </ul>
         
@@ -41,7 +43,8 @@
         if (coverBook = true) {
             %]
             [%
-            var amy = 7.0
+            var amy = 7.0;
+            amy = 5.0;
             %]
             [%
         }

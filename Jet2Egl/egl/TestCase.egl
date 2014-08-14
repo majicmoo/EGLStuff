@@ -48,7 +48,7 @@
         %];
         
         [%
-        genModel.markImportLocation(stringBuffer)
+        genModel.markImportLocation(stringBuffer);
         %]
         
         /**
@@ -59,7 +59,7 @@
          * <!-- end-user-doc -->
         [%
         if (not  genClass.getImplementedGenFeatures().isEmpty()) {
-            var first = true
+            var first = true;
             %]
               [%
             for (genFeature in genClass.getImplementedGenFeatures()){
@@ -69,7 +69,7 @@
                     %]
                           [%
                     if (first) {
-                        first = false
+                        first = false;
                         %]
                          * <p>
                          * The following features are tested:
@@ -88,6 +88,7 @@
                 }
                 %]
                   [%
+                ;
             } %]
               [%
             if (not  first) {
@@ -102,14 +103,14 @@
         %]
         [%
         if (not  genClass.getImplementedGenOperations().isEmpty()) {
-            var first = true
+            var first = true;
             %]
               [%
             for (genOperation in genClass.getImplementedGenOperations()){
                 %]
                     [%
                 if (first) {
-                    first = false
+                    first = false;
                     %]
                      * <p>
                      * The following operations are tested:
@@ -127,6 +128,7 @@
                 =genOperation.getFormattedName()
                 %]</em>}</li>
                   [%
+                ;
             } %]
               [%
             if (not  first) {
@@ -624,6 +626,7 @@
             //TestCase/implementedGenFeature.override.javajetinc
             %]
             [%
+            ;
         } %]
         [%
         for (genOperation in genClass.getImplementedGenOperations()){
@@ -682,13 +685,14 @@
             //TestCase/implementedGenOperation.override.javajetinc
             %]
             [%
+            ;
         } %]
         
         } //[%
         =genClass.getTestCaseClassName()
         %]
         [%
-        genModel.emitSortedImports()
+        genModel.emitSortedImports();
         %]
     }
 }

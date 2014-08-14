@@ -81,8 +81,8 @@ function transformOps
     replace [program]
 	P [program]
     by
-	P [transformDecrementOperator] 
-	  [transformIncrementOperator]
+	P %[transformDecrementOperator] 
+	  %[transformIncrementOperator]
 	  [transformNotEqualsOperator] 
 	  [transformEqualsOperator]
 end function
@@ -96,9 +96,9 @@ end function
 
 rule removeCast
     replace [unary_expression]
-    '( _ [type_specifier] ') Expr [unary_expression]
+    '( _ [type_specifier] ') Expr [unary_expression] 
     by
-    Expr
+    Expr 
 end rule
     
 
@@ -128,22 +128,22 @@ end rule
 %% Decrement operator
 %% from var --
 %% to var = var-1
-rule transformDecrementOperator
-	replace [declaration_or_statement]
-	Id [reference] '--
-	by
-	Id = Id '- 1
-end rule
+%rule transformDecrementOperator
+%	replace [declaration_or_statement]
+%	Id [reference] '--
+%	by
+%	Id = Id '- 1
+%end rule
 
 %% Increment operator
 %% from var ++
 %% to var = var+1
-rule transformIncrementOperator
-	replace [declaration_or_statement]
-	Id [reference] '++ 
-	by
-	Id = Id '+ 1
-end rule
+%rule transformIncrementOperator
+%	replace [declaration_or_statement]
+%	Id [reference] '++ 
+%	by
+%	Id = Id '+ 1
+%end rule
 
 
 %% Transform All Boolean Operation%

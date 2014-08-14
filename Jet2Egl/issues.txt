@@ -19,4 +19,6 @@ if statements (conditional)
 
 increment
 
-modulas
+modulus
+
+semi-colons

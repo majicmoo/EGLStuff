@@ -82,9 +82,6 @@ define method_dec
     [method_body]
 end define
 
-redefine expression_statement
-    [expression] [attr ';]        [NL]
-end define
 
 
 redefine statement
@@ -116,13 +113,7 @@ redefine statement
     |   [empty_statement]
 end define
 
-redefine empty_declaration
-    [attr ';] [NL]
-end define
 
-redefine empty_statement
-    [attr ';] [NL]
-end define
 
 
 
@@ -134,12 +125,7 @@ end define
 
 
 
-redefine component
-     [dot_id]
-   | [method_argument]
-   | [dimension] 
-   | [generic_argument]	
-end define
+
 
 
 
@@ -153,10 +139,6 @@ redefine assignment_expression
     |   'var [unary_expression] '= [expression]
     
 end redefine
-
-
-
-
 
 
 define or_conditional_and_expression
