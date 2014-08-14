@@ -81,7 +81,7 @@ function transformOps
     replace [program]
 	P [program]
     by
-	P %[transformDecrementOperator] 
+	P [transformDecrementOperator] 
 	  [transformIncrementOperator]
 	  [transformNotEqualsOperator] 
 	  [transformEqualsOperator]
@@ -125,12 +125,12 @@ end rule
 %% Decrement operator
 %% from var --
 %% to var = var-1
-%rule transformDecrementOperator
-%	replace [declaration_or_statement]
-%	Id [reference] '--
-%	by
-%	Id = Id '- 1
-%end rule
+rule transformDecrementOperator
+    replace [unary_expression]
+	Id [primary] '-- 
+	by
+	Id '= Id '- '1
+end rule
 
 %% Increment operator
 %% from var ++

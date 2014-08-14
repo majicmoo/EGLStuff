@@ -154,7 +154,16 @@ end define
 redefine unary_expression
     ...
     | [increment]
+    | [decrement]
 end redefine
+
+define increment
+    [primary] '= [primary] '+ '1
+end define
+
+define decrement
+    [primary] '= [primary] '- '1
+end define
 
 define unary_op
 	... 
