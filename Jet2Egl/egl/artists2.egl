@@ -2,8 +2,7 @@
     {
         [%import comicBooks.*;%]
         [%
-        Artist artist = (Artist)
-        argument
+        var artist = argument
         %]
         
         <h1>[%
@@ -41,7 +40,9 @@
         [%
         if (coverBook = true) {
             %]
-            test
+            [%
+            var amy = 7.0
+            %]
             [%
         }
         %]

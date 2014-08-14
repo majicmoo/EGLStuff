@@ -42,7 +42,9 @@ public static void main (String[] args) {
 //aab<%
  if (coverBook == true){ 
 //aab%>
-//aabtest
+//aab<%
+ int amy = (int) 7.0; 
+//aab%>
 //aab<%
  } 
 //aab%>

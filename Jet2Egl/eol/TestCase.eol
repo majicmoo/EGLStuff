@@ -58,14 +58,14 @@
         //aab%></b></em>'.
         //aab * <!-- end-user-doc -->
         //aab<%
-        if (not genClass.getImplementedGenFeatures().isEmpty()) {
+        if (not  genClass.getImplementedGenFeatures().isEmpty()) {
             var first = true
             //aab%>
             //aab  <%
             for (genFeature in genClass.getImplementedGenFeatures()){
                 //aab%>
                 //aab    <%
-                if (genFeature.isTested() and not genFeature.isSuppressedGetVisibility()) {
+                if (genFeature.isTested() and not  genFeature.isSuppressedGetVisibility()) {
                     //aab%>
                     //aab      <%
                     if (first) {
@@ -91,7 +91,7 @@
 
             } //aab%>
             //aab  <%
-            if (not first) {
+            if (not  first) {
                 //aab%>
                 //aab * </ul>
                 //aab * </p>
@@ -102,7 +102,7 @@
         }
         //aab%>
         //aab<%
-        if (not genClass.getImplementedGenOperations().isEmpty()) {
+        if (not  genClass.getImplementedGenOperations().isEmpty()) {
             var first = true
             //aab%>
             //aab  <%
@@ -131,7 +131,7 @@
 
             } //aab%>
             //aab  <%
-            if (not first) {
+            if (not  first) {
                 //aab%>
                 //aab * </ul>
                 //aab * </p>
@@ -212,7 +212,7 @@
         }
         //aab%>
         //aab<%
-        if (not genClass.isAbstract()) {
+        if (not  genClass.isAbstract()) {
             //aab%>
             //aab
             //aab	/**
@@ -279,7 +279,7 @@
         //aab	 * @generated
         //aab	 */
         //aab<%
-        if (not genClass.isModelRoot() and genModel.useClassOverrideAnnotation()) {
+        if (not  genClass.isModelRoot() and genModel.useClassOverrideAnnotation()) {
             //aab%>
             //aab	@Override
             //aab<%
@@ -314,7 +314,7 @@
         //aab%>
         //aab	}
         //aab<%
-        if (not genClass.isAbstract()) {
+        if (not  genClass.isAbstract()) {
             //aab%>
             //aab
             //aab	/**
@@ -394,7 +394,7 @@
             if (genFeature.isTested()) {
                 //aab%>
                 //aab    <%
-                if (genFeature.isGet() and not genFeature.isSuppressedGetVisibility()) {
+                if (genFeature.isGet() and not  genFeature.isSuppressedGetVisibility()) {
                     //aab%>
                     //aab<%
                     //aab@ start 
@@ -449,7 +449,7 @@
                 }
                 //aab%>
                 //aab    <%
-                if (genFeature.isSet() and not genFeature.isSuppressedSetVisibility()) {
+                if (genFeature.isSet() and not  genFeature.isSuppressedSetVisibility()) {
                     //aab%>
                     //aab<%
                     //aab@ start 
@@ -508,7 +508,7 @@
                 }
                 //aab%>
                 //aab    <%
-                if (genFeature.isUnset() and not genFeature.isSuppressedUnsetVisibility()) {
+                if (genFeature.isUnset() and not  genFeature.isSuppressedUnsetVisibility()) {
                     //aab%>
                     //aab<%
                     //aab@ start 
@@ -563,7 +563,7 @@
                 }
                 //aab%>
                 //aab    <%
-                if (genFeature.isIsSet() and not genFeature.isSuppressedIsSetVisibility()) {
+                if (genFeature.isIsSet() and not  genFeature.isSuppressedIsSetVisibility()) {
                     //aab%>
                     //aab<%
                     //aab@ start 

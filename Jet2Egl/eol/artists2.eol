@@ -2,8 +2,7 @@
     {
         //aab<%import comicBooks.*;%>
         //aab<%
-        Artist artist = (Artist)
-        argument
+        var artist = argument
         //aab%>
         //aab
         //aab<h1><%
@@ -43,7 +42,9 @@
         //aab<%
         if (coverBook = true) {
             //aab%>
-            //aabtest
+            //aab<%
+            var amy = 7.0
+            //aab%>
             //aab<%
         }
         //aab%>

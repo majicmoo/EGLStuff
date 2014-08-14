@@ -58,14 +58,14 @@
         %></b></em>'.
          * <!-- end-user-doc -->
         <%
-        if (not genClass.getImplementedGenFeatures().isEmpty()) {
+        if (not  genClass.getImplementedGenFeatures().isEmpty()) {
             var first = true
             %>
               <%
             for (genFeature in genClass.getImplementedGenFeatures()){
                 %>
                     <%
-                if (genFeature.isTested() and not genFeature.isSuppressedGetVisibility()) {
+                if (genFeature.isTested() and not  genFeature.isSuppressedGetVisibility()) {
                     %>
                           <%
                     if (first) {
@@ -91,7 +91,7 @@
 
             } %>
               <%
-            if (not first) {
+            if (not  first) {
                 %>
                  * </ul>
                  * </p>
@@ -102,7 +102,7 @@
         }
         %>
         <%
-        if (not genClass.getImplementedGenOperations().isEmpty()) {
+        if (not  genClass.getImplementedGenOperations().isEmpty()) {
             var first = true
             %>
               <%
@@ -131,7 +131,7 @@
 
             } %>
               <%
-            if (not first) {
+            if (not  first) {
                 %>
                  * </ul>
                  * </p>
@@ -212,7 +212,7 @@
         }
         %>
         <%
-        if (not genClass.isAbstract()) {
+        if (not  genClass.isAbstract()) {
             %>
             
             	/**
@@ -279,7 +279,7 @@
         	 * @generated
         	 */
         <%
-        if (not genClass.isModelRoot() and genModel.useClassOverrideAnnotation()) {
+        if (not  genClass.isModelRoot() and genModel.useClassOverrideAnnotation()) {
             %>
             	@Override
             <%
@@ -314,7 +314,7 @@
         %>
         	}
         <%
-        if (not genClass.isAbstract()) {
+        if (not  genClass.isAbstract()) {
             %>
             
             	/**
@@ -394,7 +394,7 @@
             if (genFeature.isTested()) {
                 %>
                     <%
-                if (genFeature.isGet() and not genFeature.isSuppressedGetVisibility()) {
+                if (genFeature.isGet() and not  genFeature.isSuppressedGetVisibility()) {
                     %>
                     <%
                     @ start 
@@ -449,7 +449,7 @@
                 }
                 %>
                     <%
-                if (genFeature.isSet() and not genFeature.isSuppressedSetVisibility()) {
+                if (genFeature.isSet() and not  genFeature.isSuppressedSetVisibility()) {
                     %>
                     <%
                     @ start 
@@ -508,7 +508,7 @@
                 }
                 %>
                     <%
-                if (genFeature.isUnset() and not genFeature.isSuppressedUnsetVisibility()) {
+                if (genFeature.isUnset() and not  genFeature.isSuppressedUnsetVisibility()) {
                     %>
                     <%
                     @ start 
@@ -563,7 +563,7 @@
                 }
                 %>
                     <%
-                if (genFeature.isIsSet() and not genFeature.isSuppressedIsSetVisibility()) {
+                if (genFeature.isIsSet() and not  genFeature.isSuppressedIsSetVisibility()) {
                     %>
                     <%
                     @ start 

@@ -71,36 +71,6 @@ define class_dln
     [class_body]
 end define
 
-define class_body_declaration_wo_field
-        [empty_declaration]
-    |   [member_declaration]
-    |   [instance_initializer]
-    |   [static_initializer]
-end define
-
-redefine class_body_declaration
-	[field_declaration]
-    |   [class_body_declaration_wo_field]
-end redefine
-
-redefine unary_expression
-        [pre_inc_dec] [unary_expression]
-    |   [unary_op] [SPOFF] [unary_expression] [SPON]
-    |   [postfix_expression]
-    |   [cast_expression]
-    
-    |   [cast_expr]
-end redefine
-
-
-define cast_expr
-    [variable_name] '= [unary_expression] ';
-end define
-    
-
-redefine postfix_expression
-	[primary] [repeat pre_inc_dec]
-end redefine
 
 redefine method_or_constructor_declaration
         [method_declaration]
@@ -116,14 +86,6 @@ redefine expression_statement
     [expression] [attr ';]        [NL]
 end define
 
-redefine variable_declaration
-    [repeat modifier] [type_specifier] [variable_declarators] [attr ';] [NL]
-end define
-
-redefine field_declaration
-	...
-    |   [assignment_expression] [NL] [attr ';]
-end redefine
 
 redefine statement
         [label_statement]        
@@ -171,10 +133,6 @@ redefine method_argument
 end define
 
 
-redefine reference
-	[id] [repeat component]
-    |	[primitive_type] [repeat component]
-end define
 
 redefine component
      [dot_id]
@@ -193,6 +151,7 @@ end define
 redefine assignment_expression
 	...
     |   'var [unary_expression] '= [expression]
+    
 end redefine
 
 
