@@ -61,8 +61,7 @@ def main(fname):
                 ## Line is not just a name call 
                 ## so has to be translated
                     writeToFile(file_store, line[1:]+";")
-                    writeToFile(file_destination, staticSymbol+storeSymbol+countStore)
-                    print hi
+                    writeToFile(file_destination, staticSymbol+storeSymbol+str(countStore))
                     countStore+= 1
                 else:
                     writeToFile( file_destination, staticSymbol+line)

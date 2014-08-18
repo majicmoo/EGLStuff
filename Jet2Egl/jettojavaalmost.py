@@ -51,7 +51,7 @@ def main(fname):
     
     file_edit.close()
     file_edit = open("temp.txt", "r")
-    countStore = 1
+    countStore = 0
 
     ##write dynamic code
     for line in file_edit:

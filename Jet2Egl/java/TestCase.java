@@ -139,7 +139,7 @@ if (genClass.isAbstract()) {
 //aab%> class <%
 //aab=genClass.getTestCaseClassName()
 //aab%> extends <%
-//aab*%%storeSymbol%%*1//aab%>
+//aab*%%storeSymbol%%*0//aab%>
 //aab{
 //aab<%
 if (genModel.hasCopyrightField()) {
