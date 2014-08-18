@@ -139,7 +139,7 @@ if (genClass.isAbstract()) {
 //aab%> class <%
 //aab=genClass.getTestCaseClassName()
 //aab%> extends <%
-//aab=genClass.isModelRoot() ? genModel.getImportedName("junit.framework.TestCase") : genClass.getClassExtendsGenClass().getImportedTestCaseClassName()
+//aab*%%storeSymbol%%*=genClass.isModelRoot() ? genModel.getImportedName("junit.framework.TestCase") : genClass.getClassExtendsGenClass().getImportedTestCaseClassName()
 //aab%>
 //aab{
 //aab<%

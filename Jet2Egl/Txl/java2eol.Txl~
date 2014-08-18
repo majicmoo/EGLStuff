@@ -126,10 +126,10 @@ end rule
 %% from var --
 %% to var = var-1
 rule transformDecrementOperator
-replace [unary_expression]
+    replace [unary_expression]
 	Id [primary] '-- 
 	by
-	Id '= Id '-- '1
+	Id '= Id '- '1
 end rule
 
 %% Increment operator

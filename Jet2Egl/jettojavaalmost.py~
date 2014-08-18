@@ -12,6 +12,18 @@ def main(fname):
     path = "/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/java"
     file_destination = open(os.path.join(path, cleanFileName(fname)+".java"), "w")
     
+    
+    ## file used to store parts of jet that have to be translated but do not fit java syntax.
+    ## eg. <%==genClass.isModelRoot() ? genModel.getImportedName("junit.framework.TestCase") : genClass.getClassExtendsGenClass().getImportedTestCaseClassName()%>
+    file_store = open(os.path.join(path, cleanFileName(fname)+"temp.java"), "w")
+    
+    
+    ##Used to comment out static parts of Jet
+    staticSymbol = "//aab"
+    
+    ## Used to help indentify stored code in file_store
+    storeSymbol = "*%%storeSymbol%%*"
+    
     ## loop through jet file
     ##  1. Look for imports and store in a list
     ##  2. Look for includes and store in a list
@@ -19,20 +31,23 @@ def main(fname):
     for line in file_origin:
         imports = findImports(line, imports)
         includes = findIncludes(line, includes)
-        inDynamic = commentStatic(line, file_edit, inDynamic)
+        inDynamic = commentStatic(line, file_edit, inDynamic, staticSymbol)
           
     ##write main class to allow java transformation to work
     writeToFile(file_destination, "class "+cleanFileName(fname)+ " {\n")
     writeToFile(file_destination, "public static void main (String[] args) {\n")
+   
+   writeToFile(file_store, "class "+cleanFileName(fname+"temp")+ " {\n")
+    writeToFile(file_store, "public static void main (String[] args) {\n")
+     
     
     # write imports to destination
     for i in imports:
-        writeToFile(file_destination, "//aab<%import " + i + ";%>\n")
+        writeToFile(file_destination, staticSymbol+ "<%import " + i + ";%>\n")
     
     #write includes to destination
     for i in includes:
-        print i
-        writeToFile(file_destination, "//aab<% include(\""+i+"\");%>\n")
+        writeToFile(file_destination, staticSymbol+ "<% include(\""+i+"\");%>\n")
     
     file_edit.close()
     file_edit = open("temp.txt", "r")
@@ -42,12 +57,18 @@ def main(fname):
     for line in file_edit:
         if "=" in line:
             if line.index('=') == 0:
-                writeToFile( file_destination, "//aab"+line)
+                if "?" in line:
+                ## Line is not just a name call 
+                ## so has to be translated
+                    writeToFile(file_store, line)
+                    writeToFile(file_destination, staticSymbol+storeSymbol+line)
+                else:
+                    writeToFile( file_destination, staticSymbol+line)
             else:
                 writeToFile( file_destination, line)
-        else if "@" in line:
+        elif "@" in line:
             if line.index("@") == 0:
-                writeToFile( file_destination, "//aab"+line)
+                writeToFile( file_destination, staticSymbol+line)
             else:
                 writeToFile( file_destination, line)
         else:
@@ -55,12 +76,14 @@ def main(fname):
     
     #close main funciton
     writeToFile(file_destination, "\n}\n}")
+    writeToFile(file_store, "\n}\n}")
     file_origin.close()
     file_edit.close()
     file_destination.close()  
+    file_store.close()
     
         
-def commentStatic(line, filename, inDynamic):
+def commentStatic(line, filename, inDynamic, staticSymbol):
     count = 0
     ##returns if an import statement
     if "import" in line:
@@ -74,7 +97,7 @@ def commentStatic(line, filename, inDynamic):
     for char in line:
         if inDynamic == False:
             if count == 0:
-                writeToFile(filename, "//aab")
+                writeToFile(filename, staticSymbol)
             if temp == True:
                 temp = False
                 if (char == "%"):
@@ -98,7 +121,7 @@ def commentStatic(line, filename, inDynamic):
                 temp = False
                 if (char == ">"):
                     inDynamic = False
-                    writeToFile(filename, "\n" +"//aab%>")
+                    writeToFile(filename, "\n" +staticSymbol+"%>")
                     ##print "Exiting Dynamic\n"
                    ## print char
                 else:

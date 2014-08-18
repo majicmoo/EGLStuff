@@ -15,4 +15,7 @@ echo "**************************"
 echo "TestCase.java"
 txl -comment ./java/TestCase.java -o ./eol/TestCase.eol 
 echo "**************************"
+echo "TestCasetemp.java"
+txl -comment ./java/TestCasetemp.java -o ./eol/TestCasetemp.eol 
+echo "**************************"
 python ./eoltoeglalmost.py
