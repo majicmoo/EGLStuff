@@ -22,12 +22,13 @@ function java2eol
 	[removeClass]
 	[removeMainFunction]
 	[transformForIn]
-	  %[transformTypeDeclaration]
-	  [transformOps]
-	  [transformBooleanOps]
-	  %[transformTypeAssignment]
-	  [localVarDecl2Assignment]
-	  [removeCast]
+	[transformConditionalStatement]
+	%[transformTypeDeclaration]
+	[transformOps]
+	[transformBooleanOps]
+	%[transformTypeAssignment]
+	[localVarDecl2Assignment]
+	[removeCast]
 end function
 
 
@@ -186,7 +187,19 @@ end rule
 
 
 
-%% Remove ';' end of line semicolons
+%%Transform Conditional Statements
+
+rule transformConditionalStatement
+    replace [assignment_expression]
+    expr [conditional_or_expression] '? exprtrue [expression] ': exprfalse [conditional_expression] 
+    by
+    'if '( expr ') '{
+        exprtrue ';
+    '} else '{
+        exprfalse ';
+    '}
+end rule
+    
 
 
 %% Remove class

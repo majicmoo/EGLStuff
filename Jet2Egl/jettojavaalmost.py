@@ -51,7 +51,7 @@ def main(fname):
     
     file_edit.close()
     file_edit = open("temp.txt", "r")
-    
+    countStore = 1
 
     ##write dynamic code
     for line in file_edit:
@@ -60,8 +60,9 @@ def main(fname):
                 if "?" in line:
                 ## Line is not just a name call 
                 ## so has to be translated
-                    writeToFile(file_store, line)
-                    writeToFile(file_destination, staticSymbol+storeSymbol+line)
+                    writeToFile(file_store, line[1:]+";")
+                    writeToFile(file_destination, staticSymbol+storeSymbol+str(countStore))
+                    countStore+= 1
                 else:
                     writeToFile( file_destination, staticSymbol+line)
             else:

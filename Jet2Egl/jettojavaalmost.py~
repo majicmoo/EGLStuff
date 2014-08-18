@@ -37,7 +37,7 @@ def main(fname):
     writeToFile(file_destination, "class "+cleanFileName(fname)+ " {\n")
     writeToFile(file_destination, "public static void main (String[] args) {\n")
    
-   writeToFile(file_store, "class "+cleanFileName(fname+"temp")+ " {\n")
+    writeToFile(file_store, "class "+cleanFileName(fname+"temp")+ " {\n")
     writeToFile(file_store, "public static void main (String[] args) {\n")
      
     
@@ -51,7 +51,7 @@ def main(fname):
     
     file_edit.close()
     file_edit = open("temp.txt", "r")
-    
+    countStore = 1
 
     ##write dynamic code
     for line in file_edit:
@@ -60,8 +60,10 @@ def main(fname):
                 if "?" in line:
                 ## Line is not just a name call 
                 ## so has to be translated
-                    writeToFile(file_store, line)
-                    writeToFile(file_destination, staticSymbol+storeSymbol+line)
+                    writeToFile(file_store, line[1:]+";")
+                    writeToFile(file_destination, staticSymbol+storeSymbol+countStore)
+                    print hi
+                    countStore+= 1
                 else:
                     writeToFile( file_destination, staticSymbol+line)
             else:

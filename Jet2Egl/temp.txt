@@ -150,8 +150,7 @@
         %> class <%
         =genClass.getTestCaseClassName()
         %> extends <%
-        *%%storeSymbol%%*=genClass.isModelRoot() ? genModel.getImportedName("junit.framework.TestCase") : genClass.getClassExtendsGenClass().getImportedTestCaseClassName()
-        %>
+        *%%storeSymbol%%*1%>
         {
         <%
         if (genModel.hasCopyrightField()) {

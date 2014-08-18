@@ -113,7 +113,17 @@ redefine statement
     |   [empty_statement]
 end define
 
+redefine assignment_expression
+    ...
+    | [if_stmt]
+end redefine
 
+define if_stmt
+    'if '( [conditional_or_expression] ')  '{ 
+    '} 'else '{
+        [conditional_expression] ';
+    '}
+end define
 
 
 
