@@ -22,7 +22,7 @@ def main(fname):
     
     
     ##Used to comment out static parts of Jet
-    staticSymbol = "//&&&staticSymbol%%%"
+    staticSymbol = "//&&&staticSymbol&&&"
     
     ## Used to help indentify stored code in file_store 
     ## (equals issue)
@@ -42,9 +42,6 @@ def main(fname):
     writeToFile(file_destination, "class "+cleanFileName(fname)+ " {\n")
     writeToFile(file_destination, "public static void main (String[] args) {\n")
    
-    writeToFile(file_store, "class "+cleanFileName(fname+"temp")+ " {\n")
-    writeToFile(file_store, "public static void main (String[] args) {\n")
-     
     
     ## write imports to destination
     for i in imports:
@@ -65,6 +62,9 @@ def main(fname):
                 if "?" in line:
                 ## Equals issue
                 ## Store line in seperate file
+                    if countStore == 0:
+                        writeToFile(file_store, "class "+cleanFileName(fname+"temp")+ " {\n")
+                        writeToFile(file_store, "public static void main (String[] args) {\n")
                     writeToFile(file_store, line[1:]+";")
                     writeToFile(file_destination, staticSymbol+storeSymbol+str(countStore))
                     countStore+= 1
@@ -82,11 +82,17 @@ def main(fname):
     
     #close main funciton
     writeToFile(file_destination, "\n}\n}")
-    writeToFile(file_store, "\n}\n}")
+    if countStore > 0:
+        writeToFile(file_store, "\n}\n}")
     file_origin.close()
     file_edit.close()
-    file_destination.close()  
-    file_store.close()
+    file_destination.close()
+    
+    print file_store
+    ## Delete empty file
+    if os.stat(file_store).st_size == 0:
+        os.remove(file_store)
+    
     
         
 def commentStatic(line, filename, inDynamic, staticSymbol):

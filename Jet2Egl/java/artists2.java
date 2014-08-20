@@ -46,6 +46,7 @@ public static void main (String[] args) {
  int amy = (int) 7.0; 
 amy = (int) 5.0;
 amy--;
+float temp = 5  3;
 //&&&staticSymbol&&&%>
 //&&&staticSymbol&&&<%
  } 
