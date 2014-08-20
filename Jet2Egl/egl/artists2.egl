@@ -24,6 +24,9 @@
         } %]
         </ul>
         
+        [%
+        var temp = 5.mod(3);
+        %]
         <h2>Books Cover Artist For</h2>
         <ul>
         [%
@@ -46,6 +49,7 @@
             var amy = 7.0;
             amy = 5.0;
             amy = amy - 1;
+            var temp = 5.mod(3);
             %]
             [%
         }

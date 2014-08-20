@@ -119,9 +119,10 @@ redefine assignment_expression
 end redefine
 
 define if_stmt
-    'if '( [conditional_or_expression] ')  '{ 
-    '} 'else '{
-        [conditional_expression] ';
+    'if '( [conditional_or_expression] ')  '{  
+        [expression] '; 
+    '} 'else '{ 
+        [conditional_expression] '; 
     '}
 end define
 
@@ -180,6 +181,10 @@ define unary_op
 	| 'not [SP]
 end define
 
+redefine multiplicative_expression
+    ...
+    | [unary_expression]  '.mod( [SPOFF]  [unary_expression] [SPON] ') 
+end redefine
 
 redefine equality_op
     '== | '!= | '= | '<> 

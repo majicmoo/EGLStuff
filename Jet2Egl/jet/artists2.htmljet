@@ -10,6 +10,7 @@
 <% } %>
 </ul>
 
+<% int temp = 5 % 3; %>
 <h2>Books Cover Artist For</h2>
 <ul>
 <% for (Book coverBook : artist.getBooksCoverArtistFor()) { %>

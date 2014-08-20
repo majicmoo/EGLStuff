@@ -24,6 +24,9 @@
         } //&&&staticSymbol&&&%>
         //&&&staticSymbol&&&</ul>
         //&&&staticSymbol&&&
+        //&&&staticSymbol&&&<%
+        var temp = 5.mod(3);
+        //&&&staticSymbol&&&%>
         //&&&staticSymbol&&&<h2>Books Cover Artist For</h2>
         //&&&staticSymbol&&&<ul>
         //&&&staticSymbol&&&<%
@@ -46,6 +49,7 @@
             var amy = 7.0;
             amy = 5.0;
             amy = amy - 1;
+            var temp = 5.mod(3);
             //&&&staticSymbol&&&%>
             //&&&staticSymbol&&&<%
         }

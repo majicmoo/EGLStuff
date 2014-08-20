@@ -86,6 +86,7 @@ function transformOps
 	  [transformIncrementOperator]
 	  [transformNotEqualsOperator] 
 	  [transformEqualsOperator]
+	  [transformModOperator]
 end function
 
 
@@ -142,6 +143,15 @@ rule transformIncrementOperator
 	by
 	Id '= Id '+ '1
 end rule
+
+%% Transform Mod (%)
+rule transformModOperator
+    replace [multiplicative_expression]
+    a [unary_expression] '% b [unary_expression]
+    by
+    a '.mod( b ')
+end rule
+
 
 
 %% Transform All Boolean Operation%

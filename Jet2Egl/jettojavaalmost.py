@@ -102,7 +102,7 @@ def commentStatic(line, filename, inDynamic, staticSymbol):
     if "import" in line:
         return inDynamic
     
-    ##returns if an import statement   
+    ##returns if an include statement   
     if "@ include" in line:
         return inDynamic
 
@@ -138,7 +138,7 @@ def commentStatic(line, filename, inDynamic, staticSymbol):
                     ##print "Exiting Dynamic\n"
                    ## print char
                 else:
-                    writeToFile(filename, char)
+                    writeToFile(filename, "%"+char)
                     ##print char
             else:
                 if char == "%":

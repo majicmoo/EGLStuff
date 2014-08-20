@@ -181,6 +181,10 @@ define unary_op
 	| 'not [SP]
 end define
 
+redefine multiplicative_expression
+    ...
+    | [unary_expression] [SPOFF] '.mod( [unary_expression] [SPON] ') 
+end redefine
 
 redefine equality_op
     '== | '!= | '= | '<> 

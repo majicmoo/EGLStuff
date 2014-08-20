@@ -86,12 +86,13 @@ def main(fname):
         writeToFile(file_store, "\n}\n}")
     file_origin.close()
     file_edit.close()
-    file_destination.close()
+    file_destination.close()  
+    file_store.close()
     
-    print file_store
+    temp_file = os.path.join(path, cleanFileName(fname)+"temp.java")
     ## Delete empty file
-    if os.stat(file_store).st_size == 0:
-        os.remove(file_store)
+    if os.stat(temp_file).st_size == 0:
+        os.remove(temp_file)
     
     
         
@@ -101,7 +102,7 @@ def commentStatic(line, filename, inDynamic, staticSymbol):
     if "import" in line:
         return inDynamic
     
-    ##returns if an import statement   
+    ##returns if an include statement   
     if "@ include" in line:
         return inDynamic
 
@@ -133,7 +134,7 @@ def commentStatic(line, filename, inDynamic, staticSymbol):
                 temp = False
                 if (char == ">"):
                     inDynamic = False
-                    writeToFile(filename, "\n" +staticSymbol+"%>")
+                    writeToFile(filename, "\n" +staticSymbol+">")
                     ##print "Exiting Dynamic\n"
                    ## print char
                 else:
@@ -142,6 +143,7 @@ def commentStatic(line, filename, inDynamic, staticSymbol):
             else:
                 if char == "%":
                     temp = True
+                    writeToFile(filename, char)
                     ##print char
                 else:
                     writeToFile(filename, char)
