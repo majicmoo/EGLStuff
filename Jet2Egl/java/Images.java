@@ -17,6 +17,9 @@ public static void main (String[] args) {
  */
 
 //&&&staticSymbol&&&%>
+//&&&staticSymbol&&&<%
+GenModel genModel = (GenModel)argument; /* Trick to import java.util.* without warnings */Iterator.class.getName();
+//&&&staticSymbol&&&%>
 //&&&staticSymbol&&&package <%
 //&&&staticSymbol&&&=genModel.getEditPluginPackageName()
 //&&&staticSymbol&&&%>;

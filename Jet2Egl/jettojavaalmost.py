@@ -100,11 +100,32 @@ def commentStatic(line, filename, inDynamic, staticSymbol):
     count = 0
     ##returns if an import statement
     if "import" in line:
-        return inDynamic
     
+        ## Rubbishy way of dealing with the word import in comments
+        temp_line = line.split("/*")
+        if len(temp_line) <= 1:
+            commentSplit = line.split("//")
+            if len(commentSplit) <= 1:
+                return inDynamic
+            if "import" in commentSplit[0]: 
+                return inDynamic
+        if "import" in temp_line[0]:
+            return inDynamic
+        
+            
+        
     ##returns if an include statement   
     if "@ include" in line:
-        return inDynamic
+    ## Rubbishy way of dealing with the word include in comments
+        temp_line = line.split("/*")
+        if len(temp_line) <= 1:
+            commentSplit = line.split("//")
+            if len(commentSplit) <= 1:
+                return inDynamic
+            if "include" in commentSplit[0]: 
+                return inDynamic
+        if "include" in temp_line[0]:
+            return inDynamic
 
     temp = False
     for char in line:

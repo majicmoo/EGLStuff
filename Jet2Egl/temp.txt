@@ -43,6 +43,13 @@
         
            */
         %>
+        <%
+        var genClass = argument;
+        var genPackage = genClass.getGenPackage();
+        var genModel = genPackage.getGenModel();
+        /* Trick to import java.util.* without warnings */
+        Iterator.class.getName();
+        %>
         package <%
         =genPackage.getTestsPackageName()
         %>;

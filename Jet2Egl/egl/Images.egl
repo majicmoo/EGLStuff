@@ -24,6 +24,11 @@
         
            */
         %]
+        [%
+        var genModel = argument;
+        /* Trick to import java.util.* without warnings */
+        Iterator.class.getName();
+        %]
         package [%
         =genModel.getEditPluginPackageName()
         %];

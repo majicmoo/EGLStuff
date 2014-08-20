@@ -24,6 +24,11 @@
         
            */
         //&&&staticSymbol&&&%>
+        //&&&staticSymbol&&&<%
+        var genModel = argument;
+        /* Trick to import java.util.* without warnings */
+        Iterator.class.getName();
+        //&&&staticSymbol&&&%>
         //&&&staticSymbol&&&package <%
         //&&&staticSymbol&&&=genModel.getEditPluginPackageName()
         //&&&staticSymbol&&&%>;

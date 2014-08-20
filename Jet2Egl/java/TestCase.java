@@ -36,6 +36,9 @@ public static void main (String[] args) {
  */
 
 //&&&staticSymbol&&&%>
+//&&&staticSymbol&&&<%
+GenClass genClass = (GenClass)argument; GenPackage genPackage = genClass.getGenPackage(); GenModel genModel=genPackage.getGenModel(); /* Trick to import java.util.* without warnings */Iterator.class.getName();
+//&&&staticSymbol&&&%>
 //&&&staticSymbol&&&package <%
 //&&&staticSymbol&&&=genPackage.getTestsPackageName()
 //&&&staticSymbol&&&%>;
