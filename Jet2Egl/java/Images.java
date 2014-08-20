@@ -1,9 +1,9 @@
 class Images {
 public static void main (String[] args) {
-//aab<%import java.util.*;%>
-//aab<%import org.eclipse.emf.codegen.ecore.genmodel.*;%>
-//aab<% include("../Header.javajetinc");%>
-//aab<%
+//&&&staticSymbol&&&<%import java.util.*;%>
+//&&&staticSymbol&&&<%import org.eclipse.emf.codegen.ecore.genmodel.*;%>
+//&&&staticSymbol&&&<% include("../Header.javajetinc");%>
+//&&&staticSymbol&&&<%
 
 /**
  * Copyright (c) 2010 Ed Merks and others.
@@ -16,62 +16,62 @@ public static void main (String[] args) {
  * Ed Merks - Initial API and implementation
  */
 
-//aab%>
-//aabpackage <%
-//aab=genModel.getEditPluginPackageName()
-//aab%>;
-//aab
-//aab<%
+//&&&staticSymbol&&&%>
+//&&&staticSymbol&&&package <%
+//&&&staticSymbol&&&=genModel.getEditPluginPackageName()
+//&&&staticSymbol&&&%>;
+//&&&staticSymbol&&&
+//&&&staticSymbol&&&<%
 genModel.markImportLocation(stringBuffer);
-//aab%>
-//aab
-//aab/**
-//aab * <!-- begin-user-doc -->
-//aab * <!-- end-user-doc -->
-//aab * @generated
-//aab */
-//aabpublic interface <%
-//aab=genModel.getEditPluginClassName()
-//aab%>Images extends <%
-//aab=genModel.getImportedName("com.google.gwt.resources.client.ClientBundle")
-//aab%>
-//aab{
-//aab<%
+//&&&staticSymbol&&&%>
+//&&&staticSymbol&&&
+//&&&staticSymbol&&&/**
+//&&&staticSymbol&&& * <!-- begin-user-doc -->
+//&&&staticSymbol&&& * <!-- end-user-doc -->
+//&&&staticSymbol&&& * @generated
+//&&&staticSymbol&&& */
+//&&&staticSymbol&&&public interface <%
+//&&&staticSymbol&&&=genModel.getEditPluginClassName()
+//&&&staticSymbol&&&%>Images extends <%
+//&&&staticSymbol&&&=genModel.getImportedName("com.google.gwt.resources.client.ClientBundle")
+//&&&staticSymbol&&&%>
+//&&&staticSymbol&&&{
+//&&&staticSymbol&&&<%
 for (GenPackage genPackage : genModel.getAllGenAndUsedGenPackagesWithClassifiers()) {
-//aab%>
-//aab  <%
+//&&&staticSymbol&&&%>
+//&&&staticSymbol&&&  <%
 for (GenClass genClass : genPackage.getGenClasses()) {
-//aab%>
-//aab    <%
+//&&&staticSymbol&&&%>
+//&&&staticSymbol&&&    <%
 if (genClass.isImage()) { String image = genClass.getItemIconFileName(); image = image.substring(image.lastIndexOf("/icons/") + 1); 
-//aab%>
-//aab/**
-//aab* <!-- begin-user-doc -->
-//aab* <!-- end-user-doc -->
-//aab* @generated
-//aab*/
-//aab@Source("<%
-//aab=image
-//aab%>")
-//aab<%
-//aab=genModel.getImportedName("com.google.gwt.resources.client.ImageResource")
-//aab%> <%
-//aab=genClass.getItemIconAccessorName()
-//aab%>();
-//aab
-//aab    <%
+//&&&staticSymbol&&&%>
+//&&&staticSymbol&&&/**
+//&&&staticSymbol&&&* <!-- begin-user-doc -->
+//&&&staticSymbol&&&* <!-- end-user-doc -->
+//&&&staticSymbol&&&* @generated
+//&&&staticSymbol&&&*/
+//&&&staticSymbol&&&@Source("<%
+//&&&staticSymbol&&&=image
+//&&&staticSymbol&&&%>")
+//&&&staticSymbol&&&<%
+//&&&staticSymbol&&&=genModel.getImportedName("com.google.gwt.resources.client.ImageResource")
+//&&&staticSymbol&&&%> <%
+//&&&staticSymbol&&&=genClass.getItemIconAccessorName()
+//&&&staticSymbol&&&%>();
+//&&&staticSymbol&&&
+//&&&staticSymbol&&&    <%
 }
-//aab%>
-//aab  <%
+//&&&staticSymbol&&&%>
+//&&&staticSymbol&&&  <%
 }
-//aab%>
-//aab<%
+//&&&staticSymbol&&&%>
+//&&&staticSymbol&&&<%
 }
-//aab%>
-//aab}
-//aab<%
+//&&&staticSymbol&&&%>
+//&&&staticSymbol&&&}
+//&&&staticSymbol&&&<%
 genModel.emitSortedImports();
-//aab%>
+//&&&staticSymbol&&&%>
 
 }
 }

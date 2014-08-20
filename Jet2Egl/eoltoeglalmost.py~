@@ -4,7 +4,7 @@ import os
 def main(fname):
 
     ##Used to comment out static parts of Jet
-    staticSymbol = "//aab"
+    staticSymbol = "//&&&staticSymbol%%%"
     
     ## Used to help indentify stored code in file_store
     storeSymbol = "*%%storeSymbol%%*"    
@@ -57,10 +57,7 @@ def main(fname):
                 if storeSymbol in line:
                     lineTemp = line.replace(staticSymbol, "")
                     lineTemp = lineTemp.replace(storeSymbol, "")
-                    print int(clean(lineTemp))
-                    print storedLines
                     writeToFile(file_edit, storedLines[int(clean(lineTemp))])
-                    print storedLines[int(clean(lineTemp))]
                 else:
                     writeToFile(file_edit, line.replace(staticSymbol, ""))
             else:

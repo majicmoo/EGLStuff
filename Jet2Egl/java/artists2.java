@@ -1,57 +1,57 @@
 class artists2 {
 public static void main (String[] args) {
-//aab<%import comicBooks.*;%>
-//aab<%
+//&&&staticSymbol&&&<%import comicBooks.*;%>
+//&&&staticSymbol&&&<%
  Artist artist = (Artist) argument; 
-//aab%>
-//aab
-//aab<h1><%
-//aab=artist.getName()
-//aab%></h1>
-//aab
-//aab<h2>Books Artist For</h2>
-//aab<ul>
-//aab<%
+//&&&staticSymbol&&&%>
+//&&&staticSymbol&&&
+//&&&staticSymbol&&&<h1><%
+//&&&staticSymbol&&&=artist.getName()
+//&&&staticSymbol&&&%></h1>
+//&&&staticSymbol&&&
+//&&&staticSymbol&&&<h2>Books Artist For</h2>
+//&&&staticSymbol&&&<ul>
+//&&&staticSymbol&&&<%
  for (Book book : artist.getBooksArtistFor()) { 
-//aab%>
-//aab	<li><a href="<%
-//aab=book.getName()
-//aab%>.html"><%
-//aab=book.getName()
-//aab%></a></li>
-//aab<%
+//&&&staticSymbol&&&%>
+//&&&staticSymbol&&&	<li><a href="<%
+//&&&staticSymbol&&&=book.getName()
+//&&&staticSymbol&&&%>.html"><%
+//&&&staticSymbol&&&=book.getName()
+//&&&staticSymbol&&&%></a></li>
+//&&&staticSymbol&&&<%
  } 
-//aab%>
-//aab</ul>
-//aab
-//aab<h2>Books Cover Artist For</h2>
-//aab<ul>
-//aab<%
+//&&&staticSymbol&&&%>
+//&&&staticSymbol&&&</ul>
+//&&&staticSymbol&&&
+//&&&staticSymbol&&&<h2>Books Cover Artist For</h2>
+//&&&staticSymbol&&&<ul>
+//&&&staticSymbol&&&<%
  for (Book coverBook : artist.getBooksCoverArtistFor()) { 
-//aab%>
-//aab	<li><a href="<%
-//aab=coverBook.getName()
-//aab%>.html"><%
-//aab=coverBook.getName()
-//aab%></a></li>
-//aab<%
+//&&&staticSymbol&&&%>
+//&&&staticSymbol&&&	<li><a href="<%
+//&&&staticSymbol&&&=coverBook.getName()
+//&&&staticSymbol&&&%>.html"><%
+//&&&staticSymbol&&&=coverBook.getName()
+//&&&staticSymbol&&&%></a></li>
+//&&&staticSymbol&&&<%
  } 
-//aab%>
-//aab</ul>
-//aab
-//aab<%
+//&&&staticSymbol&&&%>
+//&&&staticSymbol&&&</ul>
+//&&&staticSymbol&&&
+//&&&staticSymbol&&&<%
  if (coverBook == true){ 
-//aab%>
-//aab<%
+//&&&staticSymbol&&&%>
+//&&&staticSymbol&&&<%
  int amy = (int) 7.0; 
 amy = (int) 5.0;
 amy--;
-//aab%>
-//aab<%
+//&&&staticSymbol&&&%>
+//&&&staticSymbol&&&<%
  } 
-//aab%>
-//aab
-//aab<a href="artists.html">Back</a>
+//&&&staticSymbol&&&%>
+//&&&staticSymbol&&&
+//&&&staticSymbol&&&<a href="artists.html">Back</a>
 
 }
 }

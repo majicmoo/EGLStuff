@@ -3,37 +3,42 @@ import glob
 
 
 def main(fname):
-    imports = []
-    includes = set() 
+    imports = []    # List to store imports
+    includes = set() # Set to store includes
     inDynamic = False
     startStatic = 0
-    file_origin = open(fname, "r")
-    file_edit = open("temp.txt", "w")
+    file_origin = open(fname, "r") # File translating from
+    file_edit = open("temp.txt", "w") # File used to store work in between
     path = "/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/java"
-    file_destination = open(os.path.join(path, cleanFileName(fname)+".java"), "w")
+    file_destination = open(os.path.join(path, cleanFileName(fname)+".java"), "w")  # File translating to
     
     
-    ## file used to store parts of jet that have to be translated but do not fit java syntax.
+    ## file used to store parts of jet 
+    ## that have to be translated but do 
+    ## not fit java syntax. This will be 
+    ## refered to as equals issue.
     ## eg. <%==genClass.isModelRoot() ? genModel.getImportedName("junit.framework.TestCase") : genClass.getClassExtendsGenClass().getImportedTestCaseClassName()%>
     file_store = open(os.path.join(path, cleanFileName(fname)+"temp.java"), "w")
     
     
     ##Used to comment out static parts of Jet
-    staticSymbol = "//aab"
+    staticSymbol = "//&&&staticSymbol%%%"
     
-    ## Used to help indentify stored code in file_store
+    ## Used to help indentify stored code in file_store 
+    ## (equals issue)
     storeSymbol = "*%%storeSymbol%%*"
     
     ## loop through jet file
     ##  1. Look for imports and store in a list
     ##  2. Look for includes and store in a list
-    ##  3. Comment out static parts of Jet with symbol "//aab" and save changes to temporary file
+    ##  3. Comment out static parts of Jet with staticSymbol 
+    ##  and save changes to temporary file
     for line in file_origin:
         imports = findImports(line, imports)
         includes = findIncludes(line, includes)
         inDynamic = commentStatic(line, file_edit, inDynamic, staticSymbol)
           
-    ##write main class to allow java transformation to work
+    ## write main class to allow java transformation to work
     writeToFile(file_destination, "class "+cleanFileName(fname)+ " {\n")
     writeToFile(file_destination, "public static void main (String[] args) {\n")
    
@@ -41,25 +46,25 @@ def main(fname):
     writeToFile(file_store, "public static void main (String[] args) {\n")
      
     
-    # write imports to destination
+    ## write imports to destination
     for i in imports:
         writeToFile(file_destination, staticSymbol+ "<%import " + i + ";%>\n")
     
-    #write includes to destination
+    ## write includes to destination
     for i in includes:
         writeToFile(file_destination, staticSymbol+ "<% include(\""+i+"\");%>\n")
     
     file_edit.close()
     file_edit = open("temp.txt", "r")
-    countStore = 1
+    countStore = 0
 
-    ##write dynamic code
+    ## write dynamic code
     for line in file_edit:
         if "=" in line:
             if line.index('=') == 0:
                 if "?" in line:
-                ## Line is not just a name call 
-                ## so has to be translated
+                ## Equals issue
+                ## Store line in seperate file
                     writeToFile(file_store, line[1:]+";")
                     writeToFile(file_destination, staticSymbol+storeSymbol+str(countStore))
                     countStore+= 1

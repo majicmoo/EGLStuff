@@ -4,7 +4,7 @@ import os
 def main(fname):
 
     ##Used to comment out static parts of Jet
-    staticSymbol = "//aab"
+    staticSymbol = "//&&&staticSymbol&&&"
     
     ## Used to help indentify stored code in file_store
     storeSymbol = "*%%storeSymbol%%*"    
