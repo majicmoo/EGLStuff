@@ -16,24 +16,42 @@ def main(fname):
     eolPath = "/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/eol"
     file_destination = open(os.path.join(path, cleanFileName(fname)+".egl"), "w")
     
+    
+    ## Check if fnametemp exists, 
+    ## if it does insert it into fname and remove comments.
     if os.path.isfile(os.path.join(eolPath, cleanFileName(fname)+"temp.eol")):
+    
+        ## open fnametemp (file_store)
         file_store = open(os.path.join(eolPath, cleanFileName(fname)+"temp.eol"), "r")
+        
+        ## open a file to write edits to fname temp to
+        ## called file_store_edit
         file_store_edit= open ("tempStore.txt", "w")
         
         ## remove semicolons left from java transformation
-        maxLine = countLines(file_store)
-        print maxLine
+        ## save changes to file_store_edit
+        maxLine = sum(1 for line in file_store if line.rstrip('\n'))
         lineCount = 0
-        for line in file_store:
-            if (lineCount!=0) or (lineCount !=1) or (lineCount != maxLine-1) or (lineCount != maxline):
-                writeToFile(file_store_edit, line)
-            lineCount += 1
         
+        ## For some reason python doesn't like you accessing a file twice
+        file_store.close()
+        file_store = open(os.path.join(eolPath, cleanFileName(fname)+"temp.eol"), "r")
+        
+        ## 
+        for line in file_store:
+            line = line.rstrip()
+            if line:
+                if (lineCount!=0) and (lineCount !=1) and (lineCount != maxLine-2) and (lineCount != maxLine-1):
+                    writeToFile(file_store_edit, line)
+                lineCount += 1
+        
+        file_store.close()
         file_store_edit.close()
+        
+        ## Read original file and remove comments
+        ## Insert equals parts in
         file_store_edit= open("tempStore.txt", "r")
         storedLines=file_store_edit.readlines()
-        
-        
         for line in file_origin:
             if staticSymbol in line:
                 if storeSymbol in line:
@@ -42,11 +60,12 @@ def main(fname):
                     print int(clean(lineTemp))
                     print storedLines
                     writeToFile(file_edit, storedLines[int(clean(lineTemp))])
-                    print storedLines[lineTemp]
+                    print storedLines[int(clean(lineTemp))]
                 else:
                     writeToFile(file_edit, line.replace(staticSymbol, ""))
             else:
                 writeToFile(file_edit, line) 
+        
               
     else:
         ## remove comments
@@ -85,9 +104,6 @@ def clean(string):
         if ((i != "\"") and (i != "%") and ( i != "<") and (i != ">")):
             temp += i
     return temp
-
-def countLines(fname):
-    return sum(1 for line in fname)
 
 path = "/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/eol/*"
 files = glob.glob(path)
