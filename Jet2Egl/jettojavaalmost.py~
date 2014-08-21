@@ -12,7 +12,6 @@ def main(fname):
     path = "/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/java"
     file_destination = open(os.path.join(path, cleanFileName(fname)+".java"), "w")  # File translating to
     
-    
     ## file used to store parts of jet 
     ## that have to be translated but do 
     ## not fit java syntax. This will be 
@@ -73,6 +72,7 @@ def main(fname):
             else:
                 writeToFile( file_destination, line)
         elif "@" in line:
+            ## annotations are commented out
             if line.index("@") == 0:
                 writeToFile( file_destination, staticSymbol+line)
             else:
@@ -83,14 +83,15 @@ def main(fname):
     #close main funciton
     writeToFile(file_destination, "\n}\n}")
     if countStore > 0:
+        #close main function for equals issue file
         writeToFile(file_store, "\n}\n}")
     file_origin.close()
     file_edit.close()
     file_destination.close()  
     file_store.close()
     
-    temp_file = os.path.join(path, cleanFileName(fname)+"temp.java")
     ## Delete empty file
+    temp_file = os.path.join(path, cleanFileName(fname)+"temp.java")
     if os.stat(temp_file).st_size == 0:
         os.remove(temp_file)
     
@@ -104,14 +105,14 @@ def commentStatic(line, filename, inDynamic, staticSymbol):
         ## Rubbishy way of dealing with the word import in comments
         temp_line = line.split("/*")
         if len(temp_line) <= 1:
-            return inDynamic
+            commentSplit = line.split("//")
+            if len(commentSplit) <= 1:
+                return inDynamic
+            if "import" in commentSplit[0]: 
+                return inDynamic
         if "import" in temp_line[0]:
             return inDynamic
-        temp_line = line.split("//")
-        if len(temp_line) <= 1:
-            return inDynamic
-        if "import" in temp_line[0]: 
-            return inDynamic
+        
             
         
     ##returns if an include statement   
@@ -119,13 +120,12 @@ def commentStatic(line, filename, inDynamic, staticSymbol):
     ## Rubbishy way of dealing with the word include in comments
         temp_line = line.split("/*")
         if len(temp_line) <= 1:
-            return inDynamic
+            commentSplit = line.split("//")
+            if len(commentSplit) <= 1:
+                return inDynamic
+            if "include" in commentSplit[0]: 
+                return inDynamic
         if "include" in temp_line[0]:
-            return inDynamic
-        temp_line = line.split("//")
-        if len(temp_line) <= 1:
-            return inDynamic
-        if "include" in temp_line[0]: 
             return inDynamic
 
     temp = False
@@ -139,16 +139,12 @@ def commentStatic(line, filename, inDynamic, staticSymbol):
                     inDynamic = True
                     writeToFile(filename, char)
                     writeToFile(filename, "\n")
-                    ##print "Entering Dynamic\n"
-                    ##print char
                 else:
                     writeToFile(filename, char)
-                    ##print char
             else:
                 if char == "<":
                     temp = True
                 writeToFile(filename, char)
-                ##print char
                 
                     
         else:
@@ -157,18 +153,13 @@ def commentStatic(line, filename, inDynamic, staticSymbol):
                 if (char == ">"):
                     inDynamic = False
                     writeToFile(filename, "\n" +staticSymbol+"%>")
-                    ##print "Exiting Dynamic\n"
-                   ## print char
                 else:
                     writeToFile(filename, "%"+char)
-                    ##print char
             else:
                 if char == "%":
                     temp = True
-                    ##print char
                 else:
                     writeToFile(filename, char)
-                    ##print char
         count += 1
     return inDynamic
         
