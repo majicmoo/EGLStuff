@@ -1,5 +1,6 @@
 import glob
 import os
+import re
 
 def main(fname):
 
@@ -19,6 +20,7 @@ def main(fname):
     
     ## Check if fnametemp exists, 
     ## if it does insert it into fname and remove comments.
+    max_line = 0
     if os.path.isfile(os.path.join(eolPath, cleanFileName(fname)+"temp.eol")):
     
         ## open fnametemp (file_store)
@@ -31,54 +33,60 @@ def main(fname):
         ## remove semicolons left from java transformation
         ## save changes to file_store_edit
         maxLine = sum(1 for line in file_store if line.rstrip('\n'))
-        lineCount = 0
         
-        ## For some reason python doesn't like you accessing a file twice
         file_store.close()
         file_store = open(os.path.join(eolPath, cleanFileName(fname)+"temp.eol"), "r")
         
         ## 
-        for line in file_store:
-            line = line.rstrip()
-            if line:
-                if (lineCount!=0) and (lineCount !=1) and (lineCount != maxLine-2) and (lineCount != maxLine-1):
-                    writeToFile(file_store_edit, line)
-                lineCount += 1
+        removeSemiColons(file_store, file_store_edit, maxLine)
         
         file_store.close()
         file_store_edit.close()
+        
+        ##maxLine = sum(1 for line in file_origin if line.rstrip('\n'))
         
         ## Read original file and remove comments
         ## Insert equals parts in
         file_store_edit= open("tempStore.txt", "r")
         storedLines=file_store_edit.readlines()
+        
         for line in file_origin:
-            if staticSymbol in line:
-                if storeSymbol in line:
-                    lineTemp = line.replace(staticSymbol, "")
-                    lineTemp = lineTemp.replace(storeSymbol, "")
-                    writeToFile(file_edit, storedLines[int(clean(lineTemp))])
+            if line != "\n":
+                if staticSymbol in line:
+                    if storeSymbol in line:
+                        lineTemp = line.replace(staticSymbol, "")
+                        lineTemp = lineTemp.replace(storeSymbol, "")
+                        ## write to file removing whitespace
+                        writeToFile(file_edit, "="+re.sub( '\s+',' ', storedLines[int(clean(lineTemp))]).strip()+"%>")
+                    else:
+                        writeToFile(file_edit, line.replace(staticSymbol, ""))
                 else:
-                    writeToFile(file_edit, line.replace(staticSymbol, ""))
-            else:
-                writeToFile(file_edit, line) 
+                    writeToFile(file_edit, line) 
+                max_line += 1
         
               
     else:
         ## remove comments
+        
         for line in file_origin:
-            if staticSymbol in line:
-                writeToFile(file_edit, line.replace(staticSymbol, ""))
-            else:
-                writeToFile(file_edit, line)            
+            if line != "\n":
+                if staticSymbol in line:
+                    writeToFile(file_edit, line.replace(staticSymbol, ""))
+                else:
+                    writeToFile(file_edit, line)
+                max_line += 1            
     file_edit.close()
     file_edit = open("temp.txt", "r")
-    
+    ##print max_line
+    line_count=0
     ## change brackets
     for line in file_edit:
         if line != "\n" :
-            temp = line.replace("%>", "%]")
-            writeToFile(file_destination, temp.replace("<%", "[%"))
+            if (line_count!=0) and (line_count !=1) and (line_count != max_line-2) and (line_count != max_line-1):
+                temp = line.replace("%>", "%]")
+                temp = temp.replace("<%\n", "[%")
+                writeToFile(file_destination, temp.replace("<%", "[%"))
+            line_count += 1
       
         
     file_origin.close()
@@ -101,6 +109,15 @@ def clean(string):
         if ((i != "\"") and (i != "%") and ( i != "<") and (i != ">")):
             temp += i
     return temp
+
+def removeSemiColons(file_origin, file_destination, maxLine):
+    lineCount = 0
+    for line in file_origin:
+        line = line.rstrip()
+        if line:
+            if (lineCount!=0) and (lineCount !=1) and (lineCount != maxLine-2) and (lineCount != maxLine-1):
+                writeToFile(file_destination, line)
+            lineCount += 1
 
 path = "/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/eol/*"
 files = glob.glob(path)

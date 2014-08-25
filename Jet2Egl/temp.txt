@@ -157,7 +157,7 @@
         %> class <%
         =genClass.getTestCaseClassName()
         %> extends <%
-        if (genClass.isModelRoot()) {genModel.getImportedName("junit.framework.TestCase");} else {genClass.getClassExtendsGenClass().getImportedTestCaseClassName();};        {
+=if (genClass.isModelRoot()) {genModel.getImportedName("junit.framework.TestCase");} else {genClass.getClassExtendsGenClass().getImportedTestCaseClassName();};%>        {
         <%
         if (genModel.hasCopyrightField()) {
             %>
@@ -700,6 +700,4 @@
         genModel.emitSortedImports();
         %>
     }
-
 }
-

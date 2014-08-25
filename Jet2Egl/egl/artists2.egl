@@ -1,27 +1,42 @@
-[%
-        var artist = argument;
+        [%import comicBooks.*;%]
+        [%        var artist = argument;
         %]
         
-        <h1>[%=artist.name%]</h1>
+        <h1>[%        =artist.getName()
+        %]</h1>
         
         <h2>Books Artist For</h2>
         <ul>
-        [%
-        for (book in artist.booksArtistFor){
+        [%        for (book in artist.getBooksArtistFor()){
             %]
-            	<li><a href="[%=book.name%].html">[%=book.name%]</a></li>
-            [%
-            } %]
-        </ul>
-        
-        <h2>Books Cover Artist For</h2>
-        <ul>
-        [%
-        for (coverBook in artist.booksCoverArtistFor){
-            %]
-            	<li><a href="[%=coverBook.name%].html">[%=coverBook.name%]</a></li>
-            [%
+            	<li><a href="[%            =book.getName()
+            %].html">[%            =book.getName()
+            %]</a></li>
+            [%            ;
         } %]
         </ul>
+        
+        [%        var temp = 5.mod(3);
+        %]
+        <h2>Books Cover Artist For</h2>
+        <ul>
+        [%        for (coverBook in artist.getBooksCoverArtistFor()){
+            %]
+            	<li><a href="[%            =coverBook.getName()
+            %].html">[%            =coverBook.getName()
+            %]</a></li>
+            [%            ;
+        } %]
+        </ul>
+        
+        [%        if (coverBook = true) {
+            %]
+            [%            var amy = 7.0;
+            amy = 5.0;
+            amy = amy - 1;
+            var temp = 5.mod(3);
+            %]
+            [%        }
+        %]
         
         <a href="artists.html">Back</a>
