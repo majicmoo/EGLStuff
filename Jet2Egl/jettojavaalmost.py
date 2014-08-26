@@ -203,8 +203,7 @@ def cleanFileName(fname):
 path = "jet/*"
 files = glob.glob(path)
 print "************************"
-print "Transforming Jet to Java"
 for fname in files:
-    print fname
+    print "Transforming", fname, "from JET -> Java"
     main(fname)   
 print "************************"

@@ -15,10 +15,9 @@ path = "java/*"
 eolpath = "eol/"
 files = glob.glob(path)
 #print files
-print "**************************"
 print "Transforming Java to EOL"
 for fname in files:
     call = "txl -comment "+"./"+fname +" -o "+ "./"+eolpath+cleanFileName(fname)+".eol"
-    
+    print "**************************"
     subprocess.call(call, shell=True)
 
