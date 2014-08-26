@@ -13,7 +13,7 @@ def main(fname):
     file_origin = open(fname, "r")
     file_edit = open("temp.txt", "w")
     
-    path = "/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/egl"
+    path = "egl"
     eolPath = "/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/eol"
     file_destination = open(os.path.join(path, cleanFileName(fname)+".egl"), "w")
     
@@ -84,7 +84,7 @@ def main(fname):
         if line != "\n" :
             if (line_count!=0) and (line_count !=1) and (line_count != max_line-2) and (line_count != max_line-1):
                 temp = line.replace("%>", "%]")
-                temp = temp.replace("<%\n\t", "[%")
+                temp = temp.replace("<%\n", "[%")
                 writeToFile(file_destination, temp.replace("<%", "[%"))
             line_count += 1
       
@@ -119,7 +119,7 @@ def removeSemiColons(file_origin, file_destination, maxLine):
                 writeToFile(file_destination, line)
             lineCount += 1
 
-path = "/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/eol/*"
+path = "eol/*"
 files = glob.glob(path)
 #print files
 for fname in files:

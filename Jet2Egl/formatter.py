@@ -72,17 +72,17 @@ def formatter(filename):
             skip = False 
         line_count += 1    
                 
-    
+    file_origin.close()
+    file_destination.close()
     ##os.rename("temp.txt", filename)
     
  
 
-path = "/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/egl/*"
+path = "egl/*"
 files = glob.glob(path)
 #print files
 for fname in files:
     formatter(fname)
-    ##formatter(fname)
     print "Formatting", fname
     
         

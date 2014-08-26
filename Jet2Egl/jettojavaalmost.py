@@ -9,7 +9,7 @@ def main(fname):
     startStatic = 0
     file_origin = open(fname, "r") # File translating from
     file_edit = open("temp.txt", "w") # File used to store work in between
-    path = "/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/java"
+    path = "java"
     file_destination = open(os.path.join(path, cleanFileName(fname)+".java"), "w")  # File translating to
     
     ## file used to store parts of jet 
@@ -198,7 +198,7 @@ def cleanFileName(fname):
     temp = temp.split(".")
     return temp[0]
 
-path = "/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/jet/*"
+path = "jet/*"
 files = glob.glob(path)
 print "************************"
 print "Transforming Jet to Java"

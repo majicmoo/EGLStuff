@@ -48,7 +48,7 @@ def main(fname):
     
     ## write includes to destination
     for i in includes:
-        writeToFile(file_destination, staticSymbol+ "<% include(\""+i+"\");%>\n")
+        writeToFile(file_destination, staticSymbol+ "<%include(\""+i+"\");%>\n")
     
     file_edit.close()
     file_edit = open("temp.txt", "r")
@@ -198,7 +198,7 @@ def cleanFileName(fname):
     temp = temp.split(".")
     return temp[0]
 
-path = "/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/jet/*"
+path = "jet/*"
 files = glob.glob(path)
 print "************************"
 print "Transforming Jet to Java"
