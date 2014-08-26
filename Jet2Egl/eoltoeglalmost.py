@@ -9,9 +9,10 @@ def main(fname):
     
     ## Used to help indentify stored code in file_store
     storeSymbol = "*%%storeSymbol%%*"    
+    edit_fname = "bin/temp.txt"
     
     file_origin = open(fname, "r")
-    file_edit = open("temp.txt", "w")
+    file_edit = open(edit_fname, "w")
     
     path = "egl"
     eolPath = "eol"
@@ -28,7 +29,8 @@ def main(fname):
         
         ## open a file to write edits to fname temp to
         ## called file_store_edit
-        file_store_edit= open ("tempStore.txt", "w")
+        file_store_fname = "bin/tempStore.txt"
+        file_store_edit= open (file_store_fname, "w")
         
         ## remove semicolons left from java transformation
         ## save changes to file_store_edit
@@ -47,7 +49,7 @@ def main(fname):
         
         ## Read original file and remove comments
         ## Insert equals parts in
-        file_store_edit= open("tempStore.txt", "r")
+        file_store_edit= open(file_store_fname, "r")
         storedLines=file_store_edit.readlines()
         
         for line in file_origin:
@@ -76,7 +78,7 @@ def main(fname):
                     writeToFile(file_edit, line)
                 max_line += 1            
     file_edit.close()
-    file_edit = open("temp.txt", "r")
+    file_edit = open(edit_fname, "r")
     ##print max_line
     line_count=0
     ## change brackets

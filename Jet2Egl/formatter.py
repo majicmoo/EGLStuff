@@ -3,7 +3,8 @@ import glob
 
 def formatter(filename):
     file_origin = open(fname, "r")
-    file_destination = open("temp.txt", "w")
+    edit_fname = "bin/temp.txt"
+    file_destination = open(edit_fname, "w")
     
     file_lines = file_origin.readlines()
     line_count = 0
@@ -44,13 +45,14 @@ def formatter(filename):
     file_origin.close()
     file_destination.close()
     
-    file_origin = open("temp.txt", "r")
+    file_origin = open(edit_fname, "r")
     file_destination = open(fname, "w")
     
     file_lines = file_origin.readlines()
     
     line_count = 0
     skip = False
+    ## Move leftover %] up
     for line in file_lines:
         if not skip:
             if line == "[%;} %]\n":

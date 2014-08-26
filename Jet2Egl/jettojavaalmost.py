@@ -7,8 +7,10 @@ def main(fname):
     includes = set() # Set to store includes
     inDynamic = False
     startStatic = 0
+    edit_fname = "bin/temp.txt"
+    
     file_origin = open(fname, "r") # File translating from
-    file_edit = open("temp.txt", "w") # File used to store work in between
+    file_edit = open(edit_fname, "w") # File used to store work in between
     path = "java"
     file_destination = open(os.path.join(path, cleanFileName(fname)+".java"), "w")  # File translating to
     
@@ -51,7 +53,7 @@ def main(fname):
         writeToFile(file_destination, staticSymbol+ "<%include(\""+i+"\");%>\n")
     
     file_edit.close()
-    file_edit = open("temp.txt", "r")
+    file_edit = open(edit_fname, "r")
     countStore = 0
 
     ## write dynamic code
