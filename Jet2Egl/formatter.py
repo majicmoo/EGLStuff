@@ -62,7 +62,7 @@ def formatter(filename):
                     next_line = file_lines[line_count+1]
                     if "%]" in next_line:
                         if next_line[0] == "%" or next_line[1] == "]":
-                            file_destination.write(line.replace("\n", "")+next_line+"\n")
+                            file_destination.write(line.replace("\n", "")+next_line)
                             skip = True
                         else:
                             file_destination.write(line)

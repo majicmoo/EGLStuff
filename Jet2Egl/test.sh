@@ -5,6 +5,7 @@ echo "**************************"
 echo " "
 python ./jettojavaalmost.py
 echo " "
+echo "**************************"
 python ./transform.py
 echo "**************************"
 echo " "

@@ -3,7 +3,6 @@ echo "**************************"
 echo "Transforming from JET to EGL"
 echo "**************************"
 echo " "
-
 python ./jettojavaalmost.py
 echo " "
 python ./transform.py

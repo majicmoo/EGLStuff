@@ -52,7 +52,6 @@ first = false;%]
 * <ul>
 [%}%]
 * <li>{@link [%=genFeature.getGenClass().getQualifiedInterfaceName()%]#[%=genFeature.getGetAccessor()%]() <em>[%=genFeature.getFormattedName()%]</em>}</li>
-
 [%}%]
 [%} %]
 [%if (notfirst) {%]
@@ -70,7 +69,6 @@ first = false;%]
 * <ul>
 [%}%]
 * <li>{@link [%=genOperation.getGenClass().getQualifiedInterfaceName()%]#[%=genOperation.getName()%]([%=genOperation.getParameterTypes(", ")%]) <em>[%=genOperation.getFormattedName()
-
 %]</em>}</li>
 [%} %]
 [%if (notfirst) {%]
@@ -81,7 +79,6 @@ first = false;%]
 * @generated
 */
 public[%if (genClass.isAbstract()) {%] abstract[%}%] class [%=genClass.getTestCaseClassName()%] extends [%=if (genClass.isModelRoot()) {genModel.getImportedName("junit.framework.TestCase");} else {genClass.getClassExtendsGenClass().getImportedTestCaseClassName();};%]{
-
 [%if (genModel.hasCopyrightField()) {%]
 /**
 * <!-- begin-user-doc -->
@@ -89,7 +86,6 @@ public[%if (genClass.isAbstract()) {%] abstract[%}%] class [%=genClass.getTestCa
 * @generated
 */
 public static final [%=genModel.getImportedName("java.lang.String")%] copyright = [%=genModel.getCopyrightFieldLiteral()%];[%=genModel.getNonNLS()%]
-
 [%}%]
 [%if (genModel.getDriverNumber() <> null) {%]
 /**
@@ -98,7 +94,6 @@ public static final [%=genModel.getImportedName("java.lang.String")%] copyright 
 * @generated
 */
 public static final [%=genModel.getImportedName("java.lang.String")%] mofDriverNumber = "[%=genModel.getDriverNumber()%]";[%=genModel.getNonNLS()%]
-
 [%}%]
 [%if (genClass.isModelRoot()) {%]
 /**
@@ -108,7 +103,6 @@ public static final [%=genModel.getImportedName("java.lang.String")%] mofDriverN
 * @generated
 */
 protected [%=genClass.getImportedInterfaceName()%][%=genClass.getInterfaceWildTypeArguments()%] fixture = null;
-
 [%}%]
 [%if (notgenClass.isAbstract()) {%]
 /**
@@ -119,7 +113,6 @@ protected [%=genClass.getImportedInterfaceName()%][%=genClass.getInterfaceWildTy
 public static void main(String[] args)
 {
 [%=genModel.getImportedName("junit.textui.TestRunner")%].run([%=genClass.getTestCaseClassName()%].class);
-
 }
 [%}%]
 /**
@@ -140,7 +133,6 @@ super(name);
 * @generated
 */
 protected void setFixture([%=genClass.getImportedInterfaceName()%][%=genClass.getInterfaceWildTypeArguments()%] fixture)
-
 {
 this.fixture = fixture;
 }
@@ -155,14 +147,12 @@ this.fixture = fixture;
 @Override
 [%}%]
 [%if (genModel.useGenerics()) {%]protected[%} else {%]private[%}%] [%=genClass.getImportedInterfaceName()
-
 %][%=genClass.getInterfaceWildTypeArguments()%] getFixture()
 {
 [%if (genClass.isModelRoot()) {%]
 return fixture;
 [%} else {%]
 return ([%=genClass.getImportedInterfaceName()%][%=genClass.getInterfaceWildTypeArguments()%])fixture;
-
 [%}%]
 }
 [%if (notgenClass.isAbstract()) {%]
@@ -182,11 +172,9 @@ protected void setUp() throws Exception
 {
 [%if (genClass.isMapEntry()) {%]
 setFixture(([%=genClass.getImportedInterfaceName()%][%=genClass.getInterfaceWildTypeArguments()%])[%=genPackage.getQualifiedEFactoryInternalInstanceAccessor()%].create([%=genClass.getQualifiedClassifierAccessor()
-
 %]));
 [%} else {%]
 setFixture([%=genPackage.getQualifiedEFactoryInternalInstanceAccessor()%].create[%=genClass.getName()%]());
-
 [%}%]
 }
 /**
@@ -210,11 +198,9 @@ setFixture(null);
 [%@ start %]
 /**
 * Tests the '{@link [%=genFeature.getGenClass().getQualifiedInterfaceName()%]#[%=genFeature.getGetAccessor()%]() <em>[%=genFeature.getFormattedName()%]</em>}' feature getter.
-
 * <!-- begin-user-doc -->
 * <!-- end-user-doc -->
 * @see [%=genFeature.getGenClass().getQualifiedInterfaceName()%]#[%=genFeature.getGetAccessor()%]()
-
 * @generated
 */
 [%if (genModel.getComplianceLevel().getValue() >= GenJDKLevel.JDK50) {
@@ -227,21 +213,17 @@ public void test[%=genModel.capName(genFeature.getGetAccessor())%]()
 // Ensure that you remove @generated or mark it @generated NOT
 fail();
 [%@ end %][%//TestCase/getGenFeature.todo.override.javajetinc%]
-
 }
 [%@ end %][%//TestCase/getGenFeature.override.javajetinc%]
-
 [%}%]
 [%if (genFeature.isSet() and notgenFeature.isSuppressedSetVisibility()) {%]
 [%@ start %]
 /**
 * Tests the '{@link [%=genFeature.getGenClass().getQualifiedInterfaceName()%]#set[%=genFeature.getAccessorName()%]([%=genFeature.getRawBoundType()%]) <em>[%=genFeature.getFormattedName()
-
 %]</em>}' feature setter.
 * <!-- begin-user-doc -->
 * <!-- end-user-doc -->
 * @see [%=genFeature.getGenClass().getQualifiedInterfaceName()%]#set[%=genFeature.getAccessorName()%]([%=genFeature.getRawBoundType()%])
-
 * @generated
 */
 [%if (genModel.getComplianceLevel().getValue() >= GenJDKLevel.JDK50) {
@@ -254,20 +236,16 @@ public void testSet[%=genFeature.getAccessorName()%]()
 // Ensure that you remove @generated or mark it @generated NOT
 fail();
 [%@ end %][%//TestCase/setGenFeature.todo.override.javajetinc%]
-
 }
 [%@ end %][%//TestCase/setGenFeature.override.javajetinc%]
-
 [%}%]
 [%if (genFeature.isUnset() and notgenFeature.isSuppressedUnsetVisibility()) {%]
 [%@ start %]
 /**
 * Tests the '{@link [%=genFeature.getGenClass().getQualifiedInterfaceName()%]#unset[%=genFeature.getAccessorName()%]() <em>unset[%=genFeature.getAccessorName()%]()</em>}' method.
-
 * <!-- begin-user-doc -->
 * <!-- end-user-doc -->
 * @see [%=genFeature.getGenClass().getQualifiedInterfaceName()%]#unset[%=genFeature.getAccessorName()%]()
-
 * @generated
 */
 [%if (genModel.getComplianceLevel().getValue() >= GenJDKLevel.JDK50) {
@@ -280,20 +258,16 @@ public void testUnset[%=genFeature.getAccessorName()%]()
 // Ensure that you remove @generated or mark it @generated NOT
 fail();
 [%@ end %][%//TestCase/unsetGenFeature.todo.override.javajetinc%]
-
 }
 [%@ end %][%//TestCase/unsetGenFeature.override.javajetinc%]
-
 [%}%]
 [%if (genFeature.isIsSet() and notgenFeature.isSuppressedIsSetVisibility()) {%]
 [%@ start %]
 /**
 * Tests the '{@link [%=genFeature.getGenClass().getQualifiedInterfaceName()%]#isSet[%=genFeature.getAccessorName()%]() <em>isSet[%=genFeature.getAccessorName()%]()</em>}' method.
-
 * <!-- begin-user-doc -->
 * <!-- end-user-doc -->
 * @see [%=genFeature.getGenClass().getQualifiedInterfaceName()%]#isSet[%=genFeature.getAccessorName()%]()
-
 * @generated
 */
 [%if (genModel.getComplianceLevel().getValue() >= GenJDKLevel.JDK50) {
@@ -306,25 +280,20 @@ public void testIsSet[%=genFeature.getAccessorName()%]()
 // Ensure that you remove @generated or mark it @generated NOT
 fail();
 [%@ end %][%//TestCase/isSetGenFeature.todo.override.javajetinc%]
-
 }
 [%@ end %][%//TestCase/isSetGenFeature.override.javajetinc%]
-
 [%}%]
 [%}%]
 [%@ end %][%//TestCase/implementedGenFeature.override.javajetinc%]
-
 [%} %]
 [%for (genOperation in genClass.getImplementedGenOperations()){%]
 [%@ start %]
 /**
 * Tests the '{@link [%=genOperation.getGenClass().getQualifiedInterfaceName()%]#[%=genOperation.getName()%]([%=genOperation.getParameterTypes(", ")%]) <em>[%=genOperation.getFormattedName()
-
 %]</em>}' operation.
 * <!-- begin-user-doc -->
 * <!-- end-user-doc -->
 * @see [%=genOperation.getGenClass().getQualifiedInterfaceName()%]#[%=genOperation.getName()%]([%=genOperation.getParameterTypes(", ")%])
-
 * @generated
 */
 [%if (genModel.getComplianceLevel().getValue() >= GenJDKLevel.JDK50) {
@@ -337,10 +306,8 @@ public void test[%=genClass.getUniqueName(genOperation)%]()
 // Ensure that you remove @generated or mark it @generated NOT
 fail();
 [%@ end %][%//TestCase/implementedGenOperation.todo.override.javajetinc%]
-
 }
 [%@ end %][%//TestCase/implementedGenOperation.override.javajetinc%]
-
 [%} %]
 } //[%=genClass.getTestCaseClassName()%]
 [%genModel.emitSortedImports();%]

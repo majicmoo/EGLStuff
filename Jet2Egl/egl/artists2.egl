@@ -5,14 +5,12 @@
 <ul>
 [%for (book in artist.getBooksArtistFor()){%]
 <li><a href="[%=book.getName()%].html">[%=book.getName()%]</a></li>
-
 [%} %]
 </ul>
 <h2>Books Cover Artist For</h2>
 <ul>
 [%for (coverBook in artist.getBooksCoverArtistFor()){%]
 <li><a href="[%=coverBook.getName()%].html">[%=coverBook.getName()%]</a></li>
-
 [%} %]
 </ul>
 <a href="artists.html">Back</a>
