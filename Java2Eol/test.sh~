@@ -1,5 +1,0 @@
-txl ./java/BlockDemo.java -o ./eol/BlockDemo.eol
-echo "**************************"
-echo "BlockDemo.java"
-echo "**************************"
-echo ""
