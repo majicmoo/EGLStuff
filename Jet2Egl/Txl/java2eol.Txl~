@@ -147,9 +147,9 @@ end rule
 %% Transform Mod (%)
 rule transformModOperator
     replace [multiplicative_expression]
-    a [unary_expression] '% b [unary_expression] ';
+    a [unary_expression] '% b [unary_expression]
     by
-    a '.mod( b ') ';
+    a '.mod( b ')
 end rule
 
 

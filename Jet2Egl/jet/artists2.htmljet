@@ -10,7 +10,6 @@
 <% } %>
 </ul>
 
-<% int temp = 5 % 3; %>
 <h2>Books Cover Artist For</h2>
 <ul>
 <% for (Book coverBook : artist.getBooksCoverArtistFor()) { %>
@@ -18,11 +17,5 @@
 <% } %>
 </ul>
 
-<% if (coverBook == true){ %>
-<% int amy = (int) 7.0; 
-amy = (int) 5.0;
-amy--;
-int temp = 5 % 3;%>
-<% } %>
 
 <a href="artists.html">Back</a>

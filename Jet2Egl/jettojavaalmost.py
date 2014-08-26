@@ -48,7 +48,7 @@ def main(fname):
     
     ## write includes to destination
     for i in includes:
-        writeToFile(file_destination, staticSymbol+ "<% include(\""+i+"\");%>\n")
+        writeToFile(file_destination, staticSymbol+ "<%include(\""+i+"\");%>\n")
     
     file_edit.close()
     file_edit = open("temp.txt", "r")

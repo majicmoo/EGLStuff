@@ -56,7 +56,7 @@ def main(fname):
                     if storeSymbol in line:
                         lineTemp = line.replace(staticSymbol, "")
                         lineTemp = lineTemp.replace(storeSymbol, "")
-                        ## write to file removing whitespace
+                        ## write to file removing whiteSPACE
                         writeToFile(file_edit, "="+re.sub( '\s+',' ', storedLines[int(clean(lineTemp))]).strip()+"%>")
                     else:
                         writeToFile(file_edit, line.replace(staticSymbol, ""))

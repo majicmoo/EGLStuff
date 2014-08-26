@@ -24,9 +24,6 @@ public static void main (String[] args) {
 //&&&staticSymbol&&&%>
 //&&&staticSymbol&&&</ul>
 //&&&staticSymbol&&&
-//&&&staticSymbol&&&<%
- int temp = 5 % 3; 
-//&&&staticSymbol&&&%>
 //&&&staticSymbol&&&<h2>Books Cover Artist For</h2>
 //&&&staticSymbol&&&<ul>
 //&&&staticSymbol&&&<%
@@ -42,18 +39,6 @@ public static void main (String[] args) {
 //&&&staticSymbol&&&%>
 //&&&staticSymbol&&&</ul>
 //&&&staticSymbol&&&
-//&&&staticSymbol&&&<%
- if (coverBook == true){ 
-//&&&staticSymbol&&&%>
-//&&&staticSymbol&&&<%
- int amy = (int) 7.0; 
-amy = (int) 5.0;
-amy--;
-int temp = 5 % 3;
-//&&&staticSymbol&&&%>
-//&&&staticSymbol&&&<%
- } 
-//&&&staticSymbol&&&%>
 //&&&staticSymbol&&&
 //&&&staticSymbol&&&<a href="artists.html">Back</a>
 

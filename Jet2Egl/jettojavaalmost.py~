@@ -113,8 +113,6 @@ def commentStatic(line, filename, inDynamic, staticSymbol):
         if "import" in temp_line[0]:
             return inDynamic
         
-            
-        
     ##returns if an include statement   
     if "@ include" in line:
     ## Rubbishy way of dealing with the word include in comments

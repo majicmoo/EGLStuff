@@ -2,26 +2,26 @@
     {
         //&&&staticSymbol&&&<%import java.util.*;%>
         //&&&staticSymbol&&&<%import org.eclipse.emf.codegen.ecore.genmodel.*;%>
-        //&&&staticSymbol&&&<% include("../Header.javajetinc");%>
-        //&&&staticSymbol&&&<% include("TestCase/unsetGenFeature.TODO.override.javajetinc");%>
-        //&&&staticSymbol&&&<% include("TestCase/implementedGenFeature.insert.javajetinc");%>
-        //&&&staticSymbol&&&<% include("TestCase/unsetGenFeature.override.javajetinc");%>
-        //&&&staticSymbol&&&<% include("TestCase/getGenFeature.TODO.override.javajetinc");%>
-        //&&&staticSymbol&&&<% include("TestCase/implementedGenFeature.override.javajetinc");%>
-        //&&&staticSymbol&&&<% include("TestCase/genOperation.annotations.insert.javajetinc");%>
-        //&&&staticSymbol&&&<% include("TestCase/isSetGenFeature.TODO.override.javajetinc");%>
-        //&&&staticSymbol&&&<% include("TestCase/isSetGenFeature.annotations.insert.javajetinc");%>
-        //&&&staticSymbol&&&<% include("TestCase/implementedGenOperation.override.javajetinc");%>
-        //&&&staticSymbol&&&<% include("TestCase/setGenFeature.annotations.insert.javajetinc");%>
-        //&&&staticSymbol&&&<% include("TestCase/getGenFeature.override.javajetinc");%>
-        //&&&staticSymbol&&&<% include("TestCase/implementedGenOperation.insert.javajetinc");%>
-        //&&&staticSymbol&&&<% include("TestCase/insert.javajetinc");%>
-        //&&&staticSymbol&&&<% include("TestCase/implementedGenOperation.TODO.override.javajetinc");%>
-        //&&&staticSymbol&&&<% include("TestCase/setGenFeature.TODO.override.javajetinc");%>
-        //&&&staticSymbol&&&<% include("TestCase/isSetGenFeature.override.javajetinc");%>
-        //&&&staticSymbol&&&<% include("TestCase/getGenFeature.annotations.insert.javajetinc");%>
-        //&&&staticSymbol&&&<% include("TestCase/setGenFeature.override.javajetinc");%>
-        //&&&staticSymbol&&&<% include("TestCase/unsetGenFeature.annotations.insert.javajetinc");%>
+        //&&&staticSymbol&&&<%include("../Header.javajetinc");%>
+        //&&&staticSymbol&&&<%include("TestCase/unsetGenFeature.TODO.override.javajetinc");%>
+        //&&&staticSymbol&&&<%include("TestCase/implementedGenFeature.insert.javajetinc");%>
+        //&&&staticSymbol&&&<%include("TestCase/unsetGenFeature.override.javajetinc");%>
+        //&&&staticSymbol&&&<%include("TestCase/getGenFeature.TODO.override.javajetinc");%>
+        //&&&staticSymbol&&&<%include("TestCase/implementedGenFeature.override.javajetinc");%>
+        //&&&staticSymbol&&&<%include("TestCase/genOperation.annotations.insert.javajetinc");%>
+        //&&&staticSymbol&&&<%include("TestCase/isSetGenFeature.TODO.override.javajetinc");%>
+        //&&&staticSymbol&&&<%include("TestCase/isSetGenFeature.annotations.insert.javajetinc");%>
+        //&&&staticSymbol&&&<%include("TestCase/implementedGenOperation.override.javajetinc");%>
+        //&&&staticSymbol&&&<%include("TestCase/setGenFeature.annotations.insert.javajetinc");%>
+        //&&&staticSymbol&&&<%include("TestCase/getGenFeature.override.javajetinc");%>
+        //&&&staticSymbol&&&<%include("TestCase/implementedGenOperation.insert.javajetinc");%>
+        //&&&staticSymbol&&&<%include("TestCase/insert.javajetinc");%>
+        //&&&staticSymbol&&&<%include("TestCase/implementedGenOperation.TODO.override.javajetinc");%>
+        //&&&staticSymbol&&&<%include("TestCase/setGenFeature.TODO.override.javajetinc");%>
+        //&&&staticSymbol&&&<%include("TestCase/isSetGenFeature.override.javajetinc");%>
+        //&&&staticSymbol&&&<%include("TestCase/getGenFeature.annotations.insert.javajetinc");%>
+        //&&&staticSymbol&&&<%include("TestCase/setGenFeature.override.javajetinc");%>
+        //&&&staticSymbol&&&<%include("TestCase/unsetGenFeature.annotations.insert.javajetinc");%>
         //&&&staticSymbol&&&<%
         /**
         
