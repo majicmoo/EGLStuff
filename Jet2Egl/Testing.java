@@ -36,8 +36,11 @@ class Testing {
         
         
         template.populate("argument", model.getAllOfKind("Artist").iterator().next());
+        
 
         String result = template.process();
+        
+        
         PrintWriter writer = new PrintWriter("./compare/egl.txt", "UTF-8");
         writer.println(result);
         writer.close();

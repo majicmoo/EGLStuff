@@ -256,7 +256,7 @@ public<%if (genClass.isAbstract()) {%> abstract<%}%> class <%=genClass.getTestCa
     <%if (genFeature.isIsSet() && !genFeature.isSuppressedIsSetVisibility()) {%>
 <%@ include file="TestCase/isSetGenFeature.override.javajetinc" fail="alternative" %>
 <%@ start %>
-
+<%=Testing ? Test : Testing%>
 	/**
 	 * Tests the '{@link <%=genFeature.getGenClass().getQualifiedInterfaceName()%>#isSet<%=genFeature.getAccessorName()%>() <em>isSet<%=genFeature.getAccessorName()%>()</em>}' method.
 	 * <!-- begin-user-doc -->

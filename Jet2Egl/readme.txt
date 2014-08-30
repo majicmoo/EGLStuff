@@ -1,5 +1,12 @@
 README
 
+What you need:
+python
+TXL
+Java
+wdiff
+
+
 To run:
 
 run: sh test.sh
@@ -55,4 +62,19 @@ org.eclipse.emf.common_2.9.0.v20130528-0742.jar:
 org.eclipse.emf.ecore.xmi_2.9.0.v20130528-0742.jar:
 . Testing
 
+
+echo "Testing"
+javac -cp packages/*:. Testing.java
+java -cp packages/*:src:. Testing
+javac -cp packages/*:src:. JetTest.java
+java -cp packages/*:src:. JetTest
+
+
+wdiff ./compare/jet.txt ./compare/egl.txt >/dev/null;REPLY=$?
+if [ ${REPLY} -eq 0 ]
+then
+         echo "Files are identical"
+else
+         echo "Files are different"
+fi
 

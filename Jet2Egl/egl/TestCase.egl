@@ -263,7 +263,7 @@ fail();
 [%}%]
 [%if (genFeature.isIsSet() and notgenFeature.isSuppressedIsSetVisibility()) {%]
 [%@ start %]
-/**
+[%=if (Testing) {Test;} else {Testing;};%]/**
 * Tests the '{@link [%=genFeature.getGenClass().getQualifiedInterfaceName()%]#isSet[%=genFeature.getAccessorName()%]() <em>isSet[%=genFeature.getAccessorName()%]()</em>}' method.
 * <!-- begin-user-doc -->
 * <!-- end-user-doc -->
@@ -311,4 +311,5 @@ fail();
 [%} %]
 } //[%=genClass.getTestCaseClassName()%]
 [%genModel.emitSortedImports();%]
+}
 }

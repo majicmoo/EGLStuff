@@ -1,1 +1,2 @@
         if (genClass.isModelRoot()) {genModel.getImportedName("junit.framework.TestCase");} else {genClass.getClassExtendsGenClass().getImportedTestCaseClassName();};
+        if (Testing) {Test;} else {Testing;};

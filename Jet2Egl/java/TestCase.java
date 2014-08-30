@@ -556,7 +556,8 @@ if (genFeature.isIsSet() && !genFeature.isSuppressedIsSetVisibility()) {
 //&&&staticSymbol&&&<%
 //&&&staticSymbol&&&@ start 
 //&&&staticSymbol&&&%>
-//&&&staticSymbol&&&
+//&&&staticSymbol&&&<%
+//&&&staticSymbol&&&*%%storeSymbol%%*1//&&&staticSymbol&&&%>
 //&&&staticSymbol&&&	/**
 //&&&staticSymbol&&&	 * Tests the '{@link <%
 //&&&staticSymbol&&&=genFeature.getGenClass().getQualifiedInterfaceName()

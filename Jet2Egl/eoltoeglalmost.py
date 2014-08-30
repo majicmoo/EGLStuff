@@ -52,6 +52,8 @@ def main(fname):
         file_store_edit= open(file_store_fname, "r")
         storedLines=file_store_edit.readlines()
         
+        
+        
         for line in file_origin:
             if line != "\n":
                 if staticSymbol in line:
@@ -59,6 +61,10 @@ def main(fname):
                         lineTemp = line.replace(staticSymbol, "")
                         lineTemp = lineTemp.replace(storeSymbol, "")
                         ## write to file removing whiteSPACE
+                        print int(clean(lineTemp))
+                        for i in storedLines:
+                            print "hello" ,i
+                            
                         writeToFile(file_edit, "="+re.sub( '\s+',' ', storedLines[int(clean(lineTemp))]).strip()+"%>")
                     else:
                         writeToFile(file_edit, line.replace(staticSymbol, ""))
@@ -115,8 +121,7 @@ def clean(string):
 def removeSemiColons(file_origin, file_destination, maxLine):
     lineCount = 0
     for line in file_origin:
-        line = line.rstrip()
-        if line:
+        if line != "\n":
             if (lineCount!=0) and (lineCount !=1) and (lineCount != maxLine-2) and (lineCount != maxLine-1):
                 writeToFile(file_destination, line)
             lineCount += 1
