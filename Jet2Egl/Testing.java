@@ -14,6 +14,7 @@ import org.eclipse.epsilon.egl.EglTemplateFactory;
 import org.eclipse.epsilon.egl.EglTemplate;
 import org.eclipse.epsilon.emc.emf.EmfModelFactory;
 import org.eclipse.emf.ecore.EcorePackage;
+import java.io.PrintWriter;
 
 
 class Testing {
@@ -22,20 +23,24 @@ class Testing {
 
         EglTemplateFactory factory = new EglTemplateFactory();
 
-        IModel model = EmfModelFactory.getInstance().loadEmfModel("MyModel", new File("/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/tmp/comicBooks.model"), new File("/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/tmp/comicBooks.ecore"));
+        IModel model = EmfModelFactory.getInstance().loadEmfModel("MyModel", new File("./tmp/comicBooks.model"), new File("./tmp/comicBooks.ecore"));
         factory.getContext().getModelRepository().addModel(model);
+        
+        File templateFile = new File("./egl/artists2.egl");
 
-        EglTemplate template = factory.load("/usr/userfs/m/mep513/Documents/EGLStuff/Jet2Egl/egl/artists2.egl");
+        EglTemplate template = factory.load(templateFile);
         
         for (ParseProblem i : template.getParseProblems()){
             System.out.println(i);
         }
         
-        System.out.println("test\n");
         
         template.populate("argument", model.getAllOfKind("Artist").iterator().next());
 
         String result = template.process();
+        PrintWriter writer = new PrintWriter("./compare/egl.txt", "UTF-8");
+        writer.println(result);
+        writer.close();
         System.out.println(result);
         }
 }
