@@ -61,9 +61,6 @@ def main(fname):
                         lineTemp = line.replace(staticSymbol, "")
                         lineTemp = lineTemp.replace(storeSymbol, "")
                         ## write to file removing whiteSPACE
-                        print int(clean(lineTemp))
-                        for i in storedLines:
-                            print "hello" ,i
                             
                         writeToFile(file_edit, "="+re.sub( '\s+',' ', storedLines[int(clean(lineTemp))]).strip()+"%>")
                     else:

@@ -26,6 +26,7 @@ function java2eol
 	%[transformTypeDeclaration]
 	[transformOps]
 	[transformBooleanOps]
+	[transformDoStatement]
 	%[transformTypeAssignment]
 	[localVarDecl2Assignment]
 	[removeCast]
@@ -51,7 +52,17 @@ rule transformForIn
 	'}
 end rule
 
-
+%% Transform do while
+rule transformDoStatement
+    replace [statement]
+    'do Stmt [statement]
+    'while '( Expr [assignment_expression] ') ';
+    by
+    Stmt ';
+    while '( Expr ') '{
+        Stmt ';
+    '}
+end rule
 
 
  %local variable declaration to simple assignment
@@ -228,6 +239,7 @@ rule removeMainFunction
     by
     Body
 end rule
+
 
 
 

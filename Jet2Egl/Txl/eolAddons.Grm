@@ -105,12 +105,13 @@ redefine statement
     
     |   [for_stmt]
 
-   
+    
     |   [print_stmt]
 
     |   [repeat declaration_or_statement]
 
     |   [empty_statement]
+    |   [do_stmt]
 end define
 
 redefine assignment_expression
@@ -194,6 +195,12 @@ define for_stmt
     'for '( [id] 'in [expression] [SPOFF] '){ [SPON] [NL][IN] [repeat declaration_or_statement] [EX] '}
 end define 
 
+define do_stmt
+    [statement] ';
+    'while '( [assignment_expression] ') '{
+        [statement] ';
+    '}
+end define
 
 
 % Every end of line may have an optional trailing comment
