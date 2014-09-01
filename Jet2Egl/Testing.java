@@ -20,7 +20,8 @@ import java.io.PrintWriter;
 class Testing {
     public static void main (String[] args) throws Exception{
         
-
+        String result = "";
+        //EglTemplate template;
         EglTemplateFactory factory = new EglTemplateFactory();
 
         IModel model = EmfModelFactory.getInstance().loadEmfModel("MyModel", new File("./tmp/comicBooks.model"), new File("./tmp/comicBooks.ecore"));
@@ -28,19 +29,40 @@ class Testing {
         
         File templateFile = new File("./egl/artists2.egl");
 
-        EglTemplate template = factory.load(templateFile);
+       // EglTemplate template = factory.load(templateFile);
         
-        for (ParseProblem i : template.getParseProblems()){
-            System.out.println(i);
-        }
+        //for (ParseProblem i : template.getParseProblems()){
+       //     System.out.println(i);
+        //}
         
         
-        template.populate("argument", model.getAllOfKind("Artist").iterator().next());
+        //template.populate("argument", model.getAllOfKind("Artist").iterator().next());
         
 
-        String result = template.process();
+        //String result = template.process();
         
         
+        //PrintWriter writer = new PrintWriter("./compare/egl.txt", "UTF-8");
+        //writer.println(result);
+        //writer.close();
+        //System.out.println(result);
+        
+        
+
+        for (Object artist : model.getAllOfKind("Artist")) {
+            EglTemplate template = factory.load(templateFile);
+        
+        
+            for (ParseProblem i : template.getParseProblems()){
+                System.out.println(i);
+            }
+        
+            template.populate("argument", artist);
+            
+            result += template.process();
+            //System.out.println(result);
+        
+        }
         PrintWriter writer = new PrintWriter("./compare/egl.txt", "UTF-8");
         writer.println(result);
         writer.close();

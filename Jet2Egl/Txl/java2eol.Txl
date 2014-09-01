@@ -65,6 +65,8 @@ rule transformDoStatement
 end rule
 
 
+
+
  %local variable declaration to simple assignment
 rule localVarDecl2Assignment
     replace $ [declaration_or_statement]
