@@ -1,0 +1,86 @@
+import org.eclipse.epsilon.emc.emf.EmfModelFactory;
+import org.eclipse.epsilon.eol.models.IModel;
+import java.io.File;
+import java.io.PrintWriter;
+import comicbook.*;
+import org.*;
+import comicBooks.*;
+
+public class JetTest{
+	public static void main(String[] args) throws Exception {
+		Images images = new Images();
+		Testcase testcase = new Testcase();
+		Images images = new Images();
+		Artists2 artists2 = new Artists2();
+		Testcase testcase = new Testcase();
+		Itemprovider itemprovider = new Itemprovider();
+		Testeverything testeverything = new Testeverything();
+		Itemprovideradapterfactory itemprovideradapterfactory = new Itemprovideradapterfactory();
+		Plugin plugin = new Plugin();
+		Properties properties = new Properties();
+		Buildproperties buildproperties = new Buildproperties();
+		Manifestmf manifestmf = new Manifestmf();
+		Pluginproperties pluginproperties = new Pluginproperties();
+		Pluginxml pluginxml = new Pluginxml();
+		Actionbarcontributor actionbarcontributor = new Actionbarcontributor();
+		Advisor advisor = new Advisor();
+		Editor editor = new Editor();
+		Entrypoint entrypoint = new Entrypoint();
+		Modelwizard modelwizard = new Modelwizard();
+		Appenginewebxml appenginewebxml = new Appenginewebxml();
+		Homehtml homehtml = new Homehtml();
+		Webxml webxml = new Webxml();
+		Modeltestsuite modeltestsuite = new Modeltestsuite();
+		Packageexample packageexample = new Packageexample();
+		Packagetestsuite packagetestsuite = new Packagetestsuite();
+		Adapterfactoryclass adapterfactoryclass = new Adapterfactoryclass();
+		Class class = new Class();
+		Enumclass enumclass = new Enumclass();
+		Factoryclass factoryclass = new Factoryclass();
+		Packageclass packageclass = new Packageclass();
+		Resourceclass resourceclass = new Resourceclass();
+		Resourcefactoryclass resourcefactoryclass = new Resourcefactoryclass();
+		Switchclass switchclass = new Switchclass();
+		Validatorclass validatorclass = new Validatorclass();
+		Xmlprocessorclass xmlprocessorclass = new Xmlprocessorclass();
+		File modelFile = new File("./tmp/comicBooks.model");
+		IModel model = EmfModelFactory.getInstance().loadEmfModel("OurModel", modelFile, ComicBooksPackage.eINSTANCE);
+		PrintWriter writer = new PrintWriter("./compare/jet.txt", "UTF-8");
+		for (Object component : model.allContents()){
+			writer.println(enumclass.generate(component));
+			writer.println(buildproperties.generate(component));
+			writer.println(webxml.generate(component));
+			writer.println(pluginxml.generate(component));
+			writer.println(resourcefactoryclass.generate(component));
+			writer.println(packageexample.generate(component));
+			writer.println(editor.generate(component));
+			writer.println(itemprovider.generate(component));
+			writer.println(resourceclass.generate(component));
+			writer.println(adapterfactoryclass.generate(component));
+			writer.println(itemprovideradapterfactory.generate(component));
+			writer.println(appenginewebxml.generate(component));
+			writer.println(validatorclass.generate(component));
+			writer.println(testcase.generate(component));
+			writer.println(advisor.generate(component));
+			writer.println(packageclass.generate(component));
+			writer.println(properties.generate(component));
+			writer.println(class.generate(component));
+			writer.println(manifestmf.generate(component));
+			writer.println(plugin.generate(component));
+			writer.println(xmlprocessorclass.generate(component));
+			writer.println(packagetestsuite.generate(component));
+			writer.println(actionbarcontributor.generate(component));
+			writer.println(modeltestsuite.generate(component));
+			writer.println(homehtml.generate(component));
+			writer.println(artists2.generate(component));
+			writer.println(pluginproperties.generate(component));
+			writer.println(modelwizard.generate(component));
+			writer.println(entrypoint.generate(component));
+			writer.println(factoryclass.generate(component));
+			writer.println(switchclass.generate(component));
+			writer.println(images.generate(component));
+			writer.println(testeverything.generate(component));
+		}
+		writer.close();
+	}
+}
