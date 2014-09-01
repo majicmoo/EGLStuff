@@ -78,7 +78,8 @@ first = false;%]
 [%}%]
 * @generated
 */
-public[%if (genClass.isAbstract()) {%] abstract[%}%] class [%=genClass.getTestCaseClassName()%] extends [%=if (genClass.isModelRoot()) {genModel.getImportedName("junit.framework.TestCase");} else {genClass.getClassExtendsGenClass().getImportedTestCaseClassName();};%]{
+public[%if (genClass.isAbstract()) {%] abstract[%}%] class [%=genClass.getTestCaseClassName()%] extends [%=if (genClass.isModelRoot()) {genModel.getImportedName("junit.framework.TestCase");} else {genClass.getClassExtendsGenClass().getImportedTestCaseClassName();};%]%]
+{
 [%if (genModel.hasCopyrightField()) {%]
 /**
 * <!-- begin-user-doc -->
@@ -263,7 +264,8 @@ fail();
 [%}%]
 [%if (genFeature.isIsSet() and notgenFeature.isSuppressedIsSetVisibility()) {%]
 [%@ start %]
-[%=if (Testing) {Test;} else {Testing;};%]/**
+[%=if (Testing) {Test;} else {Testing;};%]%]
+/**
 * Tests the '{@link [%=genFeature.getGenClass().getQualifiedInterfaceName()%]#isSet[%=genFeature.getAccessorName()%]() <em>isSet[%=genFeature.getAccessorName()%]()</em>}' method.
 * <!-- begin-user-doc -->
 * <!-- end-user-doc -->

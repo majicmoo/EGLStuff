@@ -11,7 +11,8 @@ javac -cp packages/*:src:. JetTest.java
 echo "Running"
 java -cp packages/*:src:. JetTest
 
-
+echo " "
+echo "Comparing"
 wdiff ./compare/jet.txt ./compare/egl.txt >/dev/null;REPLY=$?
 if [ ${REPLY} -eq 0 ]
 then

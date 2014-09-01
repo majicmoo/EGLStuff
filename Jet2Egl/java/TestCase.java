@@ -142,7 +142,8 @@ if (genClass.isAbstract()) {
 //&&&staticSymbol&&&%> class <%
 //&&&staticSymbol&&&=genClass.getTestCaseClassName()
 //&&&staticSymbol&&&%> extends <%
-//&&&staticSymbol&&&*%%storeSymbol%%*0//&&&staticSymbol&&&%>
+//&&&staticSymbol&&&*%%storeSymbol%%*0
+//&&&staticSymbol&&&%>
 //&&&staticSymbol&&&{
 //&&&staticSymbol&&&<%
 if (genModel.hasCopyrightField()) {
@@ -557,7 +558,8 @@ if (genFeature.isIsSet() && !genFeature.isSuppressedIsSetVisibility()) {
 //&&&staticSymbol&&&@ start 
 //&&&staticSymbol&&&%>
 //&&&staticSymbol&&&<%
-//&&&staticSymbol&&&*%%storeSymbol%%*1//&&&staticSymbol&&&%>
+//&&&staticSymbol&&&*%%storeSymbol%%*1
+//&&&staticSymbol&&&%>
 //&&&staticSymbol&&&	/**
 //&&&staticSymbol&&&	 * Tests the '{@link <%
 //&&&staticSymbol&&&=genFeature.getGenClass().getQualifiedInterfaceName()

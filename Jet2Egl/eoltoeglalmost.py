@@ -61,7 +61,7 @@ def main(fname):
                         lineTemp = line.replace(staticSymbol, "")
                         lineTemp = lineTemp.replace(storeSymbol, "")
                         ## write to file removing whiteSPACE
-                            
+                          
                         writeToFile(file_edit, "="+re.sub( '\s+',' ', storedLines[int(clean(lineTemp))]).strip()+"%>")
                     else:
                         writeToFile(file_edit, line.replace(staticSymbol, ""))
@@ -128,8 +128,9 @@ files = glob.glob(path)
 #print files
 for fname in files:
     if "temp" not in cleanFileName(fname):
-        main(fname)
         print "Transforming", fname, "from EOL -> EGL"
+        main(fname)
+        
     else:
         if cleanFileName(fname)[-4:] != "temp":
             main(fname)

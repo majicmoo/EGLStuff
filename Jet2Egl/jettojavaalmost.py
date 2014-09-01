@@ -67,7 +67,7 @@ def main(fname):
                         writeToFile(file_store, "class "+cleanFileName(fname+"temp")+ " {\n")
                         writeToFile(file_store, "public static void main (String[] args) {\n")
                     writeToFile(file_store, line[1:].rstrip('\n')+";"+"\n")
-                    writeToFile(file_destination, staticSymbol+storeSymbol+str(countStore))
+                    writeToFile(file_destination, staticSymbol+storeSymbol+str(countStore)+"\n")
                     countStore+= 1
                 else:
                     writeToFile( file_destination, staticSymbol+line)

@@ -1,2 +1,2 @@
-        if (genClass.isModelRoot()) {genModel.getImportedName("junit.framework.TestCase");} else {genClass.getClassExtendsGenClass().getImportedTestCaseClassName();};
-        if (Testing) {Test;} else {Testing;};
+        if (not  genClass.isEObjectExtension()) {"(EObject)";} else {"";};
+        if (isInterface) {genPackage.getFactoryInterfaceName();} else {genPackage.getFactoryClassName();};
