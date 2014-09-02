@@ -4,8 +4,9 @@ import java.io.File;
 import java.io.PrintWriter;
 import org.*;
 import org.eclipse.emf.codegen.ecore.templates.model.EnumClass;
+import org.eclipse.emf.codegen.ecore.genmodel.GenResourceKind;
 import org.eclipse.emf.codegen.ecore.templates.editor.ActionBarContributor;
-import org.eclipse.emf.codegen.ecore.genmodel.impl.GenModelPackageImpl;
+import org.eclipse.emf.codegen.ecore.generator.AbstractGeneratorAdapter;
 import org.eclipse.emf.codegen.ecore.templates.editor.Advisor;
 import org.eclipse.emf.codegen.ecore.genmodel.GenRuntimePlatform;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
@@ -14,8 +15,8 @@ import org.eclipse.emf.codegen.ecore.genmodel.GenDelegationKind;
 import org.eclipse.emf.codegen.ecore.genmodel.GenEnumLiteral;
 import org.eclipse.emf.codegen.ecore.templates.editor.AppEngineWebXML;
 import org.eclipse.emf.codegen.ecore.genmodel.util.GenModelUtil;
-import org.eclipse.emf.codegen.ecore.genmodel.GenParameter;
-import org.eclipse.emf.codegen.ecore.templates.model.ModuleGWTXML;
+import org.eclipse.emf.codegen.ecore.templates.model.Class;
+import org.eclipse.emf.codegen.ecore.templates.model.tests.PackageTestSuite;
 import org.eclipse.emf.codegen.ecore.genmodel.impl.GenModelImpl;
 import org.eclipse.emf.codegen.ecore.templates.model.tests.TestCase;
 import org.eclipse.emf.codegen.ecore.genmodel.impl.GenTypeParameterImpl;
@@ -23,8 +24,7 @@ import org.eclipse.emf.codegen.ecore.genmodel.util.GenModelAdapterFactory;
 import org.eclipse.emf.codegen.ecore.genmodel.impl.GenEnumImpl;
 import org.eclipse.emf.codegen.ecore.genmodel.GenPropertyKind;
 import org.eclipse.emf.codegen.ecore.genmodel.generator.GenEnumGeneratorAdapter;
-import org.eclipse.emf.codegen.ecore.generator.AbstractGeneratorAdapter;
-import org.eclipse.emf.codegen.ecore.templates.model.PluginProperties;
+import org.eclipse.emf.codegen.ecore.templates.editor.PluginXML;
 import org.eclipse.emf.codegen.ecore.gwt.GWTBuilder;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModelFactory;
 import org.eclipse.emf.codegen.ecore.templates.editor.Editor;
@@ -32,18 +32,19 @@ import org.eclipse.emf.codegen.ecore.genmodel.util.GenModelValidator;
 import org.eclipse.emf.codegen.ecore.genmodel.impl.GenClassImpl;
 import org.eclipse.emf.codegen.ecore.genmodel.GenDataType;
 import org.eclipse.emf.codegen.ecore.genmodel.GenFeature;
-import org.eclipse.emf.codegen.ecore.genmodel.GenResourceKind;
+import org.eclipse.emf.codegen.ecore.generator.AbstractGeneratorAdapterFactory;
 import org.eclipse.emf.codegen.ecore.genmodel.impl.GenBaseImpl;
-import org.eclipse.emf.codegen.ecore.templates.model.BuildProperties;
 import org.eclipse.emf.codegen.ecore.genmodel.generator.GenModelGeneratorAdapterFactory;
 import org.eclipse.emf.codegen.ecore.genmodel.GenProviderKind;
 import org.eclipse.emf.codegen.ecore.genmodel.impl.GenParameterImpl;
 import org.eclipse.emf.codegen.ecore.genmodel.impl.GenModelFactoryImpl;
-import org.eclipse.emf.codegen.ecore.templates.editor.HomeHTML;
-import org.eclipse.emf.codegen.ecore.templates.model.PluginXML;
-import org.eclipse.emf.codegen.ecore.templates.model.tests.ModelTestSuite;
+import org.eclipse.emf.codegen.ecore.templates.editor.BuildProperties;
+import org.eclipse.emf.codegen.ecore.templates.edit.ItemProvider;
+import org.eclipse.emf.codegen.ecore.genmodel.GenAnnotation;
+import org.eclipse.emf.codegen.ecore.templates.model.FactoryClass;
 import org.eclipse.emf.codegen.ecore.genmodel.impl.GenPackageImpl;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModelPackage;
+import org.eclipse.emf.codegen.ecore.templates.editor.PluginProperties;
 import org.eclipse.emf.codegen.ecore.genmodel.GenOperation;
 import org.eclipse.emf.codegen.ecore.Generator;
 import org.eclipse.emf.codegen.ecore.genmodel.util.GenModelSwitch;
@@ -51,50 +52,48 @@ import org.eclipse.emf.codegen.ecore.genmodel.impl.GenDataTypeImpl;
 import org.eclipse.emf.codegen.ecore.templates.editor.EntryPoint;
 import org.eclipse.emf.codegen.ecore.genmodel.impl.GenOperationImpl;
 import org.eclipse.emf.codegen.ecore.genmodel.GenTypeParameter;
-import org.eclipse.emf.codegen.ecore.genmodel.GenAnnotation;
-import org.eclipse.emf.codegen.ecore.genmodel.impl.GenFeatureImpl;
+import org.eclipse.emf.codegen.ecore.templates.editor.ModuleGWTXML;
+import org.eclipse.emf.codegen.ecore.genmodel.impl.GenModelPackageImpl;
 import org.eclipse.emf.codegen.ecore.templates.model.ValidatorClass;
-import org.eclipse.emf.codegen.ecore.generator.AbstractGeneratorAdapterFactory;
 import org.eclipse.emf.codegen.ecore.templates.model.AdapterFactoryClass;
 import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
 import org.eclipse.emf.codegen.ecore.genmodel.GenDecoration;
-import org.eclipse.emf.codegen.ecore.templates.model.ManifestMF;
+import org.eclipse.emf.codegen.ecore.genmodel.impl.GenFeatureImpl;
 import org.eclipse.emf.codegen.ecore.templates.edit.ItemProviderAdapterFactory;
 import org.eclipse.emf.codegen.ecore.templates.model.XMLProcessorClass;
 import org.eclipse.emf.codegen.ecore.templates.model.SwitchClass;
-import org.eclipse.emf.codegen.ecore.templates.model.tests.PackageTestSuite;
+import org.eclipse.emf.codegen.ecore.templates.editor.HomeHTML;
 import org.eclipse.emf.codegen.ecore.genmodel.GenJDKLevel;
 import org.eclipse.emf.codegen.ecore.genmodel.impl.GenTypedElementImpl;
 import org.eclipse.emf.codegen.ecore.genmodel.GenBase;
-import org.eclipse.emf.codegen.ecore.templates.edit.ItemProvider;
 import org.eclipse.emf.codegen.ecore.genmodel.generator.GenClassGeneratorAdapter;
 import org.eclipse.emf.codegen.ecore.CodeGenEcorePlugin;
 import org.eclipse.emf.codegen.ecore.templates.model.tests.PackageExample;
+import org.eclipse.emf.codegen.ecore.templates.model.tests.ModelTestSuite;
 import org.eclipse.emf.codegen.ecore.genmodel.impl.Literals;
 import org.eclipse.emf.codegen.ecore.templates.model.PackageClass;
+import org.eclipse.emf.codegen.ecore.genmodel.impl.GenClassifierImpl;
+import org.eclipse.emf.codegen.ecore.genmodel.impl.GenAnnotationImpl;
 import org.eclipse.emf.codegen.ecore.genmodel.GenEnum;
 import org.eclipse.emf.codegen.ecore.templates.edit.Images;
 import org.eclipse.emf.codegen.ecore.genmodel.GenTypedElement;
 import org.eclipse.emf.codegen.ecore.genmodel.generator.GenModelGeneratorAdapter;
 import org.eclipse.emf.codegen.ecore.genmodel.GenRuntimeVersion;
-import org.eclipse.emf.codegen.ecore.genmodel.impl.GenClassifierImpl;
+import org.eclipse.emf.codegen.ecore.genmodel.generator.GenBaseGeneratorAdapter;
 import org.eclipse.emf.codegen.ecore.templates.model.ResourceClass;
 import org.eclipse.emf.codegen.ecore.genmodel.GenClassifier;
-import org.eclipse.emf.codegen.ecore.genmodel.impl.GenAnnotationImpl;
+import org.eclipse.emf.codegen.ecore.templates.editor.ManifestMF;
 import org.eclipse.emf.codegen.ecore.genmodel.GenClass;
 import org.eclipse.emf.codegen.ecore.templates.model.ResourceFactoryClass;
 import org.eclipse.emf.codegen.ecore.genmodel.impl.GenEnumLiteralImpl;
 import org.eclipse.emf.codegen.ecore.genmodel.generator.GenPackageGeneratorAdapter;
-import org.eclipse.emf.codegen.ecore.genmodel.generator.GenBaseGeneratorAdapter;
+import org.eclipse.emf.codegen.ecore.genmodel.GenParameter;
 
 public class TempJetTest{
 	public static void main(String[] args) throws Exception {
 		Images imagestemp = new Images();
 		Testcase testcasetemp = new Testcase();
-		Images imagestemp = new Images();
-		Testcase testcasetemp = new Testcase();
 		Itemprovider itemprovidertemp = new Itemprovider();
-		Testeverything testeverythingtemp = new Testeverything();
 		Itemprovideradapterfactory itemprovideradapterfactorytemp = new Itemprovideradapterfactory();
 		Plugin plugintemp = new Plugin();
 		Properties propertiestemp = new Properties();
@@ -179,12 +178,6 @@ public class TempJetTest{
 			writerResourceClass.println(resourceclasstemp.generate(component));
 		}
 		writerResourceClass.close();
-
-		PrintWriter writerAdapterFactoryClass = new PrintWriter("./compare/jetAdapterFactoryClass.txt", "UTF-8");
-		for (Object component : model.allContents()){
-			writerAdapterFactoryClass.println(adapterfactoryclasstemp.generate(component));
-		}
-		writerAdapterFactoryClass.close();
 
 		PrintWriter writerItemProviderAdapterFactory = new PrintWriter("./compare/jetItemProviderAdapterFactory.txt", "UTF-8");
 		for (Object component : model.allContents()){
@@ -312,11 +305,11 @@ public class TempJetTest{
 		}
 		writerPackageTestSuite.close();
 
-		PrintWriter writertestEverything = new PrintWriter("./compare/jettestEverything.txt", "UTF-8");
+		PrintWriter writerAdapterFactoryClass = new PrintWriter("./compare/jetAdapterFactoryClass.txt", "UTF-8");
 		for (Object component : model.allContents()){
-			writertestEverything.println(testeverythingtemp.generate(component));
+			writerAdapterFactoryClass.println(adapterfactoryclasstemp.generate(component));
 		}
-		writertestEverything.close();
+		writerAdapterFactoryClass.close();
 
 	}
 }
