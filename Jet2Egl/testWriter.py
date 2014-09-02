@@ -43,7 +43,7 @@ def writeTests(name, src, directory_of_files_translating, model):
         temp = open(fname, "r")
         className = findClass(temp.readlines()[0])
         classList.add(className)
-        test_file.write("\t\t"+className.capitalize() + " " + className.lower()+addition + " = new " + className.capitalize() + "();\n")
+        test_file.write("\t\t"+className + " " + className.lower()+addition + " = new " + className + "();\n")
         
     #Load Model
     test_file.write("\t\tFile modelFile = new File(\"" + model +"\");\n\t\tIModel model = EmfModelFactory.getInstance().loadEmfModel(\"OurModel\", modelFile, ComicBooksPackage.eINSTANCE);\n\n")
@@ -63,7 +63,8 @@ def addImport(directory, imports, src):
         
 def addImportClass(name, imports, src):
     for i in imports:
-        if name.split(".")[0].split("/")[-1] in i:
+        if name.split(".")[0].split("/")[-1] == i.split(".")[-1]:
+            print name
             return imports
     if name != src:
         temp = src+"."
